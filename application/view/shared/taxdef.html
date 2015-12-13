@@ -1,43 +1,108 @@
 $getviewpart('header');
+ <link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">
  <link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">
-  <link rel="import" href="/polymer/bower_components/paper-listbox/paper-listbox.html">
+  <link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="/polymer/bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">
   <link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">
+    <link rel="import" href="/polymer/bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="/polymer/bower_components/iron-icons/hardware-icons.html">
   <link rel="import" href="/polymer/bower_components/a-list/a-list.html">
   <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">
+   <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">
     <link rel="import" href="/polymer/bower_components/paper-item/paper-item.html">
   <link rel="import" href="/polymer/bower_components/iron-collapse/iron-collapse.html">
-   <ajax-parser  id="taj" method="POST" ></ajax-parser>
+  <ajax-parser id="defsave"></ajax-parser>
+   <div class="midpage"
+      <p> If all entries have equal rates then they will be calculated individually on the product price. If not then they will be calculated on the price pluss previous entries with lower rates </p>
+  <div class="section">
   
-   <div class="midpage">
-     <div class="horizontal-section leftfloated">
-       <paper-listbox id="from" onclick="taxarray()">
-          <paper-item>Inbox</paper-item>
-          <paper-item>Starred</paper-item>
-          <paper-item>Sent mail</paper-item>
-          <paper-item>Drafts</paper-item>
-        </paper-listbox>
-   
-    </paper-listbox>
-  </div>
-
-  
-	<div class="horizontal-section leftfloated">
+   <paper-material> 
     
-       <paper-listbox id="to" >
-          <paper-item>Inbox<paper-input type="number" label ="weight"></paper-input></paper-item>
-          <paper-item>Starred</paper-item>
-          <paper-item>Sent mail</paper-item>
-          <paper-item>Drafts</paper-item>
-        </paper-listbox>
-   
-    </paper-listbox>
+   <div id="btax">
+    
   </div>
+  <paper-button class="orange500" raised  onclick="savedef()">save</paper-button>
+  <p> &nbsp;</p>
+   </paper-material>
   </div>
-
+   </div>
+ <ajax-req  id="taxes" dataurl="/taxes/getall" ></ajax-reqr>
+ 
+ 
 <script>
-	 function taxarray()
+  
+  var taxDefArray = {};
+  document.getElementById('taxes').respfunc = function(doc)
+  {
+    
+   
+    for(var tax in doc)
+    {
+      
+      if(Object.keys(doc[tax]).length >0)
+      {
+
+      var taxname = doc[tax].name;
+      var percent = doc[tax].percent;
+      var pit = document.createElement('div');
+      pit.style.width = "200px";
+       pit.className= "lit";
+       pit.innerHTML = '<paper-checkbox onchange="taxarray(event)">'+taxname+' '+percent+' &#37; </paper-checkbox> <paper-input value="0" disabled type="number" name="weight" label="weight" min="0" class="wght"></paper-input>'+  
+        '<input type="hidden" name="taxname" value="'+taxname+'" /> <input type="hidden" name="_id" value="'+doc[tax]._id+'" /> <input type="hidden" name="percent" value="'+percent+'" />';
+      pit.style.marginBottom = "10px";
+     
+       document.querySelector('#btax').appendChild(pit);
+      }
+     
+      
+    }
+    
+     document.getElementById('taxes').dataurl="/taxes/getdefinitions";
+      document.getElementById('taxes').respfunc = function(doc)
+      {
+         var defs = doc[0].definitions;
+        for(var d in defs)
+        {
+          
+         var ele= document.querySelector('input[value="'+defs[d].taxid+'"]');
+         console.log(ele);
+         ele.parentElement.querySelector('paper-checkbox').checked=true;
+        }
+      }
+  
+   // console.log(ele.items);
+   
+  }
+	 function taxarray(event)
    {
-     console.log(document.querySelector("#from").selectedItem)
+    var par = event.target.parentElement;
+    par.querySelector('.wght').disabled=false;
+   var id=  par.querySelector('input[name="_id"]').value;
+     var wt=  par.querySelector('input[name="weight"]').value;
+       var name=  par.querySelector('input[name="taxname"]').value;
+         var pct=  par.querySelector('input[name="percent"]').value;
+      
+   if(taxDefArray['taxid'] !== undefined)
+   {
+    
+     taxDefArray[id] = {taxid:id, weight:wt, percent:pct,taxname:name};
+    
+   }
+   console.log(taxDefArray);
+  
+   }
+   
+   function savedef()
+   {
+      
+     document.getElementById('defsave').respfunc=resp;
+     
+     document.getElementById('defsave').jsonstring=JSON.stringify(taxDefArray);
+      document.getElementById('defsave').jsonurl="/taxes/addglobal" 
+       document.getElementById('defsave').rspelement  = document.getElementById("ptoast");
+     document.getElementById('defsave').submit=true;
+     
    }
 </script>
 $getviewpart('deletedialog');

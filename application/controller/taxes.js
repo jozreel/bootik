@@ -35,5 +35,21 @@ taxes.taxdef = function()
 {
 	this.loadview('taxdef');
 }
+taxes.addglobal = function()
+{
+	var mod = this.loadmodel('taxdef');
+	mod.global(this.req.postdata, function(doc)
+	{
+		taxes.jsonResp(doc);
+	});
+}
+taxes.getdefinitions = function()
+{
+	var mod = this.loadmodel('taxdef');
+	mod.findall(function(doc)
+	{
+		taxes.jsonResp(doc);
+	},true);
+}
 module.exports = taxes;
 

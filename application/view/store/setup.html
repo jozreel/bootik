@@ -1,0 +1,21 @@
+$getviewpart('header');
+  <link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">
+  <link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">
+  <link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">
+   <link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">
+      <link rel="import" href="polymer/bower_components/paper-radio-button/paper-radio-button.html">
+    <link rel="import" href="polymer/bower_components/paper-radio-group/paper-radio-group.html">
+ <div class="fulwidth-content">
+	 <paper-material >
+	  <form is="iron-form" method="post" id="taxsetup" >
+       <paper-radio-group selected="none" name="rgroup" id="taxsel" >
+            <paper-radio-button name="global" disabled>Global tax definition: taxes will be calculated on all items based on definitions. Individual definitions can still be given to specific products</paper-radio-button>
+            <paper-radio-button name="none" disabled>None (No tax definitions.  This means that taxes will be manually calculated and included in prices)</paper-radio-button>
+              <paper-radio-button name="include" disabled>Include taxes in prices (This determines weather or not taxes will be included in product prices or if it will be added at checkout)</paper-radio-button>
+          </paper-radio-group>
+         <div> <paper-button raised class="orange500">Save</paper-button></div>
+	  </form>
+	 </paper-material>
+   <paper-button class="orange500" raised>Tax Definition</paper-button>
+ </div>
+$getviewpart('footer');

@@ -14,3 +14,4 @@ exports.tmppath = path.normalize(ROOT+'/tmp/');
 exports.host = "localhost";
 exports.httpport = "1337";
 exports.socketport = "1338";
+exports.logpath = ROOT+'/library/log';

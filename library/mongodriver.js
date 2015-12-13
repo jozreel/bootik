@@ -1,6 +1,6 @@
 
 var DB = require('mongodb').Db;
-
+var simple = require('simple');
 var mongodriver =function()
 {
  
@@ -51,7 +51,7 @@ mongodriver.prototype.connect =function(){
   db.open(function(err,db)
   {
     if(err)
-      console.log(err);
+     simple.global.logerror(err);
   });
   
   
@@ -90,7 +90,7 @@ mongodriver.prototype.removeone = function(cat, callback)
   this.MongoClient.connect(this.connectionString, function(err, db)
   {
    if(err)
-       throw err;
+       simple.global.logerror(err);
     var collection = db.collection(obj1.modelname);
     collection.deleteOne(
       cat,
@@ -98,15 +98,15 @@ mongodriver.prototype.removeone = function(cat, callback)
         try{
         if(err)
         {
-           console.log(err)
+           simple.global.logerror(err);
            res.error = err;
            res.success = false;
         }
-         console.log(results);
+        
          res.results = results;
          callback(res);
         }
-        catch(error){console.log(error);}
+        catch(error){simple.global.logerror(error);}
       }
    );
   }
@@ -125,14 +125,14 @@ mongodriver.prototype.removegroup = function(needle, catarr, callback)
   this.MongoClient.connect(this.connectionString, function(err, db)
   {
    if(err)
-       throw err;
+      simple.global.logerror(err);
     var collection = db.collection(obj1.modelname);
     collection.deleteMany(conob,
       function(err, results) {
         try{
         if(err)
         {
-           console.log(err)
+           simple.global.logerror(err);
            res.error = err;
            res.success = false;
         }
@@ -140,7 +140,7 @@ mongodriver.prototype.removegroup = function(needle, catarr, callback)
          res.results = results;
          callback(res);
         }
-        catch(error){console.log(error);}
+        catch(error){simple.global.logerror(error);}
       }
    );
   }
@@ -158,7 +158,7 @@ mongodriver.prototype.insert = function(obj,callback)
     var res ={};
     res.success = true;
     if(err)
-      console.log(err)
+      simple.global.logerror(err);
       //console.log(obj);
       var collection = db.collection(obj1.modelname);
       collection.insertOne(obj,{w:1}, function(err, result){
@@ -167,6 +167,7 @@ mongodriver.prototype.insert = function(obj,callback)
         {
            res.success = false;
            res.error=err;
+           simple.global.logerror(err);
         }
          db.close();
          if (callback && typeof(callback) == "function")  
@@ -180,9 +181,16 @@ mongodriver.prototype.insert = function(obj,callback)
 
 mongodriver.prototype.createObjectId =function(id)
 {
+  var retid ='';
+  try{
   var Objectid = require('mongodb').ObjectID;
-  var id = new Objectid(id);
-  return id;
+  retid = new Objectid(id);
+  }
+  catch(error)
+  {
+    simple.global.logerror(error);
+  }
+  return retid;
 }
 
 mongodriver.prototype.updateOne =function(cat, vals, callback)
@@ -195,7 +203,7 @@ mongodriver.prototype.updateOne =function(cat, vals, callback)
   {
     if(err)
     {
-      console.log(err);
+      simple.global.logerror(err);
       res.error=err;
       res.success=false;
     }
@@ -206,7 +214,7 @@ mongodriver.prototype.updateOne =function(cat, vals, callback)
       collection.updateOne(cat, {$set: vals, $currentDate: { "lastModified": true }},{w:1}, function(err,result)
       {
         if(err)
-          console.log(err);
+          simple.global.logerror(err);
           db.close();
           if (callback && typeof(callback) == "function")  
               callback(res);
@@ -216,19 +224,21 @@ mongodriver.prototype.updateOne =function(cat, vals, callback)
 }
 
 
-mongodriver.prototype.updateMany =function(cat, vals)
+mongodriver.prototype.updateMany =function(cat, vals,callback)
 {var obj1 =this;
  //console.log(cat);
    this.MongoClient.connect(this.connectionString, function(err, db)
   {
     if(err)
-      console.log(err)
+      simple.global.logerror(err);
       //console.log(obj);
       var collection = db.collection(obj1.modelname);
       collection.updateMany(cat, {$set: vals, $currentDate: { "lastModified": true }},{w:1}, function(err,result)
       {
         if(err)
-          console.log(err);
+          simple.global.logerror(err);
+         if (callback && typeof(callback) == "function")  
+              callback(result);
           db.close();
       }
       );
@@ -240,17 +250,29 @@ mongodriver.prototype.replace=function(id, rep)
   this.mongoClient.connect(this.connectionString, function(err, db)
   {
     if(err)
-        throw err;
+        simple.global.logerror(err);
      var collection = db.collection(obj1.modelname);
      collection.replaceOne({'_id':id}, rep,{w:1}, function(err ,result) {
        if(err)
-         console.log(err);
+         simple.global.logerror(err);
          db.close();
      })
   });
   
 }
 
+mongodriver.prototype.insertOrUpdate = function(obj,callback)
+{
+   var obj1 = this;
+  this.mongoClient.connect(this.connectionString, function(err, db)
+  {
+    if(err)
+        simple.global.logerror(err);
+     var collection = db.collection(obj1.modelname);
+      collection.save(obj,{w:1}, callback)
+  }
+  );
+}
 
 mongodriver.prototype.savetogrid = function(filebuff,fdata,callback,event)
 {
@@ -266,17 +288,16 @@ mongodriver.prototype.savetogrid = function(filebuff,fdata,callback,event)
  this.MongoClient.connect(this.connectionString, function(err, db)
   {
     
-    //console.log(Buffer);
+   
     if(err)
-        throw err;
+        simple.global.logerror(err);
+  
     var ObjectId = require('mongodb').ObjectID;
     var fileId = new ObjectId();
-   // console.log(fileId);
-  ///  console.log(fdata);
-    //var grid = new Grid(db,fileId,'w',{root:'fs'});
+  
     var grid = new Grid(db,fileId,fdata.filename,'w',{root:'fs', content_type:fdata.type, metadata:fdata});
     grid.chunkSize = 1024 * 256;
-   // console.log(grid);
+   
     grid.open(function(err, grid) {
      var Step = require('step');
      Step(
@@ -284,18 +305,12 @@ mongodriver.prototype.savetogrid = function(filebuff,fdata,callback,event)
        function writeData() {
          var group = this.group();
       var length = filebuff.length;
-     // console.log(filebuff);
-    //var buff = new Buffer(length);
-    // buff.write(filebuff,0);
-    // for(var i = 0; i < length; i += ) {
+  
        grid.write(filebuff, group());
-    // }
+   
    },
 
    function doneWithWrite(vdd) {
-    // var res={};
-    // res.sucess= true;
-   // console.log(vdd);
      grid.close(function(err, result) {
        if(err)
        {
@@ -308,8 +323,7 @@ mongodriver.prototype.savetogrid = function(filebuff,fdata,callback,event)
        else
        {
        console.log("File has been written to GridFS",result);
-       // db.close();
-        //var collection = db.collection(obj1.modelname);
+      
         fdata.gridid = result._id;
         
         if(event ==='A' || event === null|| event === undefined) 
@@ -320,7 +334,7 @@ mongodriver.prototype.savetogrid = function(filebuff,fdata,callback,event)
             delete obj1._id;
             obj1.updateOne({_id:objid.id},fdata, callback);
         }
-       // console.log(fdata);
+       
         db.close();
        }
         

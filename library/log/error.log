@@ -1,0 +1,30 @@
+
+
+
+2015-12-11T17:16:20.293Z
+Cannot find module '../application/controller/lp'
+
+2015-12-11T17:16:20.293Z
+Error: Cannot find module '../application/controller/lp'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2015-12-11T17:16:20.323Z
+Cannot find module '../application/controller/favicon.ico'
+
+2015-12-11T17:16:20.323Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)

@@ -212,7 +212,31 @@ function updateFormValues(form, model)
 
 setInterval(function(){checkCookie()},20000);
  
+function getparents(node)
+{
+  var p =[];
+  var no = node.parentNode;
+  while(no)
+  {
+    p.push(no);
+    no = no.parentNode;
+  }
+  console.log(p);
+  return p;
+}
+
+function getParentsById(node)
+{
+  var p =[];
+  var no = node.parentNode;
+  while(no)
+  {
+    p.push(no.id);
+    no = no.parentNode;
+  }
  
+  return p;
+}
  
 
 

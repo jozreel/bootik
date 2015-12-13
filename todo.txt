@@ -15,3 +15,14 @@ add a generic vier gynction to display views by searching.
 use eval in javascript to execute code followed by the $ sign. check on security on client side.
 
 use the $ sign folowed by any string of code or $sign folowed by { folowed by any lines of code folowed by }
+
+
+
+///  to do from december 9th 2015
+
+add tax definition to application so that users may seleect taxes to be applied too products. there will be definitions at two levels
+one at the general level which will be applied too all products and one at the product level which will overide the general level and be applied to individual products in stock if 
+applied t them.
+
+add section in main admin where one can select weather to use tax definitions or weather they will manually calculate them in the price.
+also add option for users to sellect weather they would like tax definitions to be included in price of products or will be calculated at checkout time.

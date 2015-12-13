@@ -278,6 +278,7 @@ background:#FAFAFA;
  .itemtitle{color: #424242; font-size: 18pt; padding: 10 5 10 5;}
  .itemdesc{color: #424242; font-size: 14pt; padding: 10 5 10 5;}
  .itemprice{padding: 10 5 10 5; color: #424242; font-size: 18pt; font-weight: bold;}
+ .fulwidth-content{margin-top: 20px;}
 
  
 
@@ -484,9 +485,12 @@ height:auto;
 .deletebtn{float:right; display: block; color: red;}
 .form{max-width: 500px; margin: 0 auto;}
  .taxlist{ min-height: 400px; position: relative; margin-top: 40px;}
-.leftfloated{display:block; float: left; margin-right: 20px;}
+.leftfloated{display:block; float: left; margin-right: 20px; border: 1px solid #8BC34A; min-width:300px; height: 400px;}
 .leftfloated paper-input{width:50px; margin-left: 10px;}
-.midpage{margin: 20 auto;width:600px;}
+.leftfloated div {width:90%; margin: 0 auto; padding: 20 10 20 10; border-bottom: 1px solid #F0F4C3;}
+.midpage{margin: 20 auto;width:800px; cursor: pointer;}
+.listit{padding: 0; height: 40px;}
+.lit{padding:20;}
 @font-face {
   font-family: 'Roboto';
 
@@ -499,3 +503,4 @@ height:auto;
 
   src: url('/fonts/Roboto/Roboto-Thin.ttf');
   }
+  .section{width:400px; position: relative;}
