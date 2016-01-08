@@ -240,3 +240,95 @@ function getParentsById(node)
  
 
 
+////
+//taxes functions
+
+////
+ var taxDefArray = {};
+function allTaxes()
+{
+
+  document.getElementById('taxes').respfunc = function(doc)
+  {
+    
+   console.log(doc);
+    for(var tax in doc)
+    {
+      
+      if(Object.keys(doc[tax]).length >0)
+      {
+
+      var taxname = doc[tax].name;
+      var percent = doc[tax].percent;
+      var pit = document.createElement('div');
+      pit.style.width = "200px";
+       pit.className= "lit";
+       pit.innerHTML = '<paper-checkbox onchange="taxarray(event)">'+taxname+' '+percent+' &#37; </paper-checkbox> <paper-input value="0" disabled type="number" name="weight" label="weight" min="0" class="wght"></paper-input>'+  
+        '<input type="hidden" name="taxname" value="'+taxname+'" /> <input type="hidden" name="_id" value="'+doc[tax]._id+'" /> <input type="hidden" name="percent" value="'+percent+'" />';
+      pit.style.marginBottom = "10px";
+     
+       document.querySelector('#btax').appendChild(pit);
+      }
+     
+      
+    }
+    
+     document.getElementById('taxes').dataurl="/taxes/getdefinitions";
+      document.getElementById('taxes').respfunc = function(doc)
+      {
+         var defs = doc[0].definitions;
+        for(var d in defs)
+        {
+         taxDefArray[defs[d].taxid] = {taxid:defs[d].taxid, weight:defs[d].weight, percent:defs[d].percent,taxname:defs[d].taxname };
+         var ele= document.querySelector('input[value="'+defs[d].taxid+'"]');
+         
+         ele.parentElement.querySelector('paper-checkbox').checked=true;
+        }
+      }
+  
+   // console.log(ele.items);
+   
+  }
+}
+	 function taxarray(event)
+   {
+    var par = event.target.parentElement;
+    par.querySelector('.wght').disabled=false;
+   var id=  par.querySelector('input[name="_id"]').value;
+     var wt=  par.querySelector('input[name="weight"]').value;
+       var name=  par.querySelector('input[name="taxname"]').value;
+         var pct=  par.querySelector('input[name="percent"]').value;
+      
+   //if(taxDefArray[id] !== undefined)
+   //{
+    
+     if(event.target.checked === true)
+         taxDefArray[id] = {taxid:id, weight:wt, percent:pct,taxname:name};
+     else
+     {
+       delete  taxDefArray[id];
+       /// taxDefArray[id] = {taxid:id, weight:wt, percent:pct,taxname:name};
+     }
+    
+   //}
+   console.log(taxDefArray);
+  
+   }
+   
+   function savedef()
+   {
+      
+     document.getElementById('defsave').respfunc=resp;
+     
+     document.getElementById('defsave').jsonstring=JSON.stringify(taxDefArray);
+      document.getElementById('defsave').jsonurl="/taxes/addglobal" 
+       document.getElementById('defsave').rspelement  = document.getElementById("ptoast");
+     document.getElementById('defsave').submit=true;
+     
+   }
+   
+   
+   //end of taxes functions 
+   ///
+   //
+  

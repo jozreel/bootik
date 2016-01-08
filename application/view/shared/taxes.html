@@ -1,10 +1,32 @@
 $getviewpart('header');
  <link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">
+  <link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">
   <link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">
   <link rel="import" href="/polymer/bower_components/a-list/a-list.html">
   <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">
    <ajax-parser  id="taj" method="POST" ></ajax-parser>
    <div>
+
+
+<div class="locations">
+	<div class="writeup">
+
+   </div> 
+   <div class="loctable">
+	   <paper-material class="pmaterial" raised >
+		   <div class="tbl">
+		  <div><b>Country</b></div>
+		  <div><b>Tax Rate</b></div>
+		  <div><b>Special Definitions</b></div>
+		  
+		   </div>
+		  
+		</paper-material>
+		  <paper-fab icon="add" style="right:0px; bottom:0px; position:absolute;" class="orange" onclick=""></paper-fab>
+		
+   </div>
+</div>
+
 <div class="form">
 	<form is ="iron-form"  id="taxform" method="post">
 		<fieldset id="fldset">
@@ -46,7 +68,7 @@ $getviewpart('header');
 					 
 				 }
 				   document.querySelector('#taj').jsonstring=JSON.stringify(obj);
-					console.log(obj);
+					
 				    document.querySelector('#taj').jsonurl='/taxes/save';
 				    document.querySelector('#taj').submit=true;
 		   }

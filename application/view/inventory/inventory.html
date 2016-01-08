@@ -46,6 +46,13 @@ $getviewpart('header');
    <div class="flinpt">
    <file-select name="image" id="fimg" disabled="true"></file-select>
   </div>
+  <div class="taxes">
+     <paper-button style="margin-left:0px;" class="orange50" onclick ="getdefs(event)">Tax Definition</paper-button>
+  <div class="tdef" id="btax">
+     <ajax-req  id="taxes" ></ajax-req>
+  </div>
+   </div>
+  
   <div>
      <p>category</p>
      <drop-down background="#ffecb3" color= "#000" style="width:100%; margin-right:0px;" title="CATEGORY" selectedindex="0" disabled id="cat"></drop-down>
@@ -60,10 +67,7 @@ $getviewpart('header');
    
   </div>
   
-    <paper-input name="uprice" label="unit price" id="uprice"></paper-input>
-
-  
-  
+    <paper-input name="uprice" label="unit price" id="uprice"></paper-input>  
    <!--<input type="submit" value="test" /> -->
      
      </fieldset>
@@ -302,6 +306,16 @@ document.querySelector('#cont').style.display='block';
  {
  
     document.getElementById('idd').selectedPage =1;
+ }
+ 
+ 
+ function getdefs(event)
+ {
+     allTaxes();
+    document.querySelector('#taxes').dataurl="/taxes/getall";
+  
+   document.querySelector('.tdef').style.height ='200px';
+    document.querySelector('.tdef').style.opacity ='0.8';
  }
 </script>
 

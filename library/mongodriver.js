@@ -179,6 +179,40 @@ mongodriver.prototype.insert = function(obj,callback)
   );
 }
 
+
+mongodriver.prototype.insertmany = function(obj,callback)
+{
+  //console.log(typeof callback);
+  var obj1 = this;
+  //console.log(this.MongoClient);
+  this.MongoClient.connect(this.connectionString, function(err, db)
+  {
+    var res ={};
+    res.success = true;
+    if(err)
+      simple.global.logerror(err);
+      //console.log(obj);
+      var collection = db.collection(obj1.modelname);
+      collection.insertMany(obj,{w:1}, function(err, result){
+        
+        if(err)
+        {
+           res.success = false;
+           res.error=err;
+           simple.global.logerror(err);
+        }
+         db.close();
+         if (callback && typeof(callback) == "function")  
+              callback(res);
+           
+      });
+    
+  }
+  );
+}
+
+
+
 mongodriver.prototype.createObjectId =function(id)
 {
   var retid ='';
@@ -193,9 +227,10 @@ mongodriver.prototype.createObjectId =function(id)
   return retid;
 }
 
-mongodriver.prototype.updateOne =function(cat, vals, callback)
+mongodriver.prototype.updateOne =function(cat, vals, callback,upsert)
 {var obj1 =this;
-
+  if(upsert !== true)
+    upsert == false;
   var res = {};
   res.success=true;
  //console.log(cat);
@@ -211,7 +246,7 @@ mongodriver.prototype.updateOne =function(cat, vals, callback)
       var collection = db.collection(obj1.modelname);
       console.log(obj1.modelname);
      // console.log(vals);
-      collection.updateOne(cat, {$set: vals, $currentDate: { "lastModified": true }},{w:1}, function(err,result)
+      collection.updateOne(cat, {$set: vals, $currentDate: { "lastModified": true }},{w:1,upsert:upsert}, function(err,result)
       {
         if(err)
           simple.global.logerror(err);
@@ -224,30 +259,48 @@ mongodriver.prototype.updateOne =function(cat, vals, callback)
 }
 
 
-mongodriver.prototype.updateMany =function(cat, vals,callback)
+
+mongodriver.prototype.updateMany =function(cat, vals,callback,upsert)
 {var obj1 =this;
  //console.log(cat);
+ if(upsert !== true)
+    upsert == false;
+ var res ={};
+ res.success = true;
    this.MongoClient.connect(this.connectionString, function(err, db)
   {
     if(err)
+    {
+      console.log(err);
       simple.global.logerror(err);
+       res.error=err;
+      res.success=false;
       //console.log(obj);
+    }
+    else
+    {
       var collection = db.collection(obj1.modelname);
-      collection.updateMany(cat, {$set: vals, $currentDate: { "lastModified": true }},{w:1}, function(err,result)
+      collection.updateMany(cat, {$set: vals, $currentDate: { "lastModified": true }},{w:1,upsert:upsert}, function(err)
       {
         if(err)
+        {
           simple.global.logerror(err);
-         if (callback && typeof(callback) == "function")  
-              callback(result);
+          res.error=err;
+         res.success=false;
+        }
+          if (callback && typeof(callback) == "function")  
+              callback(res);
           db.close();
       }
       );
+    }
   });
+  
 }
 mongodriver.prototype.replace=function(id, rep)
 {
   var obj1 = this;
-  this.mongoClient.connect(this.connectionString, function(err, db)
+  this.MongoClient.connect(this.connectionString, function(err, db)
   {
     if(err)
         simple.global.logerror(err);
@@ -263,16 +316,42 @@ mongodriver.prototype.replace=function(id, rep)
 
 mongodriver.prototype.insertOrUpdate = function(obj,callback)
 {
+  console.log('call');
+   var res ={};
+   res.success = true;
    var obj1 = this;
-  this.mongoClient.connect(this.connectionString, function(err, db)
+  this.MongoClient.connect(this.connectionString, function(err, db)
   {
     if(err)
-        simple.global.logerror(err);
+    {
+      res.success=false
+      res.error =err;
+      simple.global.logerror(err);
+    }
+    else
+    {
+        
      var collection = db.collection(obj1.modelname);
-      collection.save(obj,{w:1}, callback)
+      collection.save(obj,{w:1}, function(err, result)
+      
+      {
+        if(err)
+        {
+           res.success=false
+           res.error = err;
+        }
+        else
+        {
+         if (callback && typeof(callback) == "function")  
+              callback(res);
+        }
+        
+      });
+    }
   }
   );
 }
+
 
 mongodriver.prototype.savetogrid = function(filebuff,fdata,callback,event)
 {
