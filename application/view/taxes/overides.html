@@ -1,0 +1,258 @@
+$getviewpart('header');
+ <link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">
+  <link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">
+   <link rel="import" href="/polymer/bower_components/paper-spinner/paper-spinner.html">
+  <link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">
+  <link rel="import" href="/polymer/bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">
+  <link rel="import" href="/polymer/bower_components/a-list/a-list.html">
+  <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">
+  <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">
+    <link rel="import" href="/polymer/bower_components/iron-icons/iron-icons.html">
+   <ajax-parser  id="tac" method="POST" ></ajax-parser>
+     
+   <div>
+
+
+<div class="locations">
+	<div class="writeup">
+    <p>Add Your tax overides.</p>
+    <p>if you have a special group or collection of goods with tax exemts or special tax rates add them here</p>
+    <i>Tax overides are done by location</i>  
+    
+   </div> 
+   <div class="loctable">
+	   <div class="pgroup"> Select a product Category group <select class="bigselect" id="colgroup" name ="collection"><option></option></select>
+     <span><a href="/inventory/category">Add a Product Category Group</a></span>
+     </div> 
+      <div class="spinner"><paper-spinner id="spin" alt="Loading cart items" active></paper-spinner></div>  
+	   <paper-material class="pmaterial" raised id="taxtable">
+		   <div class="tbl2" >
+		  <div><b>Location</b></div>
+		  <div><b>Tax Rate %</b></div>
+		  
+		   </div>
+         <div id="hidentable"></div>
+         
+            <div class="tbl2">
+                <form is="iron-form" method="post" action="#" id="rform">
+                 <div><select size="1"  name="location" class="longtext" id="locs">
+                     </select>
+                     </div>
+                  
+                
+                  <div><input type="number" step="0.01" min="0" max="1" value="0.00" class="shortcode" name="rate" /> <button type="button" onclick="return addoveride(event)">Save</button> </div>
+                </form>  
+            </div>
+		  
+		</paper-material>
+		 
+		
+   </div>
+  
+</div>
+   <ajax-req  id="regs"></ajax-req>   
+$getviewpart('deletedialog');
+<script>
+  var prevselected ='';
+    getcategories();
+    function getcategories()
+   {
+     
+      document.querySelector('#regs').respfunc = function(doc){
+        var dd = document.getElementById('colgroup');
+       
+        for(item in doc)
+        {
+          dd.innerHTML += '<option  value="'+doc[item]._id+'">'+doc[item].name+'</option>';      
+        }
+        
+        populateoverides();
+      }
+      
+      document.querySelector('#regs').dataurl = "/inventory/getcategory";
+   }
+   
+   function populateoverides()
+   {
+    
+      document.querySelector('#regs').respfunc = function(dc)
+        { 
+          doc = dc.overides;
+           populatelocations(dc.locations);
+         document.getElementById('hidentable').innerHTML = '';
+          var dd = document.getElementById('colgroup');
+           
+            for(item in doc)
+            {
+             var cat = dd.querySelector('option[value="'+doc[item].category+'"]').innerHTML;
+             var dv = document.createElement('div');
+             dv.className ="tbl2";
+            
+            dv.innerHTML = '<form  is="iron-form" method="post" class="formsr" action="#">'+
+            '<div> <select size="1"  name="location" class="longtext loc">'+document.getElementById('locs').innerHTML+'</select>'+
+            '<input name="category" type="hidden" value="'+doc[item].category+'" /> <input name="overideid" type="hidden" value="'+doc[item].overideid+'" /></div>'+ 
+           
+              '<div><input class="shortcode" name="rate" step="0.01" min="0" max="1"  type="number" value="'+doc[item].rate+'" /> <span> for category '+cat+' </span>'+
+               '<span class="right"><button disabled class="disabled save" title="Save Overide" onclick="return edititem(event)" ><img src="/image/save.png" /> <button title="Delete Country" onclick="return deleteitem(event)"><img src="/image/trash.png" /></button>'+
+              '<button title="Edit Item" onclick="return enableedit(event)" class="edit"><img src="/image/edit.png"/></button></span></div></form>';
+             //console.log(dv.querySelector('.loc'));       
+             document.getElementById('hidentable').appendChild(dv);
+             dv.querySelector('.loc').value = doc[item].location.location;
+             
+            }
+             var ele = document.querySelector('.pmaterial');
+             var forms =  ele.querySelectorAll('.formsr');
+             for(var form in forms)
+             {
+              
+              if(forms[form].className = 'formsr');
+               sajax().disableFields(true,forms[form]);
+             }
+             
+             
+            document.querySelector('.pmaterial').style.opacity=0.9;  
+             document.querySelector('#spin').active=false;  
+          
+            
+        }
+         document.querySelector('#regs').dataurl = "";
+        document.querySelector('#regs').dataurl = "/taxes/getoverides";
+       
+        
+    }
+    
+    function addoveride(event)
+    {
+      
+      var mod = document.getElementById("rform").serialize();
+      var obj =document.getElementById('locs').options;
+      var data = obj[obj.selectedIndex].dataset;
+      var loc ={};
+      loc.location = data.location;
+      loc.locationtype = data.locationtype;
+      loc.country = data.country;
+      mod.location = loc;
+      //mod.location = 
+      mod.category =document.getElementById('colgroup').value;
+      if(mod.category ==='')
+      {
+        document.getElementById('colgroup').style.borderColor = 'red';
+        return false;
+      }
+      else
+      document.getElementById('colgroup').style.borderColor = '#ccc';
+     return  saveoveride('A',mod)
+      
+    }
+    function saveoveride(ev, mod)
+    {
+     
+      document.getElementById('tac').jsonurl = "/taxes/overidesave";
+      if(mod._id == '')
+       delete mod['_id'];
+       mod.event = ev;
+      document.getElementById('tac').jsonstring = JSON.stringify(mod);
+      
+     
+      document.getElementById('tac').respfunc= function(doc)
+      {
+        populateoverides();
+        resp(doc, document.getElementById("ptoast"))
+      };
+      document.querySelector('#tac').rspelement  = document.getElementById("ptoast");
+     
+      document.getElementById('tac').submit=true;
+      return false;
+    }
+    
+    function populatelocations(doc)
+    {
+      
+         var dd = document.getElementById('locs');
+        for(item in doc)
+        {
+          if(doc[item].sublocations.length >0)
+          {
+           dd.innerHTML += '<option data-country="'+doc[item].countryid+'" value="'+doc[item].countryid+'" data-location="'+doc[item].countryid+'" data-locationtype ="country">'+doc[item].country+'</option>';      
+           var optgroup = ' <optgroup label="'+doc[item].country+' Sub Regions">';
+           for(var reg in doc[item].sublocations)
+           {
+             optgroup +='<option data-country="'+doc[item].countryid+'" data-location="'+doc[item].sublocations[reg]+'" data-locationtype="region" value="'+doc[item].sublocations[reg]+'">'+doc[item].sublocations[reg]+'</option>';
+           }
+            optgroup +='</optgroup>';
+            dd.innerHTML += optgroup;
+          }
+          else
+          {
+            dd.innerHTML += '<option  data-country="'+doc[item].countryid+'" value="'+doc[item].countryid+'" data-location="'+doc[item].countrycode+'" data-locationtype="country" value="'+doc[item].countrycode+'">'+doc[item].country+'</option>';;      
+           
+          }
+           console.log(doc[item]);
+        }
+      
+    
+        
+    }
+   function enableedit(event)
+    {
+         var parent = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+       
+       
+      
+       parent.querySelector('.save').disabled = false;
+       document.getElementById('colgroup').value =  parent.querySelector('input[name="category"]').value;
+       sajax().disableFields(false,  parent.querySelector('.formsr'));
+       var cl =parent.querySelector('.save').classList;
+       parent.querySelector('.loc').disabled = true;
+       cl.remove('disabled');
+       
+        if(prevselected !== '' && prevselected !== parent)
+        {
+          
+          sajax().disableFields(true,prevselected.querySelector('form'));
+          prevselected.querySelector('.save').disabled = true;
+          var classlist =  prevselected.querySelector('.save').className="save disabled";
+         // classlist.add('disabled');
+          //classlist.Add('disabled');
+          console.log(classlist);
+        }
+        prevselected = parent;
+       return false;  
+       
+          
+    }
+    
+   function edititem(event)
+    {
+       var parent = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+      
+       
+         
+        var mod = parent.querySelector('.formsr').serialize();
+      
+        var obj =parent.querySelector('.loc').options;
+       var data = obj[obj.selectedIndex].dataset;
+      var loc ={};
+      loc.location = data.location;
+      loc.locationtype = data.locationtype;
+       loc.country = data.country;
+      mod.location = loc;
+      //mod.location = 
+      mod.category =document.getElementById('colgroup').value;
+      if(mod.category ==='')
+      {
+        document.getElementById('colgroup').style.borderColor = 'red';
+        return false;
+      }
+      else
+      document.getElementById('colgroup').style.borderColor = '#ccc';
+     saveoveride('E',mod)
+        
+        
+         
+      return false;
+    }
+
+  </script>
+$getviewpart('footer');

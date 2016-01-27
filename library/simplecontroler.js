@@ -33,10 +33,10 @@ simplecontroler.prototype.writeres= function(txt)
 	//console.log(this.req);
  this.res.write(txt);
 }
-simplecontroler.prototype.loadview = function(vw)
+simplecontroler.prototype.loadview = function(vw,customlayout)
 {
-	   // console.log(this.viewholder);
-		return this.load.view(vw,this.viewholder,this.res,this.req);
+	    
+		return this.load.view(vw,this.viewholder,this.res,this.req,false,true,customlayout);
 	
 	
 }
@@ -75,10 +75,12 @@ simplecontroler.prototype.jsonResp =function(r)
 {
 	
       
-	   this.res.writeHead(200, {'Content-Type':'text/json'});
+	   this.res.writeHead(200, {'Content-Type':'application/json'});
 	   var jsn = JSON.stringify(r);
 	   
 	    this.res.end(jsn);
+		
+		
 }
 
 simplecontroler.prototype.showtemplate =function()

@@ -19,7 +19,7 @@ home.index = function()
 	//this.loadviewpart('footer');
 	//this.showviews({dyn:'', title:"lang patat"}, this.res);
 	
-	this.loadview('home');
+	this.loadview('home', 'clientlayout');
 }
 
 

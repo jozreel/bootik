@@ -1,94 +1,8 @@
 
-
-
-2015-12-11T17:16:20.293Z
-Cannot find module '../application/controller/lp'
-
-2015-12-11T17:16:20.293Z
-Error: Cannot find module '../application/controller/lp'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-11T17:16:20.323Z
+2016-01-21T21:58:28.632Z
 Cannot find module '../application/controller/favicon.ico'
 
-2015-12-11T17:16:20.323Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:00:21.638Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:00:21.638Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:00:29.976Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:00:29.976Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:02:17.472Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:02:17.472Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:04:25.034Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:04:25.034Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:08:10.123Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:08:10.123Z
+2016-01-21T21:58:28.632Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -101,10 +15,10 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at CleartextStream.Readable.read (_stream_readable.js:320:10)
     at EncryptedStream.write [as _write] (tls.js:366:25)
 
-2015-12-21T19:08:16.416Z
+2016-01-21T21:58:40.541Z
 Cannot find module '../application/controller/favicon.ico'
 
-2015-12-21T19:08:16.416Z
+2016-01-21T21:58:40.541Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -117,10 +31,10 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at CleartextStream.Readable.read (_stream_readable.js:320:10)
     at EncryptedStream.write [as _write] (tls.js:366:25)
 
-2015-12-21T19:08:20.019Z
+2016-01-21T21:59:01.007Z
 Cannot find module '../application/controller/favicon.ico'
 
-2015-12-21T19:08:20.019Z
+2016-01-21T21:59:01.007Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -133,10 +47,220 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at CleartextStream.Readable.read (_stream_readable.js:320:10)
     at EncryptedStream.write [as _write] (tls.js:366:25)
 
-2015-12-21T19:08:27.865Z
+2016-01-21T21:59:35.134Z
 Cannot find module '../application/controller/favicon.ico'
 
-2015-12-21T19:08:27.865Z
+2016-01-21T21:59:35.134Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-21T22:00:26.975Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-21T22:00:26.975Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-21T22:00:31.964Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-21T22:00:31.964Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T01:59:48.709Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T01:59:48.709Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:05:06.036Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:05:06.036Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:05:46.244Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:05:46.244Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:12:56.399Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:12:56.399Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:15:48.759Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:15:48.759Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:16:23.199Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:16:23.199Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:16:59.262Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:16:59.262Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:17:17.371Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:17:17.371Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:17:49.091Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:17:49.091Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:21:22.456Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:21:22.456Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:29:45.600Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:29:45.600Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:30:58.760Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:30:58.760Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:31:36.313Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:31:36.313Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -149,10 +273,38 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at CleartextStream.Readable.read (_stream_readable.js:320:10)
     at EncryptedStream.write [as _write] (tls.js:366:25)
 
-2015-12-21T19:08:30.623Z
+2016-01-22T02:31:39.364Z
 Cannot find module '../application/controller/favicon.ico'
 
-2015-12-21T19:08:30.623Z
+2016-01-22T02:31:39.364Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T02:33:19.673Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T02:33:19.673Z
+Error: Cannot find module '../application/controller/favicon.ico'
+    at Function.Module._resolveFilename (module.js:338:15)
+    at Function.require.resolve (module.js:384:19)
+    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
+    at Server.EventEmitter.emit (events.js:98:17)
+    at HTTPParser.parser.onIncoming (http.js:2108:12)
+    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
+    at Socket.socket.ondata (http.js:1966:22)
+    at TCP.onread (net.js:525:27)
+
+2016-01-22T03:03:55.487Z
+Cannot find module '../application/controller/favicon.ico'
+
+2016-01-22T03:03:55.487Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -165,10 +317,10 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at CleartextStream.Readable.read (_stream_readable.js:320:10)
     at EncryptedStream.write [as _write] (tls.js:366:25)
 
-2015-12-21T19:08:40.390Z
+2016-01-22T03:04:04.399Z
 Cannot find module '../application/controller/favicon.ico'
 
-2015-12-21T19:08:40.390Z
+2016-01-22T03:04:04.399Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -181,10 +333,10 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at CleartextStream.Readable.read (_stream_readable.js:320:10)
     at EncryptedStream.write [as _write] (tls.js:366:25)
 
-2015-12-21T19:08:43.122Z
+2016-01-22T03:32:15.501Z
 Cannot find module '../application/controller/favicon.ico'
 
-2015-12-21T19:08:43.122Z
+2016-01-22T03:32:15.501Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -197,10 +349,10 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at CleartextStream.Readable.read (_stream_readable.js:320:10)
     at EncryptedStream.write [as _write] (tls.js:366:25)
 
-2015-12-21T19:08:50.304Z
+2016-01-22T03:32:21.647Z
 Cannot find module '../application/controller/favicon.ico'
 
-2015-12-21T19:08:50.304Z
+2016-01-22T03:32:21.647Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -213,10 +365,10 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at CleartextStream.Readable.read (_stream_readable.js:320:10)
     at EncryptedStream.write [as _write] (tls.js:366:25)
 
-2015-12-21T19:08:52.875Z
+2016-01-22T03:58:10.611Z
 Cannot find module '../application/controller/favicon.ico'
 
-2015-12-21T19:08:52.875Z
+2016-01-22T03:58:10.611Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -229,10 +381,10 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at CleartextStream.Readable.read (_stream_readable.js:320:10)
     at EncryptedStream.write [as _write] (tls.js:366:25)
 
-2015-12-21T19:09:12.993Z
+2016-01-22T10:32:52.515Z
 Cannot find module '../application/controller/favicon.ico'
 
-2015-12-21T19:09:12.993Z
+2016-01-22T10:32:52.515Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -245,10 +397,10 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at CleartextStream.Readable.read (_stream_readable.js:320:10)
     at EncryptedStream.write [as _write] (tls.js:366:25)
 
-2015-12-21T19:09:15.790Z
+2016-01-22T10:33:01.430Z
 Cannot find module '../application/controller/favicon.ico'
 
-2015-12-21T19:09:15.790Z
+2016-01-22T10:33:01.430Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -261,10 +413,10 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at CleartextStream.Readable.read (_stream_readable.js:320:10)
     at EncryptedStream.write [as _write] (tls.js:366:25)
 
-2015-12-21T19:11:17.454Z
+2016-01-22T10:35:29.282Z
 Cannot find module '../application/controller/favicon.ico'
 
-2015-12-21T19:11:17.454Z
+2016-01-22T10:35:29.282Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -272,1247 +424,13 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at Server.EventEmitter.emit (events.js:98:17)
     at HTTPParser.parser.onIncoming (http.js:2108:12)
     at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T19:12:54.341Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:12:54.341Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:13:33.803Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:13:33.803Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:13:55.465Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:13:55.465Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:16:18.435Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:16:18.435Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:16:26.277Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:16:26.277Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:16:52.532Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:16:52.532Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:16:58.862Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:16:58.862Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T19:17:05.780Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:17:05.780Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T19:17:13.465Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:17:13.465Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:42:17.919Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:42:17.919Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T19:42:19.857Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:42:19.857Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T19:42:22.466Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:42:22.466Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T19:42:23.810Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:42:23.810Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:42:27.882Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:42:27.882Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:42:45.041Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:42:45.041Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:47:52.025Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:47:52.025Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:48:58.421Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:48:58.421Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:52:45.013Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:52:45.013Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:56:09.617Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:56:09.617Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T19:56:27.583Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T19:56:27.583Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:00:44.017Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:00:44.017Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:01:17.992Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:01:17.992Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:04:08.932Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:04:08.932Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:06:21.666Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:06:21.666Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T20:06:34.764Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:06:34.764Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T20:06:37.340Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:06:37.340Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T20:06:51.269Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:06:51.269Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T20:06:59.201Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:06:59.201Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:07:28.648Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:07:28.648Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:07:55.986Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:07:55.986Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:09:20.882Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:09:20.882Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:20:21.187Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:20:21.187Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:20:36.968Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:20:36.968Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:22:10.644Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:22:10.644Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:22:23.148Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:22:23.148Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:24:10.311Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:24:10.311Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:26:19.896Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:26:19.896Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:26:37.319Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:26:37.319Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:31:36.446Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:31:36.446Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T20:36:33.339Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:36:33.339Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T20:36:41.797Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:36:41.797Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:36:49.791Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:36:49.791Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:38:19.954Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:38:19.954Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:39:59.233Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:39:59.233Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:40:09.949Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:40:09.949Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:41:44.913Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:41:44.913Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:46:50.556Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:46:50.556Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:48:43.041Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:48:43.041Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:49:21.954Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:49:21.954Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:49:26.995Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:49:26.995Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:49:28.577Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:49:28.577Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:52:55.214Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:52:55.214Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:53:21.185Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:53:21.185Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:53:29.412Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:53:29.412Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:59:36.510Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:59:36.510Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T20:59:37.757Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:59:37.757Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T20:59:39.651Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:59:39.651Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T20:59:48.744Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T20:59:48.744Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at CleartextStream.socket.ondata (http.js:1966:22)
-    at CleartextStream.read [as _read] (tls.js:511:12)
-    at CleartextStream.Readable.read (_stream_readable.js:320:10)
-    at EncryptedStream.write [as _write] (tls.js:366:25)
-
-2015-12-21T21:00:02.377Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T21:00:02.377Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T21:00:14.782Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T21:00:14.782Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T21:05:50.879Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T21:05:50.879Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T21:06:41.199Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T21:06:41.199Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T21:06:51.030Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T21:06:51.030Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T21:07:43.892Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T21:07:43.892Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2015-12-21T21:09:36.698Z
-Cannot find module '../application/controller/favicon.ico'
-
-2015-12-21T21:09:36.698Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T17:19:47.027Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T17:19:47.027Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T17:19:58.540Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T17:19:58.540Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T17:20:13.120Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T17:20:13.120Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T17:37:01.865Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T17:37:01.865Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T17:42:18.951Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T17:42:18.951Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T17:58:32.894Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T17:58:32.894Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:00:49.388Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:00:49.388Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:01:20.101Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:01:20.101Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:01:35.829Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:01:35.829Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:02:30.044Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:02:30.044Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:09:02.663Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:09:02.663Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:09:42.896Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:09:42.896Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:10:15.545Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:10:15.545Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:11:17.811Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:11:17.811Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:11:25.449Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:11:25.449Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:11:56.462Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:11:56.462Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:12:58.658Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:12:58.658Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:13:27.686Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:13:27.686Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:14:54.191Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:14:54.191Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:15:27.800Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:15:27.800Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:16:00.567Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:16:00.567Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
     at Socket.socket.ondata (http.js:1966:22)
     at TCP.onread (net.js:525:27)
 
-2016-01-06T18:16:48.360Z
+2016-01-22T21:05:40.901Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:16:48.360Z
+2016-01-22T21:05:40.901Z
 Error: Cannot find module '../application/controller/favicon.ico'
     at Function.Module._resolveFilename (module.js:338:15)
     at Function.require.resolve (module.js:384:19)
@@ -1523,436 +441,301 @@ Error: Cannot find module '../application/controller/favicon.ico'
     at Socket.socket.ondata (http.js:1966:22)
     at TCP.onread (net.js:525:27)
 
-2016-01-06T18:17:32.577Z
+2016-01-23T21:09:05.907Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:17:32.577Z
+2016-01-23T21:09:05.907Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:26:14.411Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:26:14.411Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:30:12.703Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:30:12.703Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:30:43.527Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:30:43.527Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:31:31.132Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:31:31.132Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:33:24.182Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:33:24.182Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:35:30.191Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:35:30.191Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:36:35.188Z
-Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:36:35.188Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:37:28.805Z
+2016-01-23T21:10:39.769Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:37:28.805Z
+2016-01-23T21:10:39.769Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
-
-2016-01-06T18:37:42.138Z
-Cannot find module '../application/controller/favicon.ico'
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:37:42.138Z
+2016-01-23T21:11:54.795Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:39:09.205Z
+2016-01-23T21:11:54.795Z
 Cannot find module '../application/controller/favicon.ico'
-
-2016-01-06T18:39:09.205Z
-Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
-    at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
 
-2016-01-06T18:40:31.769Z
+2016-01-24T14:56:56.243Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:40:31.769Z
+2016-01-24T14:56:56.243Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:40:49.810Z
+2016-01-24T17:40:16.401Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:40:49.810Z
+2016-01-24T17:40:16.401Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:44:05.130Z
+2016-01-24T17:42:05.615Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:44:05.130Z
+2016-01-24T17:42:05.615Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:45:59.151Z
+2016-01-24T17:46:05.171Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:45:59.151Z
+2016-01-24T17:46:05.171Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:49:48.586Z
+2016-01-24T18:07:50.715Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:49:48.586Z
+2016-01-24T18:07:50.715Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:49:52.114Z
+2016-01-24T18:42:13.055Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:49:52.114Z
+2016-01-24T18:42:13.055Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:50:21.675Z
+2016-01-24T18:42:15.562Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:50:21.675Z
+2016-01-24T18:42:15.562Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:50:58.635Z
+2016-01-24T18:45:22.947Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:50:58.635Z
+2016-01-24T18:45:22.947Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:51:14.316Z
+2016-01-24T18:45:56.452Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:51:14.316Z
+2016-01-24T18:45:56.452Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:51:45.852Z
+2016-01-24T18:46:13.869Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:51:45.852Z
+2016-01-24T18:46:13.869Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:52:50.649Z
+2016-01-24T21:33:35.933Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:52:50.649Z
+2016-01-24T21:33:35.933Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:54:38.666Z
+2016-01-24T22:45:36.372Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:54:38.666Z
+2016-01-24T22:45:36.372Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:54:57.720Z
+2016-01-25T00:16:06.360Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:54:57.720Z
+2016-01-25T00:16:06.360Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:56:02.610Z
+2016-01-25T03:04:39.921Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:56:02.610Z
+2016-01-25T03:04:39.921Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:57:14.563Z
+2016-01-25T03:07:31.654Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:57:14.563Z
+2016-01-25T03:07:31.654Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:57:38.713Z
+2016-01-25T11:22:36.988Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:57:38.713Z
+2016-01-25T11:22:36.988Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:58:07.654Z
+2016-01-25T11:22:38.989Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:58:07.654Z
+2016-01-25T11:22:38.989Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:59:15.739Z
+2016-01-26T01:25:08.736Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:59:15.739Z
+2016-01-26T01:25:08.736Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T18:59:51.948Z
+2016-01-26T01:26:46.954Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T18:59:51.948Z
+2016-01-26T01:26:46.954Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)
 
-2016-01-06T20:00:06.998Z
+2016-01-27T03:06:07.846Z
 Cannot find module '../application/controller/favicon.ico'
 
-2016-01-06T20:00:06.998Z
+2016-01-27T03:06:07.846Z
 Error: Cannot find module '../application/controller/favicon.ico'
-    at Function.Module._resolveFilename (module.js:338:15)
-    at Function.require.resolve (module.js:384:19)
+    at Function.Module._resolveFilename (module.js:325:15)
+    at Function.require.resolve (internal/module.js:16:19)
     at Server.app (/home/jozreel/Development/www/proj/node_modules/simplejs.js:158:22)
-    at Server.EventEmitter.emit (events.js:98:17)
-    at HTTPParser.parser.onIncoming (http.js:2108:12)
-    at HTTPParser.parserOnHeadersComplete [as onHeadersComplete] (http.js:121:23)
-    at Socket.socket.ondata (http.js:1966:22)
-    at TCP.onread (net.js:525:27)
+    at emitTwo (events.js:87:13)
+    at Server.emit (events.js:172:7)
+    at HTTPParser.parserOnIncoming [as onIncoming] (_http_server.js:529:12)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:88:23)

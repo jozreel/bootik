@@ -10,7 +10,7 @@ var ajsloadable = function()
 
 
 
-ajsloadable.prototype.view=function(view, args, resp,req,cache,replacespecial)
+ajsloadable.prototype.view=function(view, args, resp,req,cache,replacespecial,customui)
 {
 	
 	
@@ -52,13 +52,16 @@ ajsloadable.prototype.view=function(view, args, resp,req,cache,replacespecial)
 			 var shtml = require('simple').shtml;
 			 shtml.req = req;
 			// dt =shtml.parse(dt);
+			  shtml.setViewHolder(vals);
 			  dt =shtml.inline(dt);
+			  dt =shtml.block(dt);
 			 //var pt= '/\{{(\w+)\}}/';
 			var ui=  obj.parse(vals,dt)
 			
 			if(replacespecial ===true)
 			 if(resp.urlencode !== undefined)
-			     ui = resp.urlencode.addspecial(ui);	
+			     ui = resp.urlencode.addspecial(ui);
+			  ui =  obj.insertContent(vals,ui,customui)	
 			 obj.output(resp,ui,path);
 			 //console.log(resp);
 		
@@ -66,7 +69,7 @@ ajsloadable.prototype.view=function(view, args, resp,req,cache,replacespecial)
 		 }
 		 ); 
 		  	 
-			  
+			 
 			  
 	}
 	}
@@ -82,6 +85,7 @@ ajsloadable.prototype.view=function(view, args, resp,req,cache,replacespecial)
 			 var shtml = require('simple').shtml;
 			  shtml.req = req;
 			// dt =shtml.parse(dt);
+			 shtml.setViewHolder(vals);
 			 dt =shtml.inline(dt);
 			 dt =shtml.block(dt);
 			
@@ -96,6 +100,7 @@ ajsloadable.prototype.view=function(view, args, resp,req,cache,replacespecial)
 				
 			 }
 			}
+			 ui =  obj.insertContent(vals,ui,customui)
 			 obj.output(resp,ui,path);
 			 //console.log(resp);
 		
@@ -150,6 +155,52 @@ ajsloadable.prototype.parse = function(vals, dt)
 			 
 }
 
+ajsloadable.prototype.insertContent = function(vals,content,customui)
+{
+	
+	var i=0;
+	var fs = require('fs');
+	var obj =this;
+	var pt =  '';
+	if(customui !== undefined)
+	   pt=customui;
+	 else
+	   pt = cfg.viewlayout;
+	var path = cfg.viewpath+"/shared/"+pt+'.html';
+	
+	        try
+		     {
+			  var data = fs.readFileSync(path);
+			   var dt = data.toString();
+			   var ui = obj.parse(vals,dt)
+	            ui= ui.replace(/\$generateContent\(\);/g, function(x){
+		        i++;
+				// var key = x.slice(2,-2);
+				// console.log(vals);
+				 //console.log(key);
+				return content;
+				 
+			 });
+			 if(ui !== undefined)
+	          {
+				  var shtml = require('simple').shtml;
+				 ui = shtml.inline(ui);
+				 return ui;
+			  }
+			  else 
+			    return "";
+	         
+		 }
+		 catch(err)
+		 {
+			 console.log(err)
+		 }
+			
+			
+}
+
+
+
 ajsloadable.prototype.output = function(resp,ui,fname,cache)
 {
 	if(cache == true)
@@ -158,6 +209,7 @@ ajsloadable.prototype.output = function(resp,ui,fname,cache)
 		      resp.cache.writemime('html',fname,'text',true);
 	}
 	//else 
+	  
 	  this.zoutput(resp,ui,fname);
 	 //resp.cache.writemime('html',ui,fname,'text',true);
 	  

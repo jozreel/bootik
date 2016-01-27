@@ -1,0 +1,163 @@
+$getviewpart('header');
+ <link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">
+  <link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">
+   <link rel="import" href="/polymer/bower_components/paper-spinner/paper-spinner.html">
+  <link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">
+  <link rel="import" href="/polymer/bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">
+  <link rel="import" href="/polymer/bower_components/a-list/a-list.html">
+  <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">
+  <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">
+    <link rel="import" href="/polymer/bower_components/iron-icons/iron-icons.html">
+   <ajax-parser  id="tac" method="POST" ></ajax-parser>
+     
+   <div>
+  
+
+<div class="locations">
+	<div class="writeup">
+    <p>Add locations ro your bootik setup.</p>
+    <p>if you have stroes in different countries with different tax rates add them here</p>
+    <i>Sub regions can be added by clicking on the country</i>  
+    
+   </div> 
+   <div class="loctable">
+     <div class="spinner"><paper-spinner id="spin" alt="Loading cart items" active></paper-spinner></div>  
+	   <paper-material class="pmaterial" raised id="taxtable">
+		   <div class="tbl" >
+		  <div><b>Country</b></div>
+		  <div><b>Tax Rate %</b></div>
+		  <div><b>Tax Overides</b></div>
+		  
+		   </div>
+		  
+		</paper-material>
+		  <paper-fab icon="add" style="right:-50px; bottom:-30px; position:absolute;" class="orange" onclick="showaddform('A')"></paper-fab>
+		
+   </div>
+   <div class="countryadd" id="cadd">
+	   <form is="iron-form" method="post" action="#" id="cform">
+       <input type="hidden" id ="event" name="event" />
+       <input type="hidden" name="_id" id="_id" />
+	   <paper-input label="Country" name ="country" id="country"></paper-input>
+       <paper-input label="Country Code" name ="countrycode" id="countrycode" maxlength="3"></paper-input>
+	   <paper-input label="Country Tax" type="number" min="0" max="1" step="0.01" name="countrytax" id="countrytax"></paper-input>
+	   <paper-button id="submt" onclick="addcountry()">save</paper-button>
+     <paper-button id="submt" onclick="closeDiv()">Cancel</paper-button>
+	   </form>
+   </div>
+</div>
+   <ajax-req  id="taxreg"></ajax-req>   
+$getviewpart('deletedialog');
+<script>
+  populateTax();
+  function addcountry()
+  {
+    document.getElementById('tac').jsonurl = "/taxes/countrysave";
+    var mod = document.getElementById("cform").serialize();
+    if(mod._id == '')
+       delete mod['_id'];
+     document.getElementById('tac').jsonstring = JSON.stringify(mod);
+     console.log(document.getElementById('tac').jsonstring);
+     
+      document.getElementById('tac').respfunc=resp;
+       document.querySelector('#tac').rspelement  = document.getElementById("ptoast");
+      
+      document.getElementById('tac').submit=true;
+  }
+  
+  function showaddform(ev)
+	 {
+     
+     document.querySelector('#event').value=ev;
+     if(document.querySelector(".countryaddrev") !== null)
+		   document.querySelector(".countryaddrev").className = 'countryadd';
+		   document.querySelector(".countryadd").style.height = '300px';
+		  document.querySelector(".countryadd").style.opacity = '1';
+	 }
+   
+   function closeDiv()
+	 {
+		document.querySelector(".countryadd").className = 'countryaddrev';
+		 document.querySelector(".countryaddrev").style.height = '0px';
+     
+		  document.querySelector(".countryaddrev").style.opacity = '0';
+     // 
+	 }
+   
+   function populateTax()
+   {
+     
+      document.querySelector('#taxreg').respfunc = function(doc){
+        for(item in doc)
+        {
+         
+          var dv = document.createElement('div');
+          dv.className ="tbl";
+          var countrytax = doc[item].countrytax;
+          if(doc[item].regions.length > 0)
+            countrytax = 'Taxed by Province / State / County ..etc..';
+          dv.innerHTML = '<div>'+
+         '<input type="hidden" name="countrycode" value="'+doc[item].countrycode+'" />'+
+          '<input type="hidden" name="country" value="'+doc[item].country+'" />'+
+           '<input type="hidden" name="_id" value="'+doc[item]._id+'" />'+
+           '<input type="hidden" name="countrytax" value="'+doc[item].countrytax+'" />'+
+          '<a href="/taxes/regions/'+doc[item].countrycode+'">'+doc[item].country+'</a> </div>'+
+           '<div>'+countrytax+'</div>'+'<div>userdefs<span class="right"><button title="Delete Country" onclick="deleteitem(event)"><img src="/image/trash.png" height="16" /></button>'+
+           '<button title="Edit Item" onclick="edititem(event)"><img src="/image/edit.png"/></button></span></div>';
+         /* var dv2 = document.createElement('div');
+          dv2.innerHTML = doc[item].countrytax;
+           var dv3 = document.createElement('div');
+          dv3.innerHTML =  doc[item].countrytax;
+          
+          document.getElementById('taxtable').appendChild(dv);
+         document.getElementById('taxtable').appendChild(dv2);*/
+         document.getElementById('taxtable').appendChild(dv);
+          
+        }
+        document.querySelector('.pmaterial').style.opacity=0.9;  
+        document.querySelector('#spin').active=false;
+      }
+      
+      document.querySelector('#taxreg').dataurl = "/taxes/getall";
+   }
+   
+   function edititem(event)
+   {
+     showaddform('E');
+     var model ={};
+     var parent = event.target.parentNode.parentNode.parentNode.parentNode;
+     var cc = parent.querySelector('input[name="countrycode"]').value;
+     var country = parent.querySelector('input[name="country"]').value;
+     var countrytax = parent.querySelector('input[name="countrytax"]').value;
+      var _id = parent.querySelector('input[name="_id"]').value;
+     model.countrytax = countrytax;
+     model.country = country;
+     model.countrycode =cc;
+     model._id = _id;
+     console.log(model);
+     updateFormValues(document.querySelector('#cform'), model);
+   }
+   function deleteitem(event)
+   {
+      var parent = event.target.parentNode.parentNode.parentNode.parentNode;
+      document.getElementById('_id').value = parent.querySelector('input[name="_id"]').value
+      document.getElementById('pd').open();
+    
+     
+    
+   
+     
+   }
+   
+  function gothrough()
+  {
+   
+   document.getElementById('tac').jsonstring = '{"_id":"'+document.getElementById('_id').value+'"}';
+   document.getElementById('tac').jsonurl = "/taxes/remove";
+   document.getElementById('tac').respfunc=resp;
+   document.querySelector('#tac').rspelement  = document.getElementById("ptoast");
+   document.getElementById('tac').submit=true;
+  }
+  </script>
+$getviewpart('footer');

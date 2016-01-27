@@ -1,5 +1,8 @@
 $getviewpart('header');
  <link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">
+ <link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">
+  <link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">
+ <link rel="import" href="/polymer/bower_components/paper-card/paper-card.html">
   <link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">
   <link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">
   <link rel="import" href="/polymer/bower_components/a-list/a-list.html">
@@ -7,41 +10,31 @@ $getviewpart('header');
    <ajax-parser  id="taj" method="POST" ></ajax-parser>
    <div>
 
-
-<div class="locations">
-	<div class="writeup">
-
-   </div> 
-   <div class="loctable">
-	   <paper-material class="pmaterial" raised >
-		   <div class="tbl">
-		  <div><b>Country</b></div>
-		  <div><b>Tax Rate</b></div>
-		  <div><b>Special Definitions</b></div>
-		  
-		   </div>
-		  
-		</paper-material>
-		  <paper-fab icon="add" style="right:0px; bottom:0px; position:absolute;" class="orange" onclick=""></paper-fab>
-		
+    <paper-card heading="Welcome to Bootik Tax and Shipping Admin panel" class="pink">
+      <div class="card-content">
+        Manage your taxes. Chose to automatically calculate tax on prices. Tax will be reflected in the prices displayed on yuor stores.
+       </div>
+      <div class="card-actions">
+        <paper-checkbox>Automatically calculate taxes using bootik ?</paper-checkbox>        
+      </div>
+      <div class="card-actions">
+        <paper-button>Add Country</paper-button>
+      </div>
+       <div class="card-actions">
+          <paper-button>Regions Management</paper-button>
+      </div>
+      <div class="card-actions">
+           <paper-button>Tax Overides</paper-button>
+      </div>
+       <div class="card-actions">
+           <paper-button>Shipping Areas</paper-button>
+      </div>
+	  <div class="card-actions">
+           <paper-button>Shipping Destinations</paper-button>
+      </div>
+   </paper-card>
    </div>
-</div>
 
-<div class="form">
-	<form is ="iron-form"  id="taxform" method="post">
-		<fieldset id="fldset">
-		<paper-input name="name" id="name" is="iron-form"" label="Tax identifier" auto-validate required></paper-input>
-		<paper-input name="desc" id="description" label="Tax description"></paper-input>
-		<paper-input name="percent" id="percent" label="Tax percentage" type="number" min="1" max="100" auto-validate required></paper-input>
-		</fieldset>
-	</form>
-	
-	$getviewpart('buttons');
-</div>
-   </div>
-<div class="taxlist">
-		<a-list id="taxlist" data-url="/taxes/getall" list-headers='{"0":"name","1":"description","2":"percent"}' onclick="populateform()"></a-list>
-	</div>
 <script>
 	  sajax('#fldset').disableFields(true);
 	  
@@ -105,7 +98,12 @@ $getviewpart('header');
 		  document.getElementById('taj').jsonstring = '{"ids":['+obj+']}';
           deleteobj(document.getElementById('taj'));  
         }
-	  
+	 function showaddform()
+	 {
+		
+		 document.querySelector(".countryadd").style.height = '300px';
+		  document.querySelector(".countryadd").style.opacity = '1';
+	 }
 </script>
 $getviewpart('deletedialog');
 $getviewpart('footer');

@@ -15,3 +15,4 @@ exports.host = "localhost";
 exports.httpport = "1337";
 exports.socketport = "1338";
 exports.logpath = ROOT+'/library/log';
+exports.viewlayout = "vlayout"

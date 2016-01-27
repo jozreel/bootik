@@ -1,0 +1,239 @@
+$addToHead('<link rel="import" href="/polymer/bower_components/dynamic-dropdown/dynamic-dropdown.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-spinner/paper-spinner.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-menu/paper-menu.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-dropdown-menu/paper-dropdown-menu.html">');
+
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-item/paper-item.html">');
+<ajax-req id="regs"></ajax-req>
+<ajax-parser id="rac" method="POST"></ajax-parser>
+
+<div class="locations">
+  <div class="writeup">
+    <p>Add a country you ship to.</p>
+    <p>Within that country there can be different shipping locations</p>
+    <i>Sub regions can be added by clicking on the country</i>
+
+  </div>
+
+  <div class="loctable">
+  
+  <paper-spinner class="sp" id="spin" alt="Loading cart items" active></paper-spinner>
+   
+    <paper-material class="pmaterial paded" raised>
+
+      <h4 class="paded underline">Shipping Country</h4>
+
+      <form is="iron-form" method="post" action="#" class="smallform" id="rform">
+
+        <input type="hidden" name="_id" value='' id="cid" />
+         <input type="hidden" name="event" id="event" />
+        <p>
+          <dynamic-dropdown label="Shipping Area (Zone)" id="bslist" name-value='{"name":"zonename", "value":"_id"}' name="zone"></dynamic-dropdown>
+        </p>
+        <p>
+          <dynamic-dropdown label="Country to ship to" id="clist" name-value='{"name":"name", "value":"code"}' name="zone"
+          name="destinationcountry"></dynamic-dropdown>
+        </p>
+
+      <div class="paded"><paper-button onclick="callsave(event)">save country</paper-button></div>
+      </form>
+
+      
+      <div class="padded" id="paises">
+
+        ascmasc
+      </div>
+
+    </paper-material>
+  </div>
+
+</div>
+
+
+$getviewpart('deletedialog');
+<script>
+  populatezones();
+    function callsave(event)
+    {
+      if(document.getElementById('event').value !== "E")
+         document.getElementById('event').value = "A";
+      
+       return savecountry(event,'');
+    }
+     function savecountry(event,model)
+    {
+    
+      //document.querySelector('#spin').active=true;
+       var mod ={}
+      
+       if(model === '')
+        {
+            mod= document.getElementById("rform").serialize();
+        }
+        else
+        {
+           mod = model;
+        }
+        document.getElementById('rac').submit=false;
+        if(document.querySelector('#bslist').selectedValue !==null)
+           mod.shippingarea =document.querySelector('#bslist').selectedValue._id;
+        mod.destinationcountry = document.querySelector('#clist').selectedValue;
+        document.getElementById('rac').jsonurl = "/shipping/adddestinationcountry";
+        document.getElementById('rac').jsonstring = JSON.stringify(mod);
+       
+        document.querySelector('#rac').respfunc=function(doc) {
+         // populatezones();
+       
+           resp(doc,document.getElementById("ptoast")); 
+        };
+         
+       document.getElementById('rac').submit=true;
+       return false;
+    }
+    
+    function populatezones()
+   {
+    
+      document.querySelector('#regs').respfunc = function(doc)
+        { 
+         
+          console.log(doc);
+         
+           if(doc[0].success == false)
+              return;
+             document.querySelector('#bslist').menuItems = doc; 
+                     
+              populatePaises();
+    }
+             
+       document.querySelector('#regs').dataurl = "";
+        document.querySelector('#regs').dataurl = "/shipping/findzones";       
+              
+          
+            
+      }
+    
+    
+    
+   function populatePaises()
+   {
+    
+      document.querySelector('#regs').respfunc = function(doc)
+        { 
+          
+           populateC();
+         document.getElementById('paises').innerHTML = '';
+         
+            if(doc[0].success == false)
+           {
+              document.querySelector('.pmaterial').style.opacity=0.9;  
+             document.querySelector('#spin').active=false;
+              return;
+           }
+            for(item in doc)
+            {
+           
+             var dv = document.createElement('div');
+             dv.className ="countrybox";
+            
+            dv.innerHTML = '<div onclick=editcont(event)><input type="hidden" value="'+doc[item].destinationcountry.code+'" name="cc" />'+
+            '<input type="hidden" value="'+doc[item].shippingarea+'" name="sa" /> <input type="hidden" value="'+doc[item]._id+'" name="_id" /><div>'+doc[item].destinationcountry.name+'</div> <img src="/image/trash.png" /></div>';
+            
+             //console.log(dv.querySelector('.loc'));       
+             document.getElementById('paises').appendChild(dv);
+            document.querySelector('.pmaterial').style.opacity=0.9;
+             document.querySelector('#spin').active=false;
+            }
+           
+             
+             
+              
+          
+            
+        }
+         document.querySelector('#regs').dataurl = "";
+        document.querySelector('#regs').dataurl = "/shipping/findcountries";
+      
+   
+        
+    }
+   function populateC()
+   {
+     document.querySelector('#regs').respfunc= function(doc)
+     {
+       console.log(doc,'c');
+          document.querySelector('#clist').menuItems = doc; 
+     }
+  
+     document.querySelector('#regs').dataurl = "";
+        document.querySelector('#regs').dataurl = "/static/countries.json";       
+   }
+   function editcont(event)
+   {
+     document.getElementById('event').value = "E";
+     document.getElementById('bslist').selectedName = event.target.parentNode.querySelector('input[name="sa"]').value;
+      document.getElementById('clist').selectedName = event.target.parentNode.querySelector('input[name="cc"]').value;
+       document.getElementById('cid').value= event.target.parentNode.querySelector('input[name="_id"]').value;
+    
+   }
+    /*
+     function edititem(event)
+    {
+       var parent = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+      
+        
+         
+        var mod = parent.querySelector('form').serialize();
+        console.log(mod);
+        saveZone(event, mod,'E');
+         
+        return false;
+    } 
+    var prevselected='';
+    function enableedit(event)
+    {
+         var parent = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+       
+       
+      
+       parent.querySelector('.save').disabled = false;
+      
+       sajax().disableFields(false,  parent.querySelector('.formsr'));
+       var cl =parent.querySelector('.save').classList;
+      
+       cl.remove('disabled');
+       
+        if(prevselected !== '' && prevselected !== parent)
+        {
+          
+          sajax().disableFields(true,prevselected.querySelector('form'));
+          prevselected.querySelector('.save').disabled = true;
+          var classlist =  prevselected.querySelector('.save').className="save disabled";
+         // classlist.add('disabled');
+          //classlist.Add('disabled');
+          console.log(classlist);
+        }
+        prevselected = parent;
+       return false;  
+       
+          
+    }
+    
+     var gevent;
+    function deleteitem(event)
+    {
+       document.getElementById('pd').open();
+      gevent = event;
+      return false;
+
+       
+    }
+    */
+
+</script>

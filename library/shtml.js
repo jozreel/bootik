@@ -1,13 +1,18 @@
 var reqarr;
+var viewHolder = {};
+var head=[];
 var shtml = function()
 {
    
 }
-
-shtml.prototype.inline = function(dt)
+shtml.prototype.setViewHolder = function(val)
 {
+	viewHolder = val;
+}
+shtml.prototype.inline = function(dt)
+{  ///\$(?!\{)([\S]+[\);])
 	
-	return this.parseforeval(dt, /\$(?!\{)([\S]+[\);])/g);//  \$([\w\("'\.\+\-\*\/\^\%]+[);])    /\$([\S]+[\);])/g
+	return this.parseforeval(dt, /\$(?!\{)([\S \w]+[\);])/g);//  \$([\w\("'\.\+\-\*\/\^\%]+[);])    /\$([\S]+[\);])/g
 }
 //work on this function has errors 
 shtml.prototype.block = function(dt)
@@ -28,9 +33,9 @@ shtml.prototype.parseforeval = function(dt,pattern)
 		   i++;
 		   var res = '';
 		   //\${([\w\s]*)}
-		    console.log(y);
+		  
 		     res =  eval(y);
-		    //console.log(res);
+		   
 		 // return res;
 		 // var path = cfg.viewpath + '/'+y+'.html';
 		 // path = pt.normalize(path);
@@ -87,6 +92,9 @@ var getviewpart= function(vname)
 	}
 				
 }
+
+
+
 
 
 var print = function(text)
@@ -219,6 +227,21 @@ shtml.prototype.addlink = function(str)
 {
 	
 	return this.parseother(str, /\$link\(([-A-Z0-9+&@#\/%?=~_|!:,.;]*[A-Z0-9+&@#\/%=~_|])\);/g, function(y){ return 'link rel="import" href="'+y+'"'; console.log(y);});
+}
+
+function updateHtmlHeader()
+{ var str = '';
+	for(var hd in head)
+	{
+		
+		str += head[hd].toString() +'\r\n';
+	}
+	return str;
+}
+function addToHead(val)
+{
+	head.push(val);
+	return "";
 }
 module.exports = new shtml();
 

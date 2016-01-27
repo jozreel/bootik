@@ -260,6 +260,111 @@ mongodriver.prototype.updateOne =function(cat, vals, callback,upsert)
 
 
 
+mongodriver.prototype.pushtoarray = function(cat, vals,array, callback)
+{var obj1 =this;
+   var res = {};
+  res.success=true;
+
+  this.MongoClient.connect(this.connectionString, function(err, db)
+  {
+    if(err)
+    {
+      simple.global.logerror(err);
+      res.error=err;
+      res.success=false;
+    }
+       
+      var collection = db.collection(obj1.modelname);
+    var arr={};
+    arr[array]={$each:vals};
+   console.log(cat,arr);
+     collection.updateOne(cat, {$push: arr }, function(err,result)
+      {
+        if(err)
+        {
+          simple.global.logerror(err);
+         
+        }
+       
+          db.close();
+          if (callback && typeof(callback) == "function")  
+              callback(res);
+      }
+      );
+  });
+}
+
+
+mongodriver.prototype.updateinarray = function(cat, val, callback)
+{var obj1 =this;
+   var res = {};
+  res.success=true;
+
+  this.MongoClient.connect(this.connectionString, function(err, db)
+  {
+    if(err)
+    {
+      simple.global.logerror(err);
+      res.error=err;
+      res.success=false;
+    }
+       
+      var collection = db.collection(obj1.modelname);
+    
+     console.log(cat, {$set: val });
+     collection.update(cat, {$set: val }, function(err,result)
+      {
+        if(err)
+        {
+          simple.global.logerror(err);
+         console.log(err);
+        }
+          db.close();
+          if (callback && typeof(callback) == "function")  
+              callback(res);
+          
+      }
+      );
+  });
+}
+
+
+mongodriver.prototype.removefromarray = function(cat, val,multi, callback)
+{var obj1 =this;
+   var res = {};
+  res.success=true;
+  if(multi ===undefined)
+    multi = false
+  this.MongoClient.connect(this.connectionString, function(err, db)
+  {
+    if(err)
+    {
+      simple.global.logerror(err);
+      res.error=err;
+      res.success=false;
+    }
+       
+      var collection = db.collection(obj1.modelname);
+    
+     console.log(cat, {$pull: val });
+     collection.update(cat, {$pull: val },{multi:multi},function(err,result)
+      {
+        if(err)
+        {
+          simple.global.logerror(err);
+         
+        }
+          db.close();
+          if (callback && typeof(callback) == "function")  
+              callback(res);
+          
+      }
+      );
+  });
+}
+
+
+
 mongodriver.prototype.updateMany =function(cat, vals,callback,upsert)
 {var obj1 =this;
  //console.log(cat);
@@ -339,6 +444,7 @@ mongodriver.prototype.insertOrUpdate = function(obj,callback)
         {
            res.success=false
            res.error = err;
+          
         }
         else
         {
@@ -599,7 +705,9 @@ mongodriver.prototype.getfromgrid = function(fileid, callback)
 
 
 
-mongodriver.prototype.find = function(cond,fields,opt, coll,callback)
+
+/*
+mongodriver.prototype.findOne = function(cond,flds,opt, coll,callback)
 {
   
   console.log(opt);
@@ -611,12 +719,13 @@ mongodriver.prototype.find = function(cond,fields,opt, coll,callback)
    // console.log(opt);
    if(opt === null)
      opt={};
-    if(fields===null)
-     fields={};
+    if(flds===null)
+     flds={};
     var collection = db.collection(obj.modelname);
     if(opt!==null)
     {
-        collection.find(cond,fields,opt).count(function(err,count){ 
+     
+        collection.findOne(cond,flds,opt).count(function(err,count){ 
           if(err)
             {
               throw err;
@@ -635,10 +744,68 @@ mongodriver.prototype.find = function(cond,fields,opt, coll,callback)
     }
      else if(opt===null)
      {
-        collection.find(cond,fields,opt).count(function(err,count){ 
+       
+        collection.findOne(cond,flds,opt).count(function(err,count){ 
           if(count >0){
             
             var cursor = collection.find(cond);  obj.traverseCursor(cursor,db, callback,count,coll);
+            }
+             else 
+             { 
+               callback({});
+              }
+         });
+     }
+  }
+  );
+  
+}
+
+
+*/
+
+mongodriver.prototype.find = function(cond,flds,opt, coll,callback)
+{
+  
+  console.log(opt);
+  var obj = this;
+  this.MongoClient.connect(this.connectionString, function(err, db)
+  {
+   if(err)
+       throw err;
+   // console.log(opt);
+   if(opt === null)
+     opt={};
+    if(flds===null)
+     flds={};
+    var collection = db.collection(obj.modelname);
+    if(opt!==null)
+    {
+     
+        collection.find(cond,flds,opt).count(function(err,count){ 
+          if(err)
+            {
+              throw err;
+              console.log(err);
+            }
+          if(count >0){
+             var cursor = collection.find(cond,flds,opt);  
+            // db.close();
+             obj.traverseCursor(cursor,db, callback,count,coll);
+             } 
+             else
+             {   db.close();
+                 callback({});
+             }
+        });
+    }
+     else if(opt===null)
+     {
+       
+        collection.find(cond,flds,opt).count(function(err,count){ 
+          if(count >0){
+            
+            var cursor = collection.find(cond,flds,opt);  obj.traverseCursor(cursor,db, callback,count,coll);
             }
              else 
              { 

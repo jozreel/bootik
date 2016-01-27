@@ -1,0 +1,212 @@
+$getviewpart('header');
+ <link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">
+ <link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">
+ <link rel="import" href="/polymer/bower_components/paper-spinner/paper-spinner.html">
+ <link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">
+  <link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">
+   <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">
+  <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">
+  <ajax-req  id="regs"></ajax-req>  
+    <ajax-parser  id="rac" method="POST" ></ajax-parser> 
+    
+<div class="locations">
+	<div class="writeup">
+    <p>Add locations ro your bootik setup.</p>
+    <p>if you have stroes in different countries with different tax rates add them here</p>
+    <i>Sub regions can be added by clicking on the country</i>  
+    
+   </div> 
+    <div class="loctable">
+         <div class="spinner"><paper-spinner id="spin" alt="Loading cart items" active></paper-spinner></div>
+        <paper-material class="pmaterial" raised >
+            <h4 class="paded underline">Tax Zones of {{country}}</h4>
+            <div class="tbl4">
+               <div><b> Province / State / Municipal / Parish</b></div>
+              
+                 <div><b>Calculation</b></div>
+                   <div><b>Code</b></div>
+                 <div><b>Rate</b></div>
+            </div>
+            <div id="hidentable"></div>
+            <div class="tbl4 fixedform">
+                <form is="iron-form" method="post" action="#" id="rform">
+                <input type="hidden" value="{{countrycode}}" name="countrycode" id="cc" />
+                 
+                <div><input class="longtext" name ="regionname" /></div>
+                 <div><select size="1"  name="calculation" class="longtext">
+                     <option value="1">Replace country tax rate</option>
+                     <option value="2">Ad to country tax rate</option>
+                     </select>
+                     </div>
+                   <div><input class="shortcode" name ="taxcode" /></div>
+                  <div><input type="number" step="0.01" min="0" max="1" value="0.00" class="shortcode" name="rate" /> <button type="button" onclick="return addRegion(event)">Save</button> </div>
+                </form>  
+            </div>
+          
+        </paper-material>
+    </div>
+   
+</div>
+$getviewpart('deletedialog');
+<script>
+    getregions();
+    function addRegion(event)
+    {
+     return saveRegion('A', '', '');
+     
+    }
+    function saveRegion(event,model,ev)
+    {
+      document.querySelector('#spin').active=true;
+       var mod ={}
+      
+       if(model === '')
+        {
+            mod= document.getElementById("rform").serialize();
+        }
+        else
+        {
+           mod = model;
+        }
+        document.getElementById('rac').submit=false;
+        mod.event = event;
+        document.getElementById('rac').jsonurl = "/taxes/regionadd";
+        document.getElementById('rac').jsonstring = JSON.stringify(mod);
+         document.querySelector('#rac').rspelement  = document.getElementById("ptoast");
+       
+      document.getElementById('rac').respfunc=function(doc){
+        if(ev !== '')
+        {
+         
+        var parent = ev.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+        
+         sajax().disableFields(true,  parent.querySelector('.formsr'));
+        }
+         resp(doc,document.getElementById("ptoast"));
+         sajax('#rform').clearForm();
+         getregions();
+         document.querySelector('#spin').active=false;
+      }
+      
+      document.getElementById('rac').submit=true;
+      return false;
+      
+    }
+    function getregions()
+    {
+      
+        document.querySelector('#regs').respfunc = function(dc)
+        {  var doc = dc[0].regions;
+        
+         document.getElementById('hidentable').innerHTML = '';
+            for(item in doc)
+            {
+          
+             var dv = document.createElement('div');
+             dv.className ="tbl4";
+            
+            dv.innerHTML = '<form  is="iron-form" method="post" class="formsr" action="#"><div> <input class="longtext" name="regionname" type="text" value="'+doc[item].regionname+'" />'+
+            '<input  name="prevvalue" type="hidden" value="'+doc[item].regionname+'" /> <input  name="regionid" type="hidden" value="'+doc[item].regionid+'" /><input  name="_id" type="hidden" value="'+dc[0]._id+'" /> </div>'+
+            '<div> <select size="1" id="calc" name="calculation" class="longtext"><option value="1">Replace country tax rate</option><option value="2">Ad to country tax rate</option></select></div>'+ 
+            
+             
+                    
+            
+              '<div ><input class="shortcode" name="taxcode"  type="text" value="'+doc[item].taxcode+'" /></div>'+
+              '<div><input class="shortcode" name="rate" step="0.01" min="0" max="1"  type="number" value="'+doc[item].rate+'" />'+
+               '<span class="right"><button disabled class="disabled save" title="Save Region" onclick="return edititem(event)" ><img src="/image/save.png" /> <button title="Delete Country" onclick="return deleteitem(event)"><img src="/image/trash.png" /></button>'+
+              '<button title="Edit Item" onclick="return enableedit(event)" class="edit"><img src="/image/edit.png"/></button></span></div></form>';
+                    
+             document.getElementById('hidentable').appendChild(dv);
+             document.querySelector('#calc').value = +doc[item].calculation;
+             
+            }
+             var ele = document.querySelector('.pmaterial');
+             var forms =  ele.querySelectorAll('.formsr');
+             for(var form in forms)
+             {
+              
+              if(forms[form].className = 'formsr');
+               sajax().disableFields(true,forms[form]);
+             }
+             
+             
+             document.querySelector('.pmaterial').style.opacity=0.9;  
+             document.querySelector('#spin').active=false; 
+          
+            
+        }
+         document.querySelector('#regs').dataurl = "";
+        document.querySelector('#regs').dataurl = "/taxes/getregions/"+document.getElementById('cc').value;
+       
+        
+    }
+    function edititem(event)
+    {
+       var parent = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+      
+        
+         
+        var mod = parent.querySelector('form').serialize();
+        
+        saveRegion('E', mod,event);
+         
+          return false;
+    }
+    function enableedit(event)
+    {
+         var parent = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+       
+        
+      
+       parent.querySelector('.save').disabled = false;
+      
+       sajax().disableFields(false,  parent.querySelector('.formsr'));
+        
+       var cl =parent.querySelector('.save').classList;
+       cl.remove('disabled');
+       return false;
+       
+          
+    }
+   var gevent;
+    function deleteitem(event)
+    {
+       document.getElementById('pd').open();
+      gevent = event;
+      return false;
+
+       
+    }
+    
+    function gothrough()
+    {
+      event = gevent;
+       document.querySelector('#spin').active=true;
+       var parent = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+       var frm = parent.querySelector('form');
+       var mod ={}
+       mod._id = frm.querySelector('input[name="_id"]').value;
+        mod.regionname = frm.querySelector('input[name="regionname"]').value;
+      
+       document.getElementById('rac').submit=false;
+       
+        document.getElementById('rac').jsonurl = "/taxes/removeregion";
+        document.getElementById('rac').jsonstring = JSON.stringify(mod);
+         
+       
+      document.getElementById('rac').respfunc=function(doc){
+        
+        
+         
+           resp(doc,document.getElementById("ptoast"));
+            getregions();
+           document.querySelector('#spin').active=false;
+        }
+       
+        
+      
+      document.getElementById('rac').submit=true;
+    }
+    </script>
+$getviewpart('footer');

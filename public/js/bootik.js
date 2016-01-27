@@ -33,7 +33,8 @@ function resp(str,elem)
    if(str.success===true)
        elem.innerHTML ='<p style="color:green;">Sucess item added</p>';
      else
-       elem.innerHTML =str.error;
+       elem.innerHTML =str.message;
+       elem.style.color = "red";
    elem.show();
    sajax('form').clearForm();
 }
@@ -327,7 +328,7 @@ function allTaxes()
      
    }
    
-   
+  
    //end of taxes functions 
    ///
    //

@@ -1150,8 +1150,10 @@ this.getElementUnderMouse =function(callback)
             var fm = field;
           else 
 		    fm=this._element;
-			if(fm !== undefined)
+			if(fm !== undefined && fm !== null)
               fm.disabled = boolval;
+			else 
+			 return;
           // console.log(fm);
            var arch = fm.childNodes;
          // console.log(arch.length);
@@ -1202,6 +1204,21 @@ this.clearForm =function(bval)
 //  document.querySelector('#unit').reset();
  // document.querySelector('#cat').reset();
 }
+this.hide = function()
+{
+	this._element.style.opacity="0";
+	
+	this.element.style.display="none"
+	
+}
+
+this.show = function()
+{
+	this._element.style.opacity="0.9";
+	
+	
+}
+
  this.loadImage = function(isel, alt, callback)
 	  {
 		 

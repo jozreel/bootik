@@ -12,7 +12,8 @@ simplemodel.prototype.save = function(callback, event)
   var temp =this.prepare();
    //console.log(this);
    delete temp._id;
-   //console.log(temp);
+   
+   
    if(event ==='A')
      this.insert(temp,callback);
    if(event ==='E')
@@ -68,6 +69,7 @@ simplemodel.prototype.prepare =function()
 {
   var temp = {};
    var props = Object.getOwnPropertyNames(this);
+  
 	for(var x in props)
 	 {
    //  console.log(typeof this[props[x]]);
@@ -77,6 +79,7 @@ simplemodel.prototype.prepare =function()
      }
        temp[props[x]] = this[props[x]];
 	 }
+   
    return temp;
 }
 simplemodel.prototype.deleteone = function(callback)

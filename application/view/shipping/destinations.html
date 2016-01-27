@@ -1,0 +1,69 @@
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/dynamic-dropdown/dynamic-dropdown.html">');
+<ajax-parser id="rac" method="POST"></ajax-parser>
+<ajax-req id="regs"></ajax-req>
+<div class="locations">
+ 
+  <div class="writeup">
+    <h4>Add Destinations you ship to.</h4>
+    <p>Within  eachcountry there can be different shipping destinations</p>
+    <i>if taxes apply to shipping destinations select taxable destinations and sellect the tax from the dropdown</i>
+
+  </div>
+  
+  <div class="loctable">
+  
+  <paper-spinner class="sp" id="spin" alt="Loading cart items" active></paper-spinner>
+   
+    <paper-material class="pmaterial paded" raised>
+     
+      <h4 class="paded underline">Shipping Destinations</h4>
+     
+            <div class="tbl4">
+                <div>Destination Name</div>
+              
+                <div>Destination Rate</div>
+                  <div>Destination Tax</div>
+                 <div>Estimated Delivery</div>
+             </div>
+             <div id="hidentable"></div>
+             
+              <div class="tbl4">
+             <form is="iron-form" method="post" action="#" id="rform">
+              
+           <div><input  name" name="destinationname" class= "longtext"></input></div>
+            <div><input class ="shortcode" type="number" name="destinationrate"></div>
+           <div><input type="checkbox"  onchange="makeTaxable(event)"/>Is Taxable ? <input type="number" disabled name="destinationtax" class="shortcode taxswitch" min="0" max="1"" /></div>
+           <div>
+             <input class ="shortcode" type="number" name="estimateddelivery" min="1" value="1" class="shortcode" /> <span> </span></div>
+             </form>
+           </div>
+           <div class="underline"> <dynamic-dropdown  label="Country"  id="bslist" name-value='{"name":"zonename", "value":"_id"}' name="zone"></dynamic-dropdown>
+           <paper-button style="float:right; padding-right:50px;" onclick="return callsaveZone(event)">save</paper-button>
+           </div>
+           
+    </paper-material>
+  </div>
+</div>
+<script>
+  document.querySelector('.pmaterial').style.opacity=0.9;
+  function makeTaxable(event)
+  {
+    var parentDiv=  event.target.parentNode;
+    console.log(parentDiv);
+    if(event.target.checked)
+    {
+      
+      parentDiv.querySelector('input[name="destinationtax"]').disabled= false;
+    }
+    else
+       parentDiv.querySelector('input[name="destinationtax"]').disabled= true;
+  }
+  </script>
+
+

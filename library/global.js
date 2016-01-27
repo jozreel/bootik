@@ -1,7 +1,7 @@
 var simple = require('simple');
 var errlog = simple.config.logpath+'/error.log'
 var fs = require('fs');
-var world = function(){}
+var global = function(){}
 global.logerror= function(err)
 {
 	var date = new Date();
