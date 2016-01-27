@@ -283,7 +283,7 @@ mongodriver.prototype.pushtoarray = function(cat, vals,array, callback)
         if(err)
         {
           simple.global.logerror(err);
-         
+         console.log(err);
         }
        
           db.close();

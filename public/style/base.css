@@ -556,8 +556,8 @@ height:auto;
     column-rule: 1px outset #ccc;
    
     }
-  .tbl form, .tbl4 form, .tbl2, .tbl5 form{height:30px;}
-  .tbl div, .tbl4 div, .tbl2, .tbl5 div{border-bottom: 1px solid #ccc; padding: 10px; overflow: hidden; height: 38px;}
+  .tbl form, .tbl4 form, .tbl2 form, .tbl5 form{height:30px;}
+  .tbl div, .tbl4 div, .tbl2 div, .tbl5 div{border-bottom: 1px solid #ccc; padding: 10px; overflow: hidden; height: 38px;}
   .countryadd{width:80%; height:0px; display: block; float: right;
    transition: height ease-in-out 0.5s, opacity ease-in-out 1s ; opacity: 0;
    -webkit-transition:  height ease-in-out 0.5s, opacity ease-in-out 1s ;
@@ -602,6 +602,7 @@ height:auto;
   .foor-section{display: inline-block; width: auto; text-align: center; border-right: 3px groove #9E9E9E; }
   .topfoot{ margin-bottom: 10px;}
   .smallform{display: inline-block; padding-right: 20px;}
+  #error{color: red; opacity:0; transition: opacity ease-in-out 0.5s;-webkit-transition:  opacity ease-in-out 0.5s; padding-left: 50px;}
  
   
  

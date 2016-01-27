@@ -96,9 +96,10 @@ shipping.findcountries = function()
 		shipping.jsonResp(doc);
 	},true);
 }
-shipping.addddestination=function()
+shipping.adddestination=function()
 {
    var mod = this.loadmodel('shipping');
+ 
    mod.addDestination(this.req.postdata, function(doc)
    {
 	  shipping.jsonResp(doc); 
@@ -108,5 +109,45 @@ shipping.destinations = function()
 {
 	this.title="Shipping Destinations"
 	this.loadview('destinations');
+}
+shipping.getdestinations = function()
+{
+	var finalobject = [];
+	 var mod = this.loadmodel('shipping');
+	 mod.findall(function(doc)
+	 {
+		
+		 for(var shipper in doc)
+		 {
+			
+			var destinations =  doc[shipper].destinations;
+			
+			  finalobject.push({country:doc[shipper].destinationcountry,_id:doc[shipper]._id, destinations:destinations });
+			
+		 }
+		 shipping.jsonResp(finalobject);
+		 
+	 },true);
+}
+shipping.removedestination = function(id,did)
+{
+	 var mod = this.loadmodel('shipping');
+	  id = this.req.postdata.id;
+	  did = this.req.postdata.did
+	 mod.removeDestination(id,did ,function(doc)
+	 {
+		 shipping.jsonResp(doc);
+	 }
+	 );
+}
+shipping.removezone = function()
+{
+	var mod = this.loadmodel('zone');
+	
+	mod.removezone(this.req.postdata, function(doc)
+	{
+		shipping.jsonResp(doc);
+	}
+	);
 }
 module.exports = shipping;

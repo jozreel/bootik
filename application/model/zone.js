@@ -15,4 +15,10 @@ zone.addzone = function(obj, callback)
 	this.insertOrUpdate(tmp,callback);
 	 //this.updateOne({zonename: {$regex:regex}},tmp,callback,true);
 }
+zone.removezone= function(obj, callback)
+{
+  this._id = obj.id;
+  console.log(obj);
+  this.deleteone(callback);
+}
 module.exports=zone;

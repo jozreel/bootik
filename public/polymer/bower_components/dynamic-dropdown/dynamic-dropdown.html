@@ -4,7 +4,7 @@
 <link rel="import" href="../paper-item/paper-item.html">
 <dom-module id="dynamic-dropdown">
 <template>
-    <paper-dropdown-menu label="[[label]]" selected-item="{{selectedItem}}" >
+    <paper-dropdown-menu disabled={{disabled}} label="[[label]]" selected-item="{{selectedItem}}" >
    <paper-menu class="dropdown-content"  id= "list">
     <template is="dom-repeat" items="[[menuItems]]">
               <paper-item>[[_getarrayItemName(item)]] <input class="valueSelected" type="hidden" value="[[_getItemValue(item)]]" /></paper-item>
@@ -29,7 +29,8 @@
       menuItems:{type:Array, value:[]},
       nameValue:{type:JSON},
       selectedItem:{type:Object,observer:'_ich'},selectedValue:Object,
-      selectedName:{type:String, observer:'_selval'}
+      selectedName:{type:String, observer:'_selval'},
+      disabled :{type:Boolean, value:false}
     },
     _getarrayItemName:function(itm)
     {

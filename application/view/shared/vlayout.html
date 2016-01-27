@@ -16,11 +16,11 @@
    <link rel="import" href="/polymer/bower_components/iron-icons/communication-icons.html">
  <link rel="stylesheet" href="/style/base.css">
   <link rel="import"  href="/style/element-styles.html"> 
-  <script src="/js/sajax.js"></script>
-   <script src="/js/bootik.js"></script>
   <link rel="shortcut icon"" href="/image/favicon.ico" type="image/x-icon">
  
   $updateHtmlHeader();
+  <script src="/js/sajax.js"></script>
+
 </head>
   <body >
     <input type="hidden" name = "logonincator" id="logonindicator" value="{{user}}" />
@@ -70,12 +70,16 @@
  </paper-header-panel> 
   
  </div>
-
+ <script src="/js/bootik.js"></script>
   <script>
 window.addEventListener('WebComponentsReady', function(){document.querySelector('#spinner').style.display='none';
 document.querySelector('#cont').style.display='block';
  }); 
+ 
 </script>
+  
+<script src="/js/site.js"> </script>
+
  </body>
  </html>
  
