@@ -5,7 +5,7 @@ account.modelname = 'account';
 account.add = function(obj,callback)
 {
 	//console.log(obj);
-	this.accountname= obj.accname;
+	this.accountname= obj.accname; 
 	this.accountno = obj.accno;
 	this.accountdesc = obj.accdesc;
 	this.accountcategory = obj.cat;
