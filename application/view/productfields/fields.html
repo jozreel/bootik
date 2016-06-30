@@ -1,0 +1,17 @@
+ $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-fab/paper-fab.html">');
+  $addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+ $getviewpart('tabletopbar');
+   <ajax-req id="getfields"></ajax-req>
+<paper-material>
+	<table id="fieldtabe" class="prodtable">
+	 <thead></thead>
+	 <tbody></tbody>
+	</table>
+</paper-material>
+
+<script>
+	window.addEventListener('WebComponentsReady', function(){
+	initiatefieldpage();
+	});
+</script>

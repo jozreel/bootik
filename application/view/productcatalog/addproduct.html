@@ -1,0 +1,61 @@
+$addToHead('<link rel="import" href="/polymer/bower_components/dynamic-dropdown/dynamic-dropdown.html">');
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-spinner/paper-spinner-lite.html">');
+  $addToHead('<link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">'); 
+  $addToHead('<link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">');
+ $addToHead('<link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">');
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+  $addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+    $addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-textarea.html">');
+  $addToHead('<link rel="import" href="/polymer/bower_components/paper-icon-button/paper-icon-button.html">');
+   $addToHead('<link rel="import" href="/polymer/bower_components/neon-animation/neon-animated-pages.html">');
+     $addToHead('<link rel="import" href="/polymer/bower_components/neon-animation/neon-animations.html">');
+     $addToHead('<link rel="import" href="/polymer/bower_components/file-select/file-select.html">');
+    $addToHead('<link rel="import" href="/polymer/bower_components/gold-cc-expiration-input/date-input.html">');
+      $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
+       $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+      $addToHead('<link rel="import" href="/polymer/bower_components/paper-fab/paper-fab.html">');
+       $addToHead('<link rel="import" href="/polymer/bower_components/animated-slide/animated-slide.html">');
+        $addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+      <ajax-req id="lbar"></ajax-req>
+       <ajax-parser id="ajp" method="POST"></ajax-parser>
+   <input type="hidden" id="deflocale" value="{{defaultlang}}" />
+   <div class="left80"><h3>Select field group for ths product <select id="fgroup" onchange=" createlbar()"><option></option></select> 
+   
+   </div>
+   <input id="_id" type="hidden" value="{{productid}}"  />
+    <paper-spinner-lite class="sp"></paper-spinner-lite>
+   <div class="invisible transo" id="pg">
+     <div class="left80">
+      <h3>Locale <select id="locale" onchange="createlbar()"></select>
+      
+      <span class="left80"> In Store ? <select name="instore" id="instore"><option value="true">Yes</option><option value="false">No</option></select> </span>
+   </h3>
+  
+     </div> 
+  <div class="ltab">
+    <ul id="lefttab">
+      
+    </ul>
+  </div>
+  <div class="rside">
+   <paper-material elevation="1">
+   <form is="iron-form" id="pform" method="post" class="pfrm" enctype="multipart/form-data" action="">
+   <animated-slide id="anim" pages="6"></animated-slide>
+ <!-- <neon-animated-pages  id ="na" selected="0" class="flex"  entry-animation="slide-from-right-animation" exit-animation="slide-left-animation">
+  
+</neon-animated-pages> -->
+
+</form>
+
+<paper-button id="prodsave" class="greenbutton">Save</paper-button>
+</paper-material>
+
+  </div>
+ </div>
+  <script>
+    window.addEventListener('WebComponentsReady', function(){
+    getfieldgroups();
+   
+    });
+    </script>
+ 

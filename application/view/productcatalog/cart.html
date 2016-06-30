@@ -1,0 +1,38 @@
+ <link rel="import" href="/polymer/bower_components/a-list/a-list-image.html">
+ <link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">
+ <link rel="import" href="/polymer/bower_components/paper-icon-button/paper-icon-button.html">
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+  <link rel="import" href="/polymer/bower_components/paper-spinner/paper-spinner.html">
+     <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">
+          <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">
+   
+     
+     <ajax-req id="cartdata"> </ajax-req>
+      <ajax-parser id="updatecart"></ajax-parser>
+ 
+  <paper-material class="cart" elevation="1">
+  <div class="spinner"><paper-spinner id="spin" alt="Loading cart items" active>></paper-spinner></div>
+  <div id="cart"></div>
+ <!--
+ <a-list-image id="cartdata" list-headers='{"0":"name","1":"desc"}'></a-list-image>
+ -->
+  </paper-material>
+
+  <div class="infoaction">
+   <div class="infoheader"><h2> Your shopping cart</h2></div>
+   <div class="totals">
+     <h3 style="display:inline-block;">Sub Total: </h3> <span id="count"> </span><span id="subtotal"></span>
+   
+     </div>
+      <div class="actions">
+        <paper-button raised onclick="gotocheckout()">Proceed to Checkout</paper-button>
+      </div>
+      <div id="shipping" class="shipping">
+        
+      </div>
+   </div>
+
+   
+  <script>
+   sajax().readystate(function(){initiateCart();});
+	  </script>

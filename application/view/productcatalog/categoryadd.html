@@ -1,0 +1,38 @@
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">');  
+<ajax-req id="catreq"></ajax-req>
+<ajax-parser id="catparser" method="POST"></ajax-parser>
+<input type="hidden" id ="rootcat" value="{{rootid}}" />
+<input type="hidden" id="_id" value="{{catid}}" />
+<input type="hidden" id="defaultsite" value="{{defaultsite}}" />
+<div class="sp" id="spin"><paper-spinner-lite active></paper-spinner-lite></div>
+<p></p>
+<paper-material class="pmaterial">
+ <ul id="cats" class="selectstyle inline-block">
+   <li><b>Categories</b></li>
+  
+ </ul>
+ <div class="form80  inline-block">
+
+<form is="iron-form" id="catform">
+   <input type="hidden" name="parentid" id="parentid"   value="none" />
+     <p> Parent Category:  <input   id="parentname"   disabled /> Locale: <select id="language" name="locale" onchange="reloadlocale()">
+     </select></p>
+      
+   <paper-input label="Category Name" name="name" id="name"></paper-input>
+   <paper-input label="Category Description" id="description" name="description"></paper-input>
+   <paper-checkbox name="enabled" value="true" id="enabled">Enabled ?</paper-checkbox>
+</form>
+<div>
+<paper-button class="greenbutton" onclick="saveCats()">save</paper-button>
+</div>
+ </div>
+</paper-material>
+<script>
+    localedd();
+    //getcats();
+    </script>

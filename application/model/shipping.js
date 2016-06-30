@@ -4,32 +4,38 @@ shipping.modelname = 'shipping';
 
 shipping.adddestinationcountry = function(obj, callback)
 {
-	
+	console.log(obj.event,obj._id);
+	delete this._id;
 	this.destinationcountry = obj.destinationcountry;
 	
 	this.shippingarea = obj.shippingarea;
-	
+	this.singledest = obj.singledest;
+	this.countryrate = obj.countryrate;
 	if(obj.event === "A")
 	{
 		
 	    this.destinations=[];
 	}
-	else
+	if(obj.event === "E")
 	{
+		
 		this._id = this.createObjectId(obj._id);
 	}
-	var temp = this.prepare();
+	//var temp = this.prepare();
 	
-	this.insertOrUpdate(temp, callback);
+	this.save(callback,obj.event);
 }
 
 shipping.addDestination = function(obj, callback)
 {
+	
+	//modify to allow multiple shipping providers
 	var shp ={};
 	shp.destinationname = obj.destinationname;
 	if(obj.destinationtax !== undefined)
 	   shp.destinationtax = obj.destinationtax;
 	 shp.shippingrate = obj.destinationrate;
+	 shp.zippost = obj.zippost;
 	 shp.estimateddelivery = obj.estimateddelivery;
 	var temp=[];
     if(obj.event === 'A')
@@ -40,7 +46,7 @@ shipping.addDestination = function(obj, callback)
 	 this.generateNextSequence('destinationid', function(next){
 	  shp.destinationid=next.toString();
 	  temp.push(shp);
-	  console.log(shp);
+	  
 	 shiper.pushtoarray({'destinationcountry.code':obj.countrycode}, temp,'destinations',callback);
 	 });
 	}

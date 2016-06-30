@@ -1,0 +1,55 @@
+
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');;
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">');  
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-spinner/paper-spinner.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');    
+<ajax-parser  id="iaj" method="POST" ></ajax-parser>
+<ajax-req id="regs"></ajax-req>
+<div class="locations">
+ 
+  <div class="writeup">
+    <h4>Add Unit.</h4>
+    <p>Setup Units. Product are mesured by them</p>
+    <i></i>
+
+  </div>
+  
+  <div class="loctable">
+  
+ 
+     <paper-spinner class="sp" id="spin" alt="Loading cart items" active></paper-spinner>
+    <paper-material class="pmaterial paded" raised>
+    
+      <h4 class="paded underline">Product Categories</h4>
+     
+            <div class="tbl2">
+                <div>Unit Name</div>
+         
+                 <div>Unit Description</div>
+             </div>
+             <div id="hidentable"></div>
+             
+              <div class="tbl2"">
+             <form is="iron-form" method="post" action="#" id="form">
+              
+           <div><input  name" required name="name" class= "longtext"></input> * </div>
+             <div>
+             <input class ="longtext"  required type="text" name="description" /> <span>*</span><span><button onclick="return saveUnitForm(event,'A')">save</button></span></div>
+             </form>
+           </div>
+           
+           <span id="error"></span>
+          
+           </div>
+           
+    </paper-material>
+  </div>
+</div>
+ $getviewpart('deletedialog');
+<script>
+    
+    sajax().readystate(function(){window.addEventListener('WebComponentsReady', function(){ getUnits();})});
+  </script>

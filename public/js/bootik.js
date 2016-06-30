@@ -29,9 +29,13 @@ function disableForm(fid, boolval)
 
 function resp(str,elem)
 {
-   
+  
    if(str.success===true)
-       elem.innerHTML ='<p style="color:green;">Sucess item added</p>';
+   {  if(str.message == undefined)
+        elem.innerHTML ='<p style="color:green;">Operation Succeded</p>';
+      else
+         elem.innerHTML= '<p style="color:green;">'+str.message+'</p>';
+   }
      else
        elem.innerHTML =str.message;
        elem.style.color = "red";
@@ -103,21 +107,26 @@ function deleteobj(apaser)
   function displaySearch()
    {
      var search = document.getElementById("search");
-     search.style.display = "inline-block";
+     search.style.opacity = "1";
+     
    }
  
  
    function scrollHandler(element,functionCall)
    {
-     
+     //console.log(document.getElementById('php'));
+    // console.log(element);
+     console.log(element.scrollHeight, element.clientHeight)
       element.onscroll =function(event){
      var scroller = event.target;
-     
+     if((element.scrollHeight - element.scrollTop)===element.clientHeight)
+         functionCall();
+       //alert('boo');
     if (scroller.clientHeight + scroller.scrollTop  === scroller.scrollHeight)
     {     //alert('lplpl')
           //element.scroller.style.overflow = "hidden";
           
-          functionCall();
+          
     }
            
      
@@ -134,78 +143,40 @@ function deleteobj(apaser)
  //// shopping cart functions
  
  
-   function updatecart(event)
-  {
-     document.querySelector('#updatecart').submit=false;
-    document.querySelector('#updatecart').respfunc = updatebadge;
-    document.querySelector('#updatecart').jsonstring = '{"event":"A", "cartdata":{"itemid":"'+ document.querySelector('#_id').value+'"}}';
-    document.querySelector('#updatecart').jsonurl="/inventory/updatecart/";
-    document.querySelector('#updatecart').submit=true;
-    
-  }
-  
-  function updatebadge(doc)
-  {
-    console.log(doc);
-    document.querySelector('#badge').label= doc.count;
-  }
-  
-  
-  function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-    }
-    return "";
-}
-  
-  
-  function checkCookie() {
-    var session = getCookie("sessionid");
-    if (session == "" && (document.querySelector('#logonindicator').value !== 'Guest' && document.querySelector('#logonindicator').value !== '')) {
-       window.location.href = '/user/login';
-       console.log(document.querySelector('#logonindicator').value);
-       alert('expired');
-    } 
-    else
-    {
-     console.log(document.querySelector('#logonindicator').value);
-    }
-    
-}
 
-function updateuserinfo()
-{
-  console.log('koko');
-   document.getElementById('dheader').dataurl="";
-  document.getElementById('dheader').dataurl = '/user/userdetails'
-  document.getElementById('dheader').respfunc=function(doc)
-  {
-    console.log(doc);
-    document.getElementById('userlink').innerHTML = doc.user;
-     document.getElementById('useraction').innerHTML = doc.action;
-     document.getElementById('logonindicator').innerHTML = doc.user;
-  }
-}
 
 function updateFormValues(form, model)
-{
+{ 
   for(var item in model)
   {
     var elename = form.querySelector('#'+item);
     if(elename !== undefined && elename !==null)
     {
-      
-      switch(elename.tagName)
+  
+      switch(elename.tagName.toLowerCase())
       {
          case 'drop-down':
           elename.selectedvalue = model[item];
+          break;
+         case 'dynamic-dropdown':
+           elename.selectedName ='';
+           elename.selectedName = model[item];
+           break;
+         case 'paper-checkbox':
+           if(typeof model[item] === 'boolean')
+           {
+              elename.checked = model[item]
+              break;
+           }  
+           if(elename.value === model[item].toString())
+           {
+               elename.checked = true;
+               break;
+           }
+           
          default:
           elename.value = model[item];
-         
+        
       }
     } 
   }
@@ -252,7 +223,7 @@ function allTaxes()
   document.getElementById('taxes').respfunc = function(doc)
   {
     
-   console.log(doc);
+   
     for(var tax in doc)
     {
       

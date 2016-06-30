@@ -13,13 +13,15 @@ simplemodel.prototype.save = function(callback, event)
    //console.log(this);
    delete temp._id;
    
-   
+  
    if(event ==='A')
      this.insert(temp,callback);
    if(event ==='E')
     { 
      
       var objid = this.createObjectId(this._id)
+      
+      //console.log(temp);
       this.updateOne({_id:objid},temp, callback);
     }
   
@@ -64,6 +66,29 @@ simplemodel.prototype.convertobase64 =function(data)
   return b;
 }
 
+
+simplemodel.prototype.page=function(quer, limit,last,fields,callback)
+{
+  var smd = this;
+  
+  this.recordcount(function(count)
+  {
+  
+  if(limit > count)
+    limit= count;
+  var options = {"limit":limit, "skip":last, "sort":"name"};
+
+  smd.find(quer,fields,options,true,function(doc)
+  {
+     
+     var decd = smd.decodeallValues(doc);
+      
+      
+      callback(decd);
+      
+  });
+  });
+}
 
 simplemodel.prototype.prepare =function()
 {
@@ -141,7 +166,20 @@ simplemodel.prototype.checkencoded =function(str)
 {
   var retstr="";
   var regx = new RegExp(/%\d[\dA-F]/g);
-		if(regx.test(str))
+  try {
+    var res = decodeURIComponent(str);
+    retstr = str;
+    
+  }
+  catch(ex)
+  {
+    console.log('not escaped escaping now');
+     retstr =encodeURIComponent(str);
+  }
+ 
+/*  var test = regx.test(str);
+   console.log(test);
+		if(test)
 		{
 		  
      retstr= str;
@@ -151,7 +189,7 @@ simplemodel.prototype.checkencoded =function(str)
     else
     {
       retstr =encodeURIComponent(str);
-    }
+    }*/
     return retstr;
 }
 

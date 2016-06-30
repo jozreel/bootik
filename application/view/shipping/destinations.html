@@ -29,8 +29,9 @@ $addToHead('<link rel="import" href="/polymer/bower_components/paper-spinner/pap
             <div class="tbl4">
                 <div>Destination Name</div>
               
-                <div>Destination Rate</div>
-                  <div>Destination Tax</div>
+                <div>Zip / Postal / Code</div>
+                <div> Destination Rates</div>
+                 <!-- <div>Destination Tax</div>-->
                  <div>Estimated Delivery</div>
              </div>
              <div id="hidentable"></div>
@@ -39,8 +40,9 @@ $addToHead('<link rel="import" href="/polymer/bower_components/paper-spinner/pap
              <form is="iron-form" method="post" action="#" id="rform">
               
            <div><input  name" required name="destinationname" class= "longtext"></input> * </div>
+           <div><input class ="shortcode"  required type="text" name="zippost" class="shortcode" /> <span>*</span> </div>
             <div><input class ="shortcode"  required type="number" name="destinationrate"> * </div>
-           <div><input type="checkbox"  onchange="makeTaxable(event)"/>Is Taxable ? <input type="number" disabled name="destinationtax" class="shortcode taxswitch" min="0" max="1"" step="0.01" /></div>
+          <!-- <div><input type="checkbox"  onchange="makeTaxable(event)"/>Is Taxable ? <input type="number" disabled name="destinationtax" class="shortcode taxswitch" min="0" max="1"" step="0.01" /></div> -->
            <div>
              <input class ="shortcode"  required type="number" name="estimateddelivery" min="1" value="1" class="shortcode" /> <span>*</span></div>
              </form>

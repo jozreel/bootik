@@ -1,4 +1,4 @@
-$getviewpart('header');
+
  <link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">
  <link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">
   <link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">
@@ -60,8 +60,7 @@ $getviewpart('header');
 					 
 					 
 				 }
-				   document.querySelector('#taj').jsonstring=JSON.stringify(obj);
-					
+				   document.querySelector('#taj').jsonstring=JSON.stringify(obj)			
 				    document.querySelector('#taj').jsonurl='/taxes/save';
 				    document.querySelector('#taj').submit=true;
 		   }
@@ -106,4 +105,3 @@ $getviewpart('header');
 	 }
 </script>
 $getviewpart('deletedialog');
-$getviewpart('footer');

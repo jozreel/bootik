@@ -1,0 +1,12 @@
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">');
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+  $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
+ <ajax-parser method="POST" id="ajfg"></ajax-parser>
+<form is="iron-form" action="#" method=post id="gform">
+<paper-input required label="FIELD GROUP NAME" name="fieldgroupname" id="fieldgroupname"></paper-input>
+<p>Clone from: </p>
+<select><option></option>
+</select>
+</form>
+<paper-button onclick="savefieldgroup()">save</paper-button>

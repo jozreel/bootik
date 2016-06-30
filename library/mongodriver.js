@@ -90,7 +90,11 @@ mongodriver.prototype.removeone = function(cat, callback)
   this.MongoClient.connect(this.connectionString, function(err, db)
   {
    if(err)
+   {
        simple.global.logerror(err);
+   }
+   else
+   {
     var collection = db.collection(obj1.modelname);
     collection.deleteOne(
       cat,
@@ -110,6 +114,7 @@ mongodriver.prototype.removeone = function(cat, callback)
       }
    );
   }
+  }
   );
   
 }
@@ -125,7 +130,11 @@ mongodriver.prototype.removegroup = function(needle, catarr, callback)
   this.MongoClient.connect(this.connectionString, function(err, db)
   {
    if(err)
+   {
       simple.global.logerror(err);
+   }
+   else
+   {
     var collection = db.collection(obj1.modelname);
     collection.deleteMany(conob,
       function(err, results) {
@@ -144,6 +153,7 @@ mongodriver.prototype.removegroup = function(needle, catarr, callback)
       }
    );
   }
+  }
   );
   
 }
@@ -158,7 +168,10 @@ mongodriver.prototype.insert = function(obj,callback)
     var res ={};
     res.success = true;
     if(err)
+    {
       simple.global.logerror(err);
+    }
+    else{
       //console.log(obj);
       var collection = db.collection(obj1.modelname);
       collection.insertOne(obj,{w:1}, function(err, result){
@@ -176,6 +189,7 @@ mongodriver.prototype.insert = function(obj,callback)
       });
     
   }
+  }
   );
 }
 
@@ -190,7 +204,10 @@ mongodriver.prototype.insertmany = function(obj,callback)
     var res ={};
     res.success = true;
     if(err)
+     {
       simple.global.logerror(err);
+     }
+     else{
       //console.log(obj);
       var collection = db.collection(obj1.modelname);
       collection.insertMany(obj,{w:1}, function(err, result){
@@ -208,6 +225,7 @@ mongodriver.prototype.insertmany = function(obj,callback)
       });
     
   }
+  }
   );
 }
 
@@ -218,7 +236,10 @@ mongodriver.prototype.createObjectId =function(id)
   var retid ='';
   try{
   var Objectid = require('mongodb').ObjectID;
-  retid = new Objectid(id);
+  if(id ===undefined || id === '')
+     retid= new Objectid();
+  else
+    retid = new Objectid(id);
   }
   catch(error)
   {
@@ -230,6 +251,7 @@ mongodriver.prototype.createObjectId =function(id)
 mongodriver.prototype.updateOne =function(cat, vals, callback,upsert)
 {var obj1 =this;
   if(upsert !== true)
+  
     upsert == false;
   var res = {};
   res.success=true;
@@ -242,9 +264,11 @@ mongodriver.prototype.updateOne =function(cat, vals, callback,upsert)
       res.error=err;
       res.success=false;
     }
+    else
+    {
        
       var collection = db.collection(obj1.modelname);
-      console.log(obj1.modelname);
+ 
      // console.log(vals);
       collection.updateOne(cat, {$set: vals, $currentDate: { "lastModified": true }},{w:1,upsert:upsert}, function(err,result)
       {
@@ -255,7 +279,9 @@ mongodriver.prototype.updateOne =function(cat, vals, callback,upsert)
               callback(res);
       }
       );
-  });
+  }
+  }
+  );
 }
 
 
@@ -273,6 +299,8 @@ mongodriver.prototype.pushtoarray = function(cat, vals,array, callback)
       res.error=err;
       res.success=false;
     }
+    else
+    {
        
       var collection = db.collection(obj1.modelname);
     var arr={};
@@ -291,11 +319,12 @@ mongodriver.prototype.pushtoarray = function(cat, vals,array, callback)
               callback(res);
       }
       );
-  });
+  }
+  }
+  );
 }
-
-
-mongodriver.prototype.updateinarray = function(cat, val, callback)
+//no duplicates
+mongodriver.prototype.addtoarray = function(cat, vals,array, callback)
 {var obj1 =this;
    var res = {};
   res.success=true;
@@ -308,11 +337,53 @@ mongodriver.prototype.updateinarray = function(cat, val, callback)
       res.error=err;
       res.success=false;
     }
+    else
+    {
+       
+      var collection = db.collection(obj1.modelname);
+    var arr={};
+    arr[array]={$each:vals};
+  
+     collection.updateOne(cat, {$addToSet: arr }, function(err,result)
+      {
+        if(err)
+        {
+          simple.global.logerror(err);
+         console.log(err);
+        }
+       
+          db.close();
+          if (callback && typeof(callback) == "function")  
+              callback(res);
+      }
+      );
+  }
+  }
+  );
+}
+
+
+
+mongodriver.prototype.updateinarray = function(cat, val, callback,upsert)
+{var obj1 =this;
+   var res = {};
+  res.success=true;
+  if(upsert === undefined)
+    upsert = false;
+  this.MongoClient.connect(this.connectionString, function(err, db)
+  {
+    if(err)
+    {
+      simple.global.logerror(err);
+      res.error=err;
+      res.success=false;
+    }
+    else{
        
       var collection = db.collection(obj1.modelname);
     
-     console.log(cat, {$set: val });
-     collection.update(cat, {$set: val }, function(err,result)
+     
+     collection.update(cat, {$set: val },{upsert:upsert},function(err,result)
       {
         if(err)
         {
@@ -325,7 +396,9 @@ mongodriver.prototype.updateinarray = function(cat, val, callback)
           
       }
       );
-  });
+  }
+  }
+  );
 }
 
 
@@ -343,10 +416,10 @@ mongodriver.prototype.removefromarray = function(cat, val,multi, callback)
       res.error=err;
       res.success=false;
     }
-       
+    else{  
       var collection = db.collection(obj1.modelname);
     
-     console.log(cat, {$pull: val });
+   
      collection.update(cat, {$pull: val },{multi:multi},function(err,result)
       {
         if(err)
@@ -354,13 +427,16 @@ mongodriver.prototype.removefromarray = function(cat, val,multi, callback)
           simple.global.logerror(err);
          
         }
+     
           db.close();
           if (callback && typeof(callback) == "function")  
               callback(res);
           
       }
       );
-  });
+  }
+  }
+  );
 }
 
 
@@ -408,20 +484,24 @@ mongodriver.prototype.replace=function(id, rep)
   this.MongoClient.connect(this.connectionString, function(err, db)
   {
     if(err)
+    {
         simple.global.logerror(err);
+    }
+    else{
      var collection = db.collection(obj1.modelname);
      collection.replaceOne({'_id':id}, rep,{w:1}, function(err ,result) {
        if(err)
          simple.global.logerror(err);
          db.close();
      })
+  }
   });
   
 }
 
 mongodriver.prototype.insertOrUpdate = function(obj,callback)
 {
-  console.log('call');
+  
    var res ={};
    res.success = true;
    var obj1 = this;
@@ -444,10 +524,13 @@ mongodriver.prototype.insertOrUpdate = function(obj,callback)
         {
            res.success=false
            res.error = err;
+           
           
         }
         else
         {
+            
+            res.result=result.ops;
          if (callback && typeof(callback) == "function")  
               callback(res);
         }
@@ -475,7 +558,10 @@ mongodriver.prototype.savetogrid = function(filebuff,fdata,callback,event)
     
    
     if(err)
+    {
         simple.global.logerror(err);
+    }
+    
   
     var ObjectId = require('mongodb').ObjectID;
     var fileId = new ObjectId();
@@ -764,45 +850,82 @@ mongodriver.prototype.findOne = function(cond,flds,opt, coll,callback)
 
 */
 
-mongodriver.prototype.find = function(cond,flds,opt, coll,callback)
+mongodriver.prototype.recordcount = function(callback)
 {
   
-  console.log(opt);
   var obj = this;
   this.MongoClient.connect(this.connectionString, function(err, db)
   {
+   var collection = db.collection(obj.modelname);
    if(err)
-       throw err;
+   {
+       simple.global.logerror(err);
+       console.log(err);
+   }
+   else
+   {
+     
+      collection.find().count(function(err,count){
+        {
+          callback(count);
+        }
+      });
+   }
+  });
+   
+}
+
+mongodriver.prototype.find = function(cond,flds,opt, coll,callback)
+{
+  
+  
+  var obj = this;
+  
+  this.MongoClient.connect(this.connectionString, function(err, db)
+  {
+   if(err)
+   {
+       simple.global.logerror(err);
+       console.log(err);
+   }
+   else
+   {
    // console.log(opt);
    if(opt === null)
      opt={};
     if(flds===null)
      flds={};
     var collection = db.collection(obj.modelname);
-    if(opt!==null)
-    {
+  
      
+        
         collection.find(cond,flds,opt).count(function(err,count){ 
           if(err)
             {
-              throw err;
+             
+              simple.global.logerror(err);
               console.log(err);
             }
+          
           if(count >0){
+            
              var cursor = collection.find(cond,flds,opt);  
-            // db.close();
-             obj.traverseCursor(cursor,db, callback,count,coll);
+             
+             var retcount = count;
+             if(opt.limit !== undefined && opt.limit <=count)
+              retcount = opt.limit;
+             obj.traverseCursor(cursor,db, callback,retcount,coll);
+             
              } 
              else
              {   db.close();
                  callback({});
              }
         });
-    }
-     else if(opt===null)
-     {
-       
-        collection.find(cond,flds,opt).count(function(err,count){ 
+    
+    
+         ;
+       /* collection.find(cond,flds,opt).count(function(err,count){ 
           if(count >0){
             
             var cursor = collection.find(cond,flds,opt);  obj.traverseCursor(cursor,db, callback,count,coll);
@@ -811,8 +934,52 @@ mongodriver.prototype.find = function(cond,flds,opt, coll,callback)
              { 
                callback({});
               }
-         });
-     }
+         });*/
+     
+  }
+  }
+  );
+ 
+  
+}
+
+
+mongodriver.prototype.aggregate = function(match,group,callback)
+{
+  
+  
+  var obj = this;
+  this.MongoClient.connect(this.connectionString, function(err, db)
+  {
+   if(err)
+   {
+      simple.global.logerror(err);
+      console.log(err);
+   }
+   else
+   {
+  
+    var collection = db.collection(obj.modelname);
+ 
+      
+     
+       
+         
+          collection.aggregate([{$match:match},{$group:group}]).toArray(function(err,res)
+          {
+             callback(res);
+             
+             db.close();
+          }); 
+        
+       
+            
+            //obj.traverseCursor(c,db, callback,0,true);
+             
+             
+       
+    
+   } 
   }
   );
   
@@ -820,10 +987,12 @@ mongodriver.prototype.find = function(cond,flds,opt, coll,callback)
 
 
 
+
 mongodriver.prototype.findall = function(callback,coll)
 {
   
   var obj = this;
+ 
   this.MongoClient.connect(this.connectionString, function(err, db)
   {
     
@@ -831,15 +1000,17 @@ mongodriver.prototype.findall = function(callback,coll)
     {
       
       console.log(err);
+      simple.global.logerror(err);
       callback([{success:false, error:err}]);
     }
+    else{
     var collection = db.collection(obj.modelname);
     collection.find().count(function(err,count){
       if(err)
       {
        
-        throw err;
-        console.log(err);
+       console.log(err);
+       simple.global.logerror(err);
       }
       if(count > 0)
       {
@@ -857,9 +1028,11 @@ mongodriver.prototype.findall = function(callback,coll)
   //  this.assert.equal(err,null)
    // obj.traverseCursor(cussor,db, callback);
     //callback(cussor);
-    
+    }
   }
   );
+  
+  
   
 }
 
@@ -892,11 +1065,13 @@ mongodriver.prototype.traverseCursor =function(cursor,db, callback,count,coll)
     callback({error:true,message:"empty"});
   }
   else{
+    
 	 cursor.each(function(err, doc) {
+     
       obj.assert.equal(err, null);
 	  if(doc!==null)
 	  {
-    
+       
        itter++;
        if(coll === true)
        {
@@ -907,16 +1082,16 @@ mongodriver.prototype.traverseCursor =function(cursor,db, callback,count,coll)
          if(itter == count)
          {
             db.close();  
-            
+            //console.log(tmparr);
             callback(tmparr);
-            
+           
          }
        
        }
        else
        {
        
-        callback(doc,count);
+        callback(doc,count,itter);
        }
     // 
 		 
@@ -931,17 +1106,76 @@ mongodriver.prototype.traverseCursor =function(cursor,db, callback,count,coll)
      
  }
  
- mongodriver.prototype.searchword =function(needle, callback, batch)
+ 
+mongodriver.prototype.adsearch=function(needle, flds, opts, callback)
 {
    var res = Array();
    var ids = Array();
   // var itter = 0;
    var obj = this;
+    
+     obj.find({},flds,opts, true, function(doc)
+     {
+      
+    try{
+    
+      if(needle !== undefined)
+      {   
+      for(var indx in doc)
+      {
+         for(var obj in doc[indx])
+         {
+         if(typeof doc[indx][obj] === 'string')
+           {
+             
+              if(doc[indx][obj].toLowerCase().match(new RegExp(needle.toLowerCase()),"i") !==null)
+              {
+                
+               
+               
+                if(ids.lastIndexOf(doc[indx]['_id']) === -1)
+                   {
+                      
+                     // console.log((doc[indx].search(new RegExp(needle,"i"))),doc[indx]);
+                       res.push(doc[indx]);
+                       ids.push(doc[indx]['_id']);
+                       //console.log(res);
+                       break;
+                   }
+                }
+                
+              }
+           }
+         }
+        
+        callback(res);
+      }
+      else
+      {
+        callback(doc);
+      }
+      
+     }
+     catch(err)
+     {
+       if(err)
+         console.log(err);
+     }
+     });
    
+}
+mongodriver.prototype.searchword =function(needle, callback, batch)
+{
+   var res = Array();
+   var ids = Array();
+  // var itter = 0;
+   var obj = this;
+  
    if(needle !== undefined)
    {
    this.findall(function(doc, count,itter){
      try{
+      
       for(var indx in doc)
       {
          
@@ -965,6 +1199,7 @@ mongodriver.prototype.traverseCursor =function(cursor,db, callback,count,coll)
                 }
                 else
                 {
+                  
                   callback(doc);
                   break;
                 }
@@ -972,9 +1207,10 @@ mongodriver.prototype.traverseCursor =function(cursor,db, callback,count,coll)
            }
         
       }
+    
       if(batch && itter === count)
       {
-       
+         
          callback(res);
       }
      }
@@ -992,6 +1228,7 @@ mongodriver.prototype.traverseCursor =function(cursor,db, callback,count,coll)
 mongodriver.prototype.findandupdate  =function(lookup, obj,callback)
 {
   var res = {};
+  var modobj = this;
   res.success=true;
    this.MongoClient.connect(this.connectionString, function(err, db)
   {
@@ -1000,19 +1237,21 @@ mongodriver.prototype.findandupdate  =function(lookup, obj,callback)
       console.log(err);
       res.success=false;
       res.error = err;
+      simple.global.logerror(err);
      }
+     else{
     try{
-
-     var collection = db.collection('counters');
+    
+     var collection = db.collection(modobj.modelname);
+   
      collection.findAndModify(
-       
        {_id:lookup},
        [['_id','asc']],
        {$set:obj},
        {new:true},
        function(err, object){
          try{
-           console.log(err);
+           
            callback(object.value, res);
          }
          catch(error)
@@ -1032,6 +1271,7 @@ mongodriver.prototype.findandupdate  =function(lookup, obj,callback)
       res.success=false;
       res.error = err;
     }
+    }
   });
 }
 mongodriver.prototype.generateNextSequence = function(lookup, callback)
@@ -1040,7 +1280,11 @@ mongodriver.prototype.generateNextSequence = function(lookup, callback)
   this.MongoClient.connect(this.connectionString, function(err, db)
   {
     if(err)
+     {
       console.log(err);
+      simple.global.logerror(err);
+     }
+     else{
     try{
 
      var collection = db.collection('counters');
@@ -1069,6 +1313,7 @@ mongodriver.prototype.generateNextSequence = function(lookup, callback)
     catch(err){
       console.log(err);
     }
+    }
   });
 }
 
@@ -1076,17 +1321,18 @@ mongodriver.prototype.insertcounters=function(counterid)
 {
   this.MongoClient.connect(this.connectionString, function(err, db)
   {
-     try{
+    
     if(err)
+    {
+     simple.global.logerror(err);
      console.log(err);
+    }
+    else
+    {
      var collection = db.collection('counters');
-       collection.insert({_id:counterid, seq:0});
-     }
-     catch(err)
-     {
-       console.log(err);
-     }
-  }
+       collection.insert({_id:counterid, seq:0}); 
+    }
+    } 
   );
   
 }

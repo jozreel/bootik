@@ -1,7 +1,7 @@
-$getviewpart('clientheader');
-<link rel="import" href="/polymer/bower_components/gold-cc-input/gold-cc-input.html">
-<link rel="import" href="/polymer/bower_components/gold-cc-expiration-input/gold-cc-expiration-input.html">
-<link rel="import" href="/polymer/bower_components/gold-cc-cvc-input/gold-cc-cvc-input.html">
+
+$addToHead('<link rel="import" href="/polymer/bower_components/gold-cc-input/gold-cc-input.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/gold-cc-expiration-input/gold-cc-expiration-input.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/gold-cc-cvc-input/gold-cc-cvc-input.html">');
 <link rel="import" href="/polymer/bower_components/gold-email-input/gold-email-input.html">
 <link rel="import" href="/polymer/bower_components/gold-phone-input/gold-phone-input.html">
 <link rel="import" href="/polymer/bower_components/gold-zip-input/gold-zip-input.html">
@@ -10,11 +10,22 @@ $getviewpart('clientheader');
 <link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">
 <link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">
 <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">
-<div class="content fit">
+$addToHead('<link rel="import" href="/polymer/bower_components/dynamic-dropdown/dynamic-dropdown.html">');
 
-	<div class="content_client">
+
+	
 		<div class="ccinfo">
 			<form is="iron-form" method="post" action="/accounts/processteansaction" id="payform">
+			    
+                <fieldset id="shipping">
+					<legend>Shipping information</legend>
+					<paper-input name="shippingaddressln1" id="shippingaddressln1" label="street"></paper-input>
+				<paper-input name="shippingcity" id="shippingcity" label="shipingcity" auto-validate required></paper-input>
+				<paper-input name="shippingstate" id="shippingstate" label="state"></paper-input>
+				<gold-zip-input id="shippingpostalcode" label="Mailing zip / postal code" name="shippingpostalcode" auto-validate required></gold-zip-input>
+				<dynamic-dropdown label="Country" id="shippingcountry" name-value='{"name":"name", "value":"code"}'  name="shippingcountry"></dynamic-dropdown>	
+				</fieldset>
+				<p><paper-checkbox id="ship" onchange="checkshipping()">Billing address same as Shipping</paper-checkbox></p>
 			    <fieldset>
 					<legend>Billing information</legend>
 				<paper-input name="firstname" id="firstname" label="firstname" auto-validate required></paper-input>
@@ -23,58 +34,68 @@ $getviewpart('clientheader');
 				<paper-input name="billingcity" id="city" label="city" auto-validate required></paper-input>
 				<paper-input name="billingstate" id="state" label="state"></paper-input>
 				<gold-zip-input id="billingpostalcode" label="Mailing zip / postal code" name="billingpostalcode" auto-validate required></gold-zip-input>
-				<paper-input name="billingcountry" id="country" label="country" auto-validate required></paper-input>
+				<dynamic-dropdown label="Country" id="country" name-value='{"name":"name", "value":"code"}'  name="billingcountry"></dynamic-dropdown>	
 				<gold-cc-input label="Credit Card Number" name="ccnumber" id="cc" auto-validate onblur="checkvalid(event)" required></gold-cc-input>
 				<gold-cc-expiration-input label="Date" id="expdate" name="expdate" auto-validate required></gold-cc-expiration-input>
 				<gold-cc-cvc-input label="Card Verification Value" name="ccv" auto-validate id="ccv" required></gold-cc-cvc-input>
 				<gold-email-input label="your email address" name="email" auto-validate required></gold-email-input>
 				<gold-phone-input label="call this" auto-validate name="tel" country-code="1" required></gold-phone-input>
 			    </fieldset>
-				<p><paper-checkbox id="ship" onchange="checkshipping()">Shipping address same as billing</paper-checkbox></p>
-                <fieldset id="shipping">
-					<legend>Shipping information</legend>
-					<paper-input name="shippingaddressln1" id="shippingaddressln1" label="street"></paper-input>
-				<paper-input name="shippingcity" id="shippingcity" label="shipingcity" auto-validate required></paper-input>
-				<paper-input name="shippingstate" id="shippingstate" label="state"></paper-input>
-				<gold-zip-input id="shippingpostalcode" label="Mailing zip / postal code" name="shippingpostalcode" auto-validate required></gold-zip-input>
-				<paper-input name="shippingcountry" id="shippingcountry" label="country" auto-validate required></paper-input>
-					
-				</fieldset>
-				<paper-button onclick="formsubmit(event)" flat class="greenbutton">submit</paper-button>
+				
+				
 			</form>
+			<paper-button onclick="formsubmit(event)" flat class="greenbutton">submit</paper-button>
 			<ajax-req id="ordertotals" dataurl="/accounts/getcartinfo"></ajax-req>
 
 			<div class="ordersumary">
 				<div class="inner">
-					<h2>Your Order</h2>
+					<h2>Your Order </h2>
+					
 					<div class="subtotal"><div class="tots">Sub Total: </div><span id="subtotal"></span></div>
-					<div class="tax"><div class="tots">Tax: </div><span id="tax"></span></div>
+					<div class="orderalert">
+					<div><p><i>Please note that this may ot be you final cost of the items you purchased as taxes and shipping rates may apply to products purchased</i></p></div>
+					<div><p><i>Taxes are calculated after shipping destinations are selected as taxes may be destination based. Shipping costs are also calculated based on your shipping address</i></p></div>
+					</div>
+					<!--<div class="tax"><div class="tots">Tax: </div><span id="tax"></span></div>
 					<div class="shipping"><div class="tots">Shipping: </div><span id="shipping"></span></div>
-					<div class="grandtotal"><div class="tots">Total: </div><span id="total"></span></div>
+					<div class="grandtotal"><div class="tots">Total: </div><span id="total"></span></div> -->
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
-</paper-header-panel>
+
+
 <script>
 	
 	document.querySelector('#ordertotals').respfunc=function(doc)
 	{
-		console.log(doc);
+		
 	
 	  	document.querySelector('#subtotal').innerHTML = doc.total;
-	    document.getElementById('getcart').respfunc= function(doc){
+		  document.querySelector('#ordertotals').respfunc = function(doct)
+		  {
+	       console.log(doct,'opo');
+	        document.querySelector('#shippingcountry').menuItems = doct;
+			 document.querySelector('#country').menuItems = doct;
+	      document.getElementById('getcart').respfunc= function(doc1){
+		 
+           updatebadge(doc1);
+		   updateuserinfo();
+		    
+	      }
+		  document.getElementById('getcart').dataurl="";
+	      document.getElementById('getcart').dataurl = '/inventory/getcartitems/';
+		  }
+		 document.querySelector('#ordertotals').dataurl = "";
+        document.querySelector('#ordertotals').dataurl = "/static/countries.json"; 
 		
-         updatebadge(doc);
-		 updateuserinfo();
-	 }
-	 document.getElementById('getcart').dataurl="";
-	  document.getElementById('getcart').dataurl = '/inventory/getcartitems/';
+	    
+	 
 	}
 	//document.querySelector('#ordertotals').dataurl="/accounts/getcartinfo"
 	function checkvalid(event)
 	{
+		if(document.getElementById("cc").querySelector('img').src === null)
+		{
 		var srs = document.getElementById("cc").querySelector('img').src;
 		var ctype = srs.substring(srs.lastIndexOf('/')+1,srs.lastIndexOf('.'));
 		
@@ -84,17 +105,27 @@ $getviewpart('clientheader');
 		   
 			document.querySelector('#ccv').catdType = ctype;
 			console.log(document.querySelector('#ccv').catdType);
-		
+		}
 	}
 	
 	function formsubmit(event)
 	{
-		if(document.getElementById('payform').validate())
-		{
+		
+		//if(document.getElementById('payform').validate())
+		//{
+		var shippingpostalcode = document.getElementById('shippingpostalcode').value;	
+		var countrycode =document.getElementById('shippingcountry').selectedValue.code;
+		console.log(countrycode);
 		var json = document.querySelector('#payform').serialize();
 		json.cardtype = document.querySelector('#cc').cardType;
-		console.log(json);
+		
+		document.getElementById('getcart').respfunc = function(doc)
+		{
+			
 		}
+		document.getElementById('getcart').dataurl = ""
+		document.getElementById('getcart').dataurl = '/accounts/finalizeorder/'+countrycode+'/'+shippingpostalcode;
+		//}
 	}
 	
 	function checkshipping()
@@ -106,13 +137,12 @@ $getviewpart('clientheader');
 		
 		if(chkbox.checked)
 		{
-			document.getElementById('shippingaddressln1').value = document.querySelector('input[name="billingaddressln1"]').value;
-			document.getElementById('shippingcity').value = document.querySelector('input[name="billingcity"]').value;
-			document.getElementById('shippingstate').value = document.querySelector('input[name="billingstate"]').value;
-			document.getElementById('shippingpostalcode').value = document.querySelector('input[name="billingpostalcode"]').value;
-			document.getElementById('shippingcountry').value = document.querySelector('input[name="billingcountry"]').value;
+			 document.getElementById('addressln1').value = document.getElementById('shippingaddressln1').value;
+			 document.getElementById('city').value=document.getElementById('shippingcity').value;
+			 document.getElementById('state').value= document.getElementById('shippingstate').value;
+			 document.getElementById('billingpostalcode').value=document.getElementById('shippingpostalcode').value;
+			 document.getElementById('country').value= document.getElementById('shippingcountry').value;
 		}
 	}
 	
 	</script>
-$getviewpart('clientfooter');

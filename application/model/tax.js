@@ -52,12 +52,15 @@ tax.getregions = function(cid, callback)
 }
 tax.savecountry= function(obj,callback)
 {
-	
+   
 	this.country = obj.country;
 	this.countrycode =obj.countrycode;
 	this.countrytax = obj.countrytax;
+    if(obj.event ==='A')
+	{
 	this.regions=[];
 	this.overides=[];
+	}
 	if(obj.event ==="E")
 	{
 	  this._id = obj._id;

@@ -4,7 +4,7 @@ var session = function(requ, res){
 	this.resp=res;
 	this.sessionVars={};
 	this.sessionreqvars={};
-	this.expmins =10;
+	this.expmins =60;
 	
 	//console.log(this.bla);
 	//this.parseCookies();

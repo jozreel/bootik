@@ -1,0 +1,299 @@
+
+ $addToHead('<script type="text/javascript" src="/js/videocapture.js"></script>');
+   <video style="width:480px; height:270; border:1px solid #ccc;" autoplay muted></video>
+   <canvas width="480", height="270" id="vidcanvas" style="display:inline"></canvas>
+   <video style="width:480px; height:270; border:1px solid #ccc; display:inline;" autoplay  id="remoteview" ></video>
+    <video style="width:480px; height:270; border:1px solid #ccc; display:inline;"  autoplay id="selfview" muted ></video>
+  <!--<img id="test" src='/image/scream.jpg' width="720" height="480" />
+   <canvas width="480", height="270" id="holder" style="display:inline"></canvas> -->
+   <button onclick="startCapture()">Capture</button>
+ <input name ="chat" type="text" id="chat" onkeydown="sendMsg(event)" />
+ <div  id="td">cscsc</div>
+ <button onclick="disconnect()">close</button>
+ <img width="512", height="288" id="target" />
+ <script>
+    
+     var timer=1;
+     user="";
+    var connection = new WebSocket('wss://192.168.3.11:4433/productcatalog/job/milk?a=b&c=d');
+    connection.binaryType = 'blob'; 
+    connection.onopen = function () {
+     var str='{"appID":"bootik9090", "message_type":"HANDSHAKE"}';
+    // for(var i=0; i<8; i++)
+     //   str+='y';
+     // str = str+'jkj';
+    
+      connection.send(str); // Send the message 'Ping' to the server
+     console.log(str.length);
+   //  connection.send('MDN pluss');
+     //console.log('MDN');
+     
+    };
+
+// Log errors
+   connection.onerror = function (error) {
+  console.log('WebSocket Error '+ error);
+};
+
+// Log messages from the server
+connection.onmessage = function (e) {
+   
+    var urlCreator = window.URL || window.webkitURL;
+    if(e.data instanceof Blob)
+    {
+      var url =  getfromblob(e.data)
+        document.getElementById('target').onload = function()
+        {
+          urlCreator.revokeObjectURL(url);
+         }
+         document.getElementById('target').src = url; 
+    }
+    if(typeof e.data ==='string')
+    {
+        try{
+            var a = JSON.parse(e.data);
+            // console.log(a.message, a.message_type);
+             if(a.message_type === 'ping')
+             {
+      
+                 msg = '{"message_type":"pong"}';
+               connection.send(msg);
+            }
+           else if(a.message_type === 'TEXTDATA')
+           {
+               document.getElementById('td').innerHTML+='<p>'+a.message+'</p>';
+               console.log('Server: ' + a);
+             }
+   
+             else if(a.message_type==='PCP')
+             {
+                 
+                  if(!pc)
+                  {
+                   startConnection(false,connection);
+                  }
+                  //var msg= JSON.parse(e.data);
+                  var signal = a.message;
+                  //console.log(signal);
+                 if (signal.sdp)
+                 {
+                  console.log('sdp');
+                  pc.setRemoteDescription(new RTCSessionDescription(signal.sdp));
+                 }
+                 else
+                 {
+                  if(signal.candidate)
+                  {
+                    pc.addIceCandidate(new RTCIceCandidate(signal.candidate));
+                   
+                  }
+                 }
+                 // document.getElementById('remoteview').play();
+                  document.getElementById('remoteview').volume=0.5;
+                
+                }
+            }
+       catch(er)
+       {
+      
+       }
+  
+        
+    }
+     
+  
+  
+  
+  
+    
+    /*
+ // console.log(e.data); 
+  var buffer = new Uint8Array(e.data);
+   console.log(buffer.length);
+    
+   var blob = new Blob( [buffer.buffer], { type: "image/jpg" } );
+    var urlCreator = window.URL || window.webkitURL;
+    
+    var imageUrl = urlCreator.createObjectURL( blob );
+   
+    document.getElementById('target').onload = function()
+    {
+        urlCreator.revokeObjectURL(imageUrl);
+    }
+     document.getElementById('target').src =imageUrl; 
+    //console.log(blob);
+   var reader = new FileReader();
+   reader.onload = function(e) {
+       
+     //  document.getElementById('target').src = (e.target.result);
+   };
+ //  reader.readAsDataURL(blob);
+    
+  //blb = new Blob(e.data);
+ // console.log(buffer);
+  for(i =0;i< buffer.length; i++)
+  {
+      ;//console.log(String.fromCharCode(buffer[i]))
+  }
+  //console.log(blb);
+ // ua = new Uint8Array(e.data);
+  //console.log(ua);
+  var data = e.data; 
+  if(e.data instanceof ArrayBuffer)
+    console.log('abuf')
+  if(e.data instanceof Blob)
+    console.log('blob')
+  if(typeof e.data ==='string')
+    console.log('string');
+  */
+ 
+//console.log(bytes);
+//console.log(bytes);
+//var bb = new Blob(buffer);
+/*var reader = new window.FileReader();
+if(blb.size > 0)
+  reader.readAsDataURL(blb);
+ reader.onloadend = function() {
+               
+               uri = (reader.result);
+               s =  uri.slice(0,5)
+               sp = uri.slice(5);
+                s= s+'image/jpeg';
+              cmp = s+sp;
+            //  console.log(cmp);
+              
+               document.getElementById('target').src =cmp;     
+              // console.log(base64data );
+             
+  } */
+
+//console.log(dur);
+// var src = window.webkitURL.createObjectURL(bb);
+ //src= decodeURIComponent(src);
+ /* document.getElementById('target').onload = function() {
+                           window.webkitURL.revokeObjectURL(src);
+                     };
+ document.getElementById('target').src=src;
+console.log(src);*/
+ 
+  //console.log(e);
+  //data = JSON.parse(data);
+//console.log(e.data,'data');
+/*  user=data.user;
+  console.log(typeof data.message_type);
+  
+  try{
+  var a = JSON.parse(data);
+  }
+  catch(er)
+  {
+      
+  }
+  if(typeof a.message_type === 'string')
+  {
+  if(a.message_type === 'ping')
+  {
+      
+      msg = '{"message_type":"pong"}';
+      connection.send(msg);
+  }
+  else if(a.message_type === 'TEXTDATA')
+  {
+      document.getElementById('td').innerHTML+='<p>'+a.message+'</p>';
+      console.log('Server: ' + a);
+  }
+  } */
+ // alert('message');
+};
+
+ connection.onclose = function(ev)
+               { 
+                 console.log(ev);
+                 console.log('closed');
+                  // websocket is closed.
+                  //alert("Connection is closed..."); 
+               };
+ 
+  function sendMsg(e)
+  {
+    
+    var code = (e.keyCode ? e.keyCode : e.which);
+    if(code == 13) { 
+      
+      var msg = document.getElementById('chat').value;
+      msg = '{"message_type":"TEXTDATA", "message":"'+msg+'","touser":"guest1", "appID":"bootik9090"}';
+      console.log(msg);
+      connection.send(msg);
+    }
+    
+  }
+  function disconnect()
+  {
+    connection.send('{"message_type":"DISCONECT"}');
+    
+    connection.close();
+  }
+ function startCapture()
+ {  var a;
+//document.getElementById('remoteview').muted  = false;
+    //  
+     
+     startConnection(true,connection);
+     //ab = testcanvas();
+     // console.log(ab.byteLength);
+     
+     // connection.send(ab);
+ 
+    /* for(var i=0;i<2000;i++)
+       a+='a';
+      console.log(a);
+      connection.send('{"message_type":"TEXTDATA", "message":"'+a+'","touser":"guest1", "appID":"bootik9090"}');*/
+  /*   getMediaSources(function(blob,tm)
+     {
+         
+         timer = tm;
+       
+         connection.send(blob);
+      
+         
+         // msg = '{"message_type":"TEXTDATA", "message":"'+new Date().getTime()+'","touser":"guest1", "appID":"bootik9090"}';
+         // connection.send(msg)
+       
+     });*/
+ }
+ connection.onerror = function(ev)
+ {
+     console.log(ev);
+ }
+ 
+ function getfromblob(blob,callback)
+ {
+    // var ui8 = new Uint8Array(blob);
+    
+    blob.type='image/jpeg';
+    var urlCreator = window.URL || window.webkitURL;
+    var imageUrl = urlCreator.createObjectURL( blob );
+    /* var reader = new window.FileReader();
+       reader.onloadend = function(e) {
+      //var  bsf = e.target.result;
+       callback(e.target.result);
+     
+   };
+   reader.readAsDataURL(blob); */
+   return imageUrl;
+ }
+ 
+ function getfromArrayBuffer(abuf,callback)
+ {
+     var blob = new Blob( [buffer.buffer], { type: "image/jpeg" } );
+     console.log(blob);
+     console.log(blob);
+     var reader = new window.FileReader();
+       reader.onloadend = function(e) {
+      //var  bsf = e.target.result;
+       callback(e.target.result);
+       }
+ }
+ 
+ 
+   </script>

@@ -3,10 +3,18 @@ var viewHolder = {};
 var head=[];
 var shtml = function()
 {
-   
+  
+}
+shtml.prototype.clearHead = function()
+{
+	
+	
+	head = [];
+	printbuffer ="";
+	
 }
 shtml.prototype.setViewHolder = function(val)
-{
+{  
 	viewHolder = val;
 }
 shtml.prototype.inline = function(dt)
@@ -17,7 +25,7 @@ shtml.prototype.inline = function(dt)
 //work on this function has errors 
 shtml.prototype.block = function(dt)
 {
-	return this.parseforeval(dt,/\$\{([\S\r\n]+)\}/g);//\${([\w\s.\(\);"'\+\-\.\*\/\%\&\|.]*)}
+	return this.parseforeval(dt,/\$\{([\S\s+\r\n]+)\}\$/g);//\${([\w\s.\(\);"'\+\-\.\*\/\%\&\|.]*)}
 }
 shtml.prototype.parseforeval = function(dt,pattern)
 {
@@ -96,10 +104,11 @@ var getviewpart= function(vname)
 
 
 
-
+var printbuffer ='';
 var print = function(text)
 {
-	return text;
+	printbuffer += text
+	return printbuffer.toString();
 }
 
 shtml.prototype.parse = function(dt)
@@ -228,9 +237,20 @@ shtml.prototype.addlink = function(str)
 	
 	return this.parseother(str, /\$link\(([-A-Z0-9+&@#\/%?=~_|!:,.;]*[A-Z0-9+&@#\/%=~_|])\);/g, function(y){ return 'link rel="import" href="'+y+'"'; console.log(y);});
 }
-
+shtml.prototype.updatepageheader = function(str)
+{
+	
+    var hstr = updateHtmlHeader();
+	hstr+='</head>'
+	 var regx = /<\/\s*head\s*>/i;
+	//var match = regx.exec(str);
+	var rets =str.replace(regx,hstr);
+	return rets;
+	//console.log(match);
+}
 function updateHtmlHeader()
 { var str = '';
+    
 	for(var hd in head)
 	{
 		
@@ -238,6 +258,7 @@ function updateHtmlHeader()
 	}
 	return str;
 }
+
 function addToHead(val)
 {
 	head.push(val);

@@ -30,23 +30,42 @@ cart.savecart = function(obj, callback)
 	});
 }
 
-cart.updatecart = function(doc,itemid, callback)
+cart.updatecart = function(doc,itemid,ev, qty,callback)
 {
-	
+	console.log(ev);
   // var id = this.createObjectId(obj.itemid)
 	this._id = doc._id;
 	var counupdated = false;
 	for(var item in doc.items)
 	{
 		
-		if(doc.items[item].itemid === itemid)
+		if(doc.items[item] !== null && doc.items[item].itemid === itemid)
 		{   
 			
-		    doc.items[item].count = parseInt(doc.items[item].count)+1;
-			this.items = doc.items;
+			if(ev==='D')
+			{
+				
+				this.count = parseInt(doc.count) - parseInt(doc.items[item].count);
+				delete doc.items[item];
+				console.log(doc.items);
+			}
 			
+			if(ev=== 'A')
+			{
+		      doc.items[item].count = parseInt(doc.items[item].count)+1;
+			  this.count = parseInt(doc.count)+1;
+			}
+			if(ev === 'E')
+			{    var prevcount = parseInt(doc.count);
+			     var mincount = prevcount - parseInt(doc.items[item].count);
+				 doc.items[item].count = qty;
+				   if(qty === 0)
+				     delete doc.items[item];
+				   
+				  this.count =  mincount +parseInt(qty);
+			}
 			counupdated = true;
-			this.count = parseInt(doc.count)+1;
+			this.items = doc.items;
 			break;
 		}
 		

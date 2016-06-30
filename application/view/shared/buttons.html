@@ -3,20 +3,22 @@
 <div>
 <paper-button raised onclick="submitForm()" id="sub">Submit</paper-button>
    <paper-button raised onclick="clearAll()" id="clear">Clear</paper-button>
-    <paper-button raised onclick="setev('E')" id="mod">Edit</paper-button>
+    <paper-button raised onclick="setev(event,'E')" id="mod">Edit</paper-button>
      <paper-button raised onclick="deletecall()" id="del">Delete</paper-button>
-     <paper-fab icon="add" style="float:right;" class="orange" onclick="setev('A')"></paper-fab>
+     <paper-fab icon="add" style="float:right;" class="orange" onclick="setev(event,'A')"></paper-fab>
 </div>
 
 <script>
     disablebuttons(true);
    
- function setev(evnt)
+ function setev(ev,evnt)
    {
+     
     var eventInput =document.getElementById('inputEvent');
-    var container = document.querySelector('#cont');
+    var container = sajax(ev.target).closest('form');
+   console.log(container);
    if(eventInput === null)
-   {
+   {  
        eventInput = document.createElement('input');
        eventInput.id = "ev";
        eventInput.name = 'event';
@@ -40,7 +42,7 @@
     }
     
     sajax('#clear').disable(false);
-    enableedit(false);
+    enableeditForm(ev,function(){});
    }
     
    

@@ -1,0 +1,17 @@
+ $getviewpart('tabletopbar');
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">'); 
+  $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+ <ajax-req id="getcats" ></ajax-req>
+ <input type="hidden" id="defaultsite" value="{{defaultsite}}" />
+ <input type="hidden" id="rootcat" value="{{rootid}}" />
+ 
+ <table id="cattable"  class="prodtable">
+     <thead>
+     </thead>
+     <tbody>
+     </tbody>
+ </table>
+ 
+ <script>
+     catpage();
+  </script>

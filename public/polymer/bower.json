@@ -21,7 +21,10 @@
     "paper-elements": "PolymerElements/paper-elements#~1.0.5",
     "iron-elements": "PolymerElements/iron-elements#~1.0.4",
     "gold-elements": "PolymerElements/gold-elements#~1.0.1",
-    "paper-listbox": "polymerelements/paper-listbox#^1.0.0"
+    "paper-listbox": "polymerelements/paper-listbox#^1.0.0",
+    "paper-spinner": "PolymerElements/paper-spinner#~1.1.0",
+    "google-chart": "GoogleWebComponents/google-chart#~1.0.4",
+    "neon-animation": "PolymerElements/neon-animation#~1.1.1"
   },
   "resolutions": {
     "polymer": "~1.2.1",

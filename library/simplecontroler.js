@@ -71,14 +71,21 @@ simplecontroler.prototype.setSocket =function(sock)
 	this.socket = sock;
 }
 
-simplecontroler.prototype.jsonResp =function(r)
+simplecontroler.prototype.jsonResp =function(r,space)
 {
-	
-      
+	if(space===undefined)
+       space=0;
+      try{
 	   this.res.writeHead(200, {'Content-Type':'application/json'});
-	   var jsn = JSON.stringify(r);
+	   var jsn = JSON.stringify(r,null,space);
 	   
 	    this.res.end(jsn);
+	  }
+	  catch(err)
+	  {
+		  console.log(err);
+		  this.res.end(JSON.stringify({error:err}));
+	  }
 		
 		
 }

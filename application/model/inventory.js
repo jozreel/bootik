@@ -9,8 +9,10 @@ inventory.add = function(obj,callback)
  
   inventory.desc=obj.desc;
   inventory.cat=obj.cat;
+  
   inventory.manu=obj.manu;
   inventory.model=obj.model;
+  inventory.unit =obj.unit;
   inventory.uprice=obj.uprice;
   inventory.serial=obj.serial;
   inventory.instore= obj.instore
@@ -47,12 +49,17 @@ inventory.add = function(obj,callback)
 }
 inventory.modify = function(obj,callback)
 {
-
  
+  inventory._id="";
+  if(obj.image === undefined && inventory.image !== undefined)
+  {
+    delete inventory.image;
+  }
   inventory.name= obj.name;
   inventory._id = obj._id;
   inventory.sku=obj.sku;
    inventory.cat=obj.cat;
+   inventory.unit =obj.unit;
   //console.log('image',obj.image );
  // if(obj.image !==undefined)
    //  inventory.image= obj.image;
@@ -68,6 +75,7 @@ inventory.modify = function(obj,callback)
   {
     inventory.taxdef = obj.taxdef;
   }
+  
   if(obj.image !== undefined && this.checksendtogrid(obj.image.size))
   {
      inventory.image = {};
@@ -88,6 +96,7 @@ inventory.modify = function(obj,callback)
       obj.image.imagedata = img;
       inventory.image = obj.image;
    }
+      //console.log(inventory.image);
       this.save(callback, 'E');
   }
 }
@@ -119,6 +128,7 @@ inventory.getAll = function(callback)
 
 inventory.search=function(txt, callback)
 {
+
   this.searchword(txt,
   function(docs){
    var doc1 = inventory.decodeallValues(docs);
@@ -132,12 +142,30 @@ inventory.removeinv = function(obj, callback)
   this._id = obj._id;
   this.deleteone(callback);
 }
-inventory.paginate = function(last,callback)
+inventory.paginate = function(limit,last,fields,callback)
 {
   
-  var options = {"limit":3, "skip":last, "sort":"name"};
+
+  var options = {"limit":limit, "skip":last};
  
-  this.find({instore:'true'},{},options,true,function(doc)
+  this.find({instore:'true'},fields,options,true,function(doc)
+  {
+     
+     var decd = inventory.decodeallValues(doc);
+      
+      inventory.convertImagesToBase64(decd);
+      callback(decd);
+      
+  });
+}
+ 
+ inventory.ptable = function(limit,last,fields,callback)
+{
+  
+
+  var options = {"limit":limit, "skip":last};
+ 
+  this.find({},fields,options,true,function(doc)
   {
      
      var decd = inventory.decodeallValues(doc);

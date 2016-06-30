@@ -22,7 +22,14 @@ home.index = function()
 	this.loadview('home', 'clientlayout');
 }
 
+home.test = function()
+{
+    this.loadview('mlab');
+}
 
-
+home.ts = function()
+{
+    console.log(this.req.postdata);
+}
 
 module.exports = home;

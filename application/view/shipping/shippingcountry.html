@@ -7,6 +7,7 @@ $addToHead('<link rel="import" href="/polymer/bower_components/iron-form/iron-fo
 $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
 $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
 $addToHead('<link rel="import" href="/polymer/bower_components/paper-menu/paper-menu.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">');
 $addToHead('<link rel="import" href="/polymer/bower_components/paper-dropdown-menu/paper-dropdown-menu.html">');
 
  $addToHead('<link rel="import" href="/polymer/bower_components/paper-item/paper-item.html">');
@@ -40,14 +41,16 @@ $addToHead('<link rel="import" href="/polymer/bower_components/paper-dropdown-me
           <dynamic-dropdown label="Country to ship to" id="clist" name-value='{"name":"name", "value":"code"}' name="zone"
           name="destinationcountry"></dynamic-dropdown>
         </p>
-
+        <paper-checkbox name = "singledest" value = "true" id="singledest" required  onchange="enablerate()" validate>Single Destination</paper-checkbox>
+        <p><paper-input label="Country Rate" id="countryrate" name="countryrate" value="0.00" type = "number" disabled> </paper-input>
+       
       <div class="paded"><paper-button onclick="callsave(event)">save country</paper-button></div>
       </form>
 
       
       <div class="padded" id="paises">
 
-        ascmasc
+      
       </div>
 
     </paper-material>
@@ -58,6 +61,15 @@ $addToHead('<link rel="import" href="/polymer/bower_components/paper-dropdown-me
 
 $getviewpart('deletedialog');
 <script>
+  function enablerate()
+  {
+    
+     if(document.getElementById('singledest').checked=== true)
+       document.getElementById('countryrate').disabled= false;
+     else
+      document.getElementById('countryrate').disabled = true;
+    // console.log(document.getElementById('countryrate').disabled)
+  }
   populatezones();
     function callsave(event)
     {
@@ -80,16 +92,20 @@ $getviewpart('deletedialog');
         {
            mod = model;
         }
+        mod.event =  document.getElementById('event').value;
         document.getElementById('rac').submit=false;
         if(document.querySelector('#bslist').selectedValue !==null)
            mod.shippingarea =document.querySelector('#bslist').selectedValue._id;
         mod.destinationcountry = document.querySelector('#clist').selectedValue;
         document.getElementById('rac').jsonurl = "/shipping/adddestinationcountry";
+        if(document.getElementById('singledest').checked === false)
+         mod.singledest =false;
         document.getElementById('rac').jsonstring = JSON.stringify(mod);
-       
+       // console.log(mod);
         document.querySelector('#rac').respfunc=function(doc) {
          // populatezones();
-       
+          document.getElementById('event').value="";
+          document.getElementById('cid').value="";
            resp(doc,document.getElementById("ptoast")); 
         };
          
@@ -103,7 +119,7 @@ $getviewpart('deletedialog');
       document.querySelector('#regs').respfunc = function(doc)
         { 
          
-          console.log(doc);
+         
          
            if(doc[0].success == false)
               return;
@@ -136,14 +152,16 @@ $getviewpart('deletedialog');
              document.querySelector('#spin').active=false;
               return;
            }
+           console.log(doc);
             for(item in doc)
             {
-           
+             
              var dv = document.createElement('div');
              dv.className ="countrybox";
             
             dv.innerHTML = '<div onclick=editcont(event)><input type="hidden" value="'+doc[item].destinationcountry.code+'" name="cc" />'+
-            '<input type="hidden" value="'+doc[item].shippingarea+'" name="sa" /> <input type="hidden" value="'+doc[item]._id+'" name="_id" /><div>'+doc[item].destinationcountry.name+'</div> <img src="/image/trash.png" /></div>';
+            '<input type="hidden" value="'+doc[item].shippingarea+'" name="sa" /> <input type="hidden" value="'+doc[item].countryrate+'" name="cr" />  <input type="hidden" value="'+doc[item].singledest+'" name="sd" />'
+            +'<input type="hidden" value="'+doc[item]._id+'" name="_id" /><div>'+doc[item].destinationcountry.name+'</div> <img src="/image/trash.png" /></div>';
             
              //console.log(dv.querySelector('.loc'));       
              document.getElementById('paises').appendChild(dv);
@@ -167,7 +185,7 @@ $getviewpart('deletedialog');
    {
      document.querySelector('#regs').respfunc= function(doc)
      {
-       console.log(doc,'c');
+       //console.log(doc,'c');
           document.querySelector('#clist').menuItems = doc; 
      }
   
@@ -180,7 +198,9 @@ $getviewpart('deletedialog');
      document.getElementById('bslist').selectedName = event.target.parentNode.querySelector('input[name="sa"]').value;
       document.getElementById('clist').selectedName = event.target.parentNode.querySelector('input[name="cc"]').value;
        document.getElementById('cid').value= event.target.parentNode.querySelector('input[name="_id"]').value;
-    
+       document.getElementById('countryrate').value = event.target.parentNode.querySelector('input[name="cr"]').value;
+        document.getElementById('singledest').checked=  JSON.parse(event.target.parentNode.querySelector('input[name="sd"]').value);
+        document.getElementById('countryrate').disabled = !(JSON.parse(event.target.parentNode.querySelector('input[name="sd"]').value));
    }
     /*
      function edititem(event)

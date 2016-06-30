@@ -1,0 +1,32 @@
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/dynamic-dropdown/dynamic-dropdown.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">');  
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-spinner/paper-spinner.html">');
+<ajax-req id="areq"></ajax-req>
+<ajax-parser id="addsite" method="POST"></ajax-parser>
+ <div class="fulwidth-content">
+     <input type="hidden" id="storeid" />
+	 <paper-material >
+     <form is="iron-form" id="siteform" class="smallform paperform" >
+         <dynamic-dropdown id="locales" label ="Locale" name-value='{"name":"name", "value":"code"}'>
+         </dynamic-dropdown>
+         <paper-input label="Site Identifier" name="siteid" ></paper-input>
+        <p><span>Enabled: </span>  <select name="enabled">
+             <option value="true">Yes</option>
+             <option value="false">No</option>
+         </select> </p>
+         
+     </form>
+     <paper-checkbox name="default" id="defaultsite">Default Site ?</paper-checkbox>
+     <p><paper-button class="greenbutton" onclick="saveSite()">save</paper-button></p>
+	 </paper-material>
+ </div>
+ <script>
+     addsitepage();
+ </script>

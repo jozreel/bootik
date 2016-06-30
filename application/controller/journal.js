@@ -1,4 +1,4 @@
-ar simple = require('simple');
+var simple = require('simple');
 var journal = new simple.simplecontroler();
 
 journal.addentry= function()

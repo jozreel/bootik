@@ -50,6 +50,7 @@ ajsloadable.prototype.view=function(view, args, resp,req,cache,replacespecial,cu
 			 var dt = data.toString();
 			// console.log(dt);
 			 var shtml = require('simple').shtml;
+			 shtml.clearHead();
 			 shtml.req = req;
 			// dt =shtml.parse(dt);
 			  shtml.setViewHolder(vals);
@@ -62,6 +63,7 @@ ajsloadable.prototype.view=function(view, args, resp,req,cache,replacespecial,cu
 			 if(resp.urlencode !== undefined)
 			     ui = resp.urlencode.addspecial(ui);
 			  ui =  obj.insertContent(vals,ui,customui)	
+			  ui=shtml.updatepageheader(ui);
 			 obj.output(resp,ui,path);
 			 //console.log(resp);
 		
@@ -83,6 +85,7 @@ ajsloadable.prototype.view=function(view, args, resp,req,cache,replacespecial,cu
 			 var vals = args;
 			 var dt = data.toString();
 			 var shtml = require('simple').shtml;
+			  shtml.clearHead();
 			  shtml.req = req;
 			// dt =shtml.parse(dt);
 			 shtml.setViewHolder(vals);
@@ -101,6 +104,7 @@ ajsloadable.prototype.view=function(view, args, resp,req,cache,replacespecial,cu
 			 }
 			}
 			 ui =  obj.insertContent(vals,ui,customui)
+			 ui= shtml.updatepageheader(ui);
 			 obj.output(resp,ui,path);
 			 //console.log(resp);
 		

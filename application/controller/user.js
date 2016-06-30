@@ -20,11 +20,11 @@ user.logout = function()
 user.add = function()
 {
 	
-	this.req.session.add('kolp','lpp');
+
 	
 	if(this.req.session.get('login'))
 	{
-	console.log('innlog');
+	
 	if(!this.isencrypted())
 	  {
 		 
@@ -71,10 +71,10 @@ var usr= this;
  var pass = this.req.secure.encrypt(this.req.postdata.password);
  var md= this.loadmodel('siteuser');
  this.req.postdata.password = pass;
- 
+
  md.finduser(this.req.postdata, function(res)
  { 	 var iusr = (res[0]);
-	
+	 
 	 if(iusr !== undefined && iusr.userid !== undefined)
 	 {
 		  usr.req.session.expmins = 20;
@@ -85,7 +85,7 @@ var usr= this;
 		  if(iusr.group	 === "user")
 		    usr.req.session.set('cart', '[]');
 		   usr.req.session.create();
-		  usr.req.redirect.redirect('https://'+usr.req.hostname+':4433/user/add');
+		  usr.req.redirect.redirect('http://'+usr.req.hostname+':1337/admin');
 		  
 	 }
 	 else

@@ -30,7 +30,8 @@
       nameValue:{type:JSON},
       selectedItem:{type:Object,observer:'_ich'},selectedValue:Object,
       selectedName:{type:String, observer:'_selval'},
-      disabled :{type:Boolean, value:false}
+      disabled :{type:Boolean, value:false},
+      selectedIndex:{type:Number, observer:'_chInd'}
     },
     _getarrayItemName:function(itm)
     {
@@ -45,33 +46,45 @@
     }
     ,_ich:function()
     {
+     
       if(this.selectedItem !== null)
         this.selectedValue = JSON.parse(this.selectedItem.querySelector('.valueSelected').value);
       
     },
     _selval:function()
     {
+      
       var itms = this.$.list.items;
+      this.$.list.selected = null;
+      
       var a=[];
       //console.log(itms);
+      
       for(var it in itms)
       {
+        
          var val =itms[it].querySelector('.valueSelected').value;
          val=JSON.parse(val);
          var nv =JSON.parse(this.nameValue).value;
-         
+         // this.$.list.selected = -1;
+       // this.$.list.selectPrevious();
         if(val[nv] !== undefined)
         {
          
         if(val[nv] == this.selectedName)
         {
-         
+          console.log(this.$.list.selected);
          this.$.list.selected = it;
         }
       }
       }
      
      
+    },
+    _chInd:function()
+    {
+      console.log(this.selectedIndex);
+       this.$.list.selected = this.selectedIndex;
     }
     });
     </script>

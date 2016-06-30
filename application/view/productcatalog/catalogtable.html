@@ -1,0 +1,21 @@
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">'); 
+  $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+   $addToHead('<link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">');
+    $addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+  <ajax-req id="getall"></ajax-req>
+  $getviewpart('tabletopbar');
+ <paper-material>
+  <table class="prodtable" id= "ptable">
+	  <thead>
+
+	  </thead>
+	  <tbody>
+	  </tbody>
+  </table>	 
+</paper-material>
+<script>
+  window.addEventListener('WebComponentsReady', function(){
+  initcatalog();
+  populateCatalog();
+  });
+  </script>

@@ -1,0 +1,49 @@
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">'); 
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">');
+ $addToHead('<link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">');
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+  $addToHead('<link rel="import" href="/polymer/bower_components/paper-fab/paper-fab.html">');
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+  $addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+  $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
+   $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+   <ajax-req id="ajfld"></ajax-req>
+  <ajax-parser id="fajp" method="POST"></ajax-parser> 
+<input type="hidden" id="fieldid" value="{{id}}" />
+<form is ="iron-form" action="#" id="fieldform" method="post">
+	<div class="smallform">
+	<paper-input label="Field name" name="fieldname" id="fieldname"></paper-input>
+	
+	<p>Scope:</p> <select name="scope" id="scope"><option value="system">System Wide</option><option value="website">All Sites</option><option value="store">Store Location</option></select>
+	<p>Field Type:</p> <select name="fiedtype" id="fiedtype" onchange="checktype(event)">
+		<option value="text">Text</option>
+		<option value="textarea">Multi line text</option>
+		<option value="number">Number</option>
+		<option value="date">Date</option>
+		<option value="multiselect">Multiple Select</option>
+		<option value="drodown">Dropdown</option>
+		<option value="boolean">Yes / No</option>
+		<option value="email">Email</option>
+		<option value="file">File / Image</option>
+		</select>
+	<paper-input label="Default" name="Default" id="Default"></paper-input>
+	<p>Required:</p> <select name="required" id="required"><option value="true">yes</option><option value="false">No</option></select>
+    <p>Visible in product list:</p> <select name="visible" id="visible"><option value="true">yes</option><option value="false">No</option></select>
+	</form>
+	</div>
+	<div class="labels">
+		<p>Field Label</p>
+		<div  id="lbls"></div>
+	</div>
+	<div class="options transh">
+		<p>Add drop down options</p>
+		<paper-fab icon="add" id="addopt" class="greenbutton" disabled mini onclick="createoptvals()"></paper-fab>
+		<div  id="opts" class="transh">
+		</div>
+	</div>
+<p>
+<paper-button class="greenbutton" onclick="savefield()">Save</paper-button>
+</p>
+<script>
+	initiateFieldPage();
+</script>

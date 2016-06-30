@@ -683,11 +683,11 @@ function _abjax (){
 		//add oatrameter to this function that accepts the function to be executed;
 		this.readystate = function(callback)
 		{ //alert('we ready to roll');
-		  
+		     
 			var  interval = setInterval(function(){
 				if(document.readyState === "complete")
 					{
-				       // console.log(document.readyState);
+				         console.log(document.readyState);
 				         clearInterval(interval)
 				         callback();
 				         return true;
@@ -1219,6 +1219,56 @@ this.show = function()
 	
 }
 
+
+this.closest = function(eletype,el)
+{
+	 
+	if(typeof el === 'undefined')
+	{
+		 el =  this._element;
+	}
+	
+	//console.log(el.parentNode);
+	
+	while(el)
+	{  
+		if(typeof(el.tagName) === 'undefined')
+	    {
+		
+	    }
+		if(typeof el.tagName !== 'undefined')
+		{
+		if(el.tagName.toLowerCase() === eletype.toLowerCase())
+		  return el;
+		}
+		var ol = this.closestinchild(eletype,el)
+	    if(ol !=null)
+		  return ol;
+		
+	     el=el.parentNode;
+			//console.log(el);
+		
+	}
+}
+
+this.closestinchild= function(elename,ele)
+{
+	if(typeof ele === 'undefined')
+	{
+		ele = this._element;
+	}
+	
+	for(var chldnd in ele.childNodes)
+	{  if(typeof ele.childNodes[chldnd].tagName !== 'undefined')
+	    {
+	
+		 if(elename.toLowerCase() === ele.childNodes[chldnd].tagName.toLowerCase())
+		    return ele.childNodes[chldnd];
+		}
+	}
+	return null;
+}
+
  this.loadImage = function(isel, alt, callback)
 	  {
 		 
@@ -1227,7 +1277,7 @@ this.show = function()
 		  var reader = new FileReader();
 		  
 		  
-		  var files = isel.rawfiles;
+		  var files = isel.files;
           var i=0;
           for(i=0; i<files.length; i++){
                 var imageType = /image.*/;
@@ -1280,10 +1330,9 @@ this.show = function()
 		  
 		  var reader = new FileReader();
 		   var files;
-		  if(isel.rawfiles !==undefined)
-		     files = isel.rawfiles;
-	       else 
+		  if(isel.files !==undefined)
 		     files = isel.files;
+	       
           var i=0;
 		  var fname="";
           for(i=0; i<files.length; i++){
@@ -1335,8 +1384,14 @@ this.show = function()
 		if(this._element !==null)
 		  this._element.disabled = val;
 	}
+    
+    this.hasGetUserMedia = function() {
+  return navigator.getUserMedia || navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia || navigator.msGetUserMedia;
+}
 		
 }
+
 
 
 

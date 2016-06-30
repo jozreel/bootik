@@ -4,6 +4,7 @@
       <link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">
         <link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">
       <link rel="import" href="/polymer/bower_components/paper-tooltip/paper-tooltip.html">
+        <link rel="import" href="/polymer/bower_components/paper-spinner/paper-spinner.html">
     <link rel="import" href="/polymer/bower_components/neon-animation/neon-animations.html">
    
    <link rel="import" href="/polymer/bower_components/paper-card/paper-card.html">
@@ -14,13 +15,26 @@
   
   <input type="hidden" value="0" id="skip" />
   <ajax-req  id="instore"></ajax-req>       
- 
+   
     <!--  <div class="leftdraw">
        
       </div>-->
+       
       <div class="feature">
-        <img src="/image/sh.jpg" />
+        <img src="/image/ad.png" />
        </div>
+       <div class="reccont">
+       <div class="leftbtn"><img src="/image/left.png" /></div>
+       <div id ="recomend" class="recmd">
+         
+       </div>
+     <!--  <div class="spinner"><paper-spinner  alt="Getting recomrndations for users" id="spinrec" active></paper-spinner></div> -->
+       <div class="rightbtn"><img src="/image/right.png" /></div>
+      <h3 id="rectxt"> Recomended based on items you viewed</h3>
+      
+       </div>
+       
+      
       <div class="shelf" id="threecols">
       <!--<div class="col" id="first"> 
       </div
@@ -29,19 +43,15 @@
       <div class="col" id="third"> -->
       </div> 
     
-    
+   
  
     <ajax-parser id="updatecart"></ajax-parser>
-     
- </paper-header-panel>
-  <div class="scrollanimation">
- </div>
   <paper-dialog id="itemdialog" class="itemdialog"  entry-animation="scale-up-animation" exit-animation="fade-out-animation" modal>
     <h2 id="itemname">Item Info</h2>
     <p id="itemprice"></p>
     <div class="buttons">
     
-    <div><paper-button dialog-confirm class="greenbutton"  onclick="updatecart(event)"><iron-icon icon="icons:add-shopping-cart"></iron-icon></paper-button><paper-tooltip>Add to cart</paper-tooltip></div>
+    <div><paper-button dialog-confirm class="greenbutton"  onclick="updatecart(event,'A')"><iron-icon icon="icons:add-shopping-cart"></iron-icon></paper-button><paper-tooltip>Add to cart</paper-tooltip></div>
     <paper-button dialog-dismiss class="greenbutton">CLOSE</paper-button>
   </div>
    <div class= "dialogimage"><img id="itemimage" /> </div>
@@ -50,23 +60,25 @@
    <div style="padding:20; display:block;"><p id="itemdescription"></p></div>
   </paper-dialog-scrollable>
   
-    <input type="hidden" id="_id" name="_id" />
+    <input type="hidden" id="_itmid" name="_id" />
     </paper-dialog>
  <script> 
+ document.getElementById('skip').value = '0';
  window.addEventListener('WebComponentsReady', function(){
     document.querySelector('#instore').respfunc = createAll;
-  document.querySelector('#instore').dataurl = "/inventory/page/0";
+  document.querySelector('#instore').dataurl = "/inventory/page/5/0";
   
-  scrollHandler(document.getElementById('php').scroller, function()
+  scrollHandler(document.getElementById('php'), function()
   {
    
+    
   document.querySelector('.scrollanimation').style.opacity='0.5';
  
   document.querySelector('#instore').respfunc = createAll;
   document.querySelector('#instore').dataurl = "";
   
-  document.querySelector('#instore').dataurl = "/inventory/page/"+document.getElementById('skip').value;
-  
+  document.querySelector('#instore').dataurl = "/inventory/page/5/"+document.getElementById('skip').value;
+  console.log(document.getElementById('skip'), 'io');
   //document.getElementById('skip').value = temp;
    
   }
@@ -76,9 +88,10 @@
   
   function createAll(doc)
   {
-     document.getElementById('getcart').dataurl = '/inventory/getcartitems/';
-     document.getElementById('getcart').respfunc= updatebadge;
+    
+     
    var i=0;
+   
    for(var docitem in doc)
    {
      
@@ -86,27 +99,12 @@
      var image = "";
      if(doc[docitem].image!=undefined)
          image = 'data:'+doc[docitem].image.type+';base64,'+doc[docitem].image.imagedata;
+   
    var ele = document.createElement('div');
-  
+ 
    ele.className="shelfitem";
-/*   ele.innerHTML ='<paper-card elevation="1" class="fancy">'+
-             '<div><img class="hand itemimage" src="'+image+'" onclick="dialogpop(event)" /></div>'+
-             '<div class="card-content">'+
-             '<div class="big hand itemname" onclick="dialogpop(event)">'+doc[docitem].name+'</div>'+
-             '</div>'+
-              '<div class="card-content">'+
-              ' <div class="titletop">'+
-                  '<div class="medium">'+doc[docitem].desc+'</div>'+
-                '</div>'+
-                '<div class="titletop">'+
-                  '<div  class="medium price">$'+doc[docitem].uprice+'</div>'+
-                '</div>'+
-                '</div>'+
-                '<input type="hidden" name="itemlongdesc" class="itemlongdesc" value="'+doc[docitem].longdesc+'" />'+
-                '<input type="hidden" name="_id" class="_id" value="'+doc[docitem]._id+'" />'+
-          '</paper-card>';
-          */
-         ele.innerHTML ='<paper-material class="paper"><div class="itemcard">'+
+
+         ele.innerHTML ='<div class="paper"><div class="itemcard">'+
              '<div><img class="hand itemimage" src="'+image+'" onclick="dialogpop(event)" /></div>'+
              '<div>'+
              '<div class="itemtitle hand itemname" onclick="dialogpop(event)">'+doc[docitem].name+'</div>'+
@@ -121,7 +119,7 @@
                 '</div>'+
                 '<input type="hidden" name="itemlongdesc" class="itemlongdesc" value="'+doc[docitem].longdesc+'" />'+
                 '<input type="hidden" name="_id" class="_id" value="'+doc[docitem]._id+'" />'+
-          '</div> </paper-material>';
+          '</div> </div>';
        // if(i === 1)
         //   document.getElementById('first').appendChild(ele);
         // else if(i=== 2)
@@ -137,13 +135,16 @@
       
    }
       if(doc.length)
-         document.querySelector('.content').style.height=  document.querySelector('.content_client').offsetHeight+'px';
-       
+      //  document.querySelector('.content').style.height=  document.querySelector('.content_client').offsetHeight+'px';
+     document.getElementById('getcart').dataurl = '/inventory/getcartitems/';
+     document.getElementById('getcart').respfunc= updatebadge;
   // alert(document.querySelector('#mainContainer').offsetHeight+'px');
-    var temp =  parseInt(document.getElementById('skip').value)+3
+     ppopulteRecomendations();
+    var temp =  parseInt(document.getElementById('skip').value)+5;
+  
     document.getElementById('skip').value = temp;
     document.querySelector('.scrollanimation').style.opacity='0';
-    
+   
   }
   
   function dialogpop(event)
@@ -154,12 +155,64 @@
      document.querySelector('#itemdescription').innerHTML = ele.querySelector('.itemlongdesc').value;
       document.querySelector('#itemprice').innerHTML = ele.querySelector('.price').innerHTML;
        document.querySelector('#itemname').innerHTML = ele.querySelector('.itemname').innerHTML;
-         document.querySelector('#_id').value = ele.querySelector('._id').value;
-
+         document.querySelector('#_itmid').value = ele.querySelector('._id').value;
+         
      document.getElementById('itemdialog').open();
+     addToLikeList(ele.querySelector('._id').value);
    
   }
   
+function addToLikeList(item)
+{
+   
+  var user= document.getElementById('uname').value;
+  var ajp =document.getElementById('updatecart');
+  ajp.submit=false;
+  ajp.jsonurl = "/kwapoai/addviewed";
+  ajp.jsonstring = JSON.stringify({user:user, item:item});
+  ajp.respfunc= function(doc)
+  {
+    
+  }
+  ajp.submit=true;
+}
+
+function ppopulteRecomendations()
+{
+  var recdiv = document.getElementById('recomend');
+  console.log(recdiv.children, 'test');
+  if(recdiv.children.length === 0)
+  {
+   document.querySelector('#instore').dataurl = "";
+  
+    document.querySelector('#instore').dataurl = "/kwapoai/recomendfrombrowsing/"+document.getElementById('uname').value; 
+    document.querySelector('#instore').respfunc = function(doc)
+    {
+      
+      for(var recitem in doc)
+      {
+        
+        var ele = document.createElement('div');
+        ele.className = 'recItem';
+        var image = 'data:'+doc[recitem].image.type+';base64,'+doc[recitem].image.imagedata;
+        
+         ele.innerHTML = '<div class="vert" ></div><img src = "'+image+'" />';
+         recdiv .appendChild(ele);
+       
+    
+      }
+      document.querySelector('.reccont').style.height="200px";
+       document.querySelector('.reccont').style.opacity='0.9';
+       recdiv.style.height="200px";
+      recdiv.style.opacity = '0.9';
+      
+      document.querySelector('.leftbtn').style.opacity='0.9';
+      document.querySelector('.rightbtn').style.opacity='0.9';
+      document.querySelector('#rectxt').style.opacity = '0.9';
+      //document.getElementById('spinrec').active=false;
+    }
+  }
+}
 
  
    </script>

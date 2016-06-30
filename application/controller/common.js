@@ -16,5 +16,28 @@ common.prototype.getheaderdetails = function(obj)
 	}
 	
 }
+common.prototype.getstore = function(obj)
+{
+    obj.req.session.start();
+     
+    if(obj.req.session.get('defaultstore') !== '')
+    {
+      obj.viewholder.defaultstore = obj.req.session.get('defaultstore');
+      obj.viewholder.defaultlang =  obj.req.session.get('defaultlocale');
+    }
+    else 
+    {
+        var st = obj.loadmodel('store');
+        st.find({}, {_id:true,defaultlang:true},{},false, function(s)
+        {
+            
+            obj.req.session.add('defaultstore', s._id.toString());
+            obj.req.session.add('defaultlocale', s.defaultlang);
+            obj.viewholder.defaultstore = s._id.toString();
+            obj.viewholder.defaultlang = s.defaultlang;
+        });
+        
+    }
+}
 module.exports= new common();
 

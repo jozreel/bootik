@@ -1,0 +1,128 @@
+$addToHead('<link rel="import" href="/polymer/bower_components/dynamic-dropdown/dynamic-dropdown.html">');
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-spinner/paper-spinner-lite.html">');
+  $addToHead('<link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">'); 
+  $addToHead('<link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">');
+ $addToHead('<link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">');
+ $addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+   $addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+     $addToHead('<link rel="import" href="/polymer/bower_components/paper-icon-button/paper-icon-button.html">');
+        
+                $addToHead('<link rel="import" href="/polymer/bower_components/paper-fab/paper-fab.html">');
+            $addToHead('<link rel="import" href="/polymer/bower_components/items-display/items-display.html">');
+               $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
+                $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+                
+                    $addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-textarea.html">');
+   
+        $addToHead('<link rel="import" href="/polymer/bower_components/paper-styles/paper-styles.html">');
+  
+
+        $addToHead('<link rel="import" href="/polymer/bower_components/file-select/file-select.html">');
+         $addToHead('<link rel="import" href="/polymer/bower_components/paper-header-panel/paper-header-panel.html">');
+         
+          $addToHead('<link rel="import" href="/polymer/bower_components/paper-dialog/paper-dialog.html">');
+   
+    <div class="formholder" id="fh">
+      <paper-material elevation="1" style="padding:20px;">
+    <form is="iron-form" id="form" method="post" enctype="multipart/form-data" action="/productcatalog/passdata">
+      <fieldset disabled="true" style="border:none; margin:0; padding:0;" id="fldset">
+   <input type="hidden" id="_id"; name="_id" />
+   <input type="hidden" id="ev"; name="event" />
+  <paper-input required auto-validate name="desc" label="Short description" id="desc"></paper-input>
+   <paper-textarea  name="longdesc" label="Long description" id="longdesc"></paper-textarea>
+  <paper-input name="name" required auto-validate label="Name" id="name"></paper-input>
+  <div style="padding-top:10px;">
+  <paper-checkbox id="instore" disabled name="instore" value="true">in store ?</paper-checkbox>
+  </div>
+ <paper-input name="sku" required auto-validate label="sku" id="sku"></paper-input>
+   <div class="flinpt">
+   <file-select name="image" id="fimg" disabled="true"></file-select>
+  </div>
+ 
+    
+  <div>
+      <dynamic-dropdown id="cat"  label="Category" disabled  name-value='{"name":"name", "value":"name"}' name="cat"></dynamic-dropdown>
+     <!--<drop-down background="#757575" color= "#000" style="width:100%; margin-right:0px;" title="CATEGORY" selectedindex="0" disabled id="cat"></drop-down>-->
+     </div>
+   <paper-input name="serial" required auto-validate label="serial" id="serial"></paper-input>
+   <paper-input name="model" required auto-validate label="model" id="model"></paper-input>
+    <paper-input name="manu" required auto-validate label="manufacturer" id="manu"></paper-input>
+    
+    <div>
+  
+    <dynamic-dropdown id="unit"  label="Unit" disabled name-value='{"name":"name", "value":"name"}' name="unit"></dynamic-dropdown>
+    <!-- <drop-down id="unit" disabled background="#757575" color= "#000" title="UNIT" selectedindex="0"></drop-down>-->
+   
+  </div>
+  
+    <paper-input name="uprice" required auto-validate label="unit price" id="uprice"></paper-input>  
+   <!--<input type="submit" value="test" /> -->
+     
+     </fieldset>
+</form>
+$getviewpart('buttons');
+
+</paper-material>
+<!--<iron-ajax  content-type = "application/json"  id = 'iaj' method='POST' url ="/inventory/passdata/"  debounce-duration='300' on-response="handleResp">-->
+<ajax-parser jsonurl="/productcatalog/passdata/" method="POST" id="ajp"></ajax-parser>
+<ajax-parser jsonurl="/productcatalog/delete/" method="POST" id="ajpdel"></ajax-parser>
+ <ajax-req dataurl="/productcatalog/getcategory/" id="getcat"></ajax-req>
+ <ajax-req  id="getunit"></ajax-req>
+<!--<iron-ajax  id = 'iaj' method='POST' url ="/inventory/passdata/"  debounce-duration='300'> 
+</iron-ajax> -->
+</div>
+
+<!-- holder fodr content-->
+<div class="gd">
+ <paper-material elevation="1" style="padding:5px; width:100%; height:800px; overflow:hidden;">
+
+<div style="height:760px;">
+ <div id="list1">
+   <div class="spinner"><div><paper-spinner-lite  alt="Getting Items" id="spinprog" active></paper-spinner-lite></div></div>
+ <paper-toolbar style="background:#757575; color: #fff; padding-left:20px;">
+       <div class="flex"><div class="bottom title">Store Items</div></div>
+         <paper-input type="search" class="input-hidden" id="search" onkeypress="dosearch(event)"></paper-input>
+        <paper-icon-item>
+       
+      <paper-icon-button icon="search" onclick="displaySearch()"></paper-icon-button>
+      </paper-icon-item>
+  </paper-toolbar>
+    </div>
+    <div style="height: 760px; overflow-y:scroll;" onclick="populate()"> 
+    <items-display  id="idd" list-headers='{"0":"name","1":"desc","2":"sku","3":"cat"}'  style="position:relative; overflow-y:scroll''"></items-display>
+    </div>
+  </div>
+
+</paper-material>
+ </div>
+ $getviewpart('deletedialog');
+
+
+
+ <script>
+ initializeStockPage();
+    var reader = new FileReader();
+   function submitForm()
+   {   
+     
+       savestock();
+   
+    
+    } 
+ function deletecall()
+ {
+   deleteinventory();
+ }  
+function sayit() {
+} 
+
+
+ 
+
+ 
+ 
+</script>
+
+
+ 
+ 

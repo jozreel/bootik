@@ -60,35 +60,34 @@
       
       .avatar {
       height: 80px;
-      position: relative;
+     
       width: 80px;
       border-radius: 40px;
       box-sizing: border-box;
       background-color: #DDD;
-      
+      overflow: hidden;
     }
     .helper{height: 100%; display: inline-block !important; vertical-align: middle;}
-     .avatar img{width:  60px;  display: inline-block !important; vertical-align: middle; margin-left: 7px;}
+     .avatar img{width: 80px; height: 80px; vertical-align: middle; display: inline-block;}
    
    </style>
    <template>
    <iron-ajax  url="[[dataUrl]]"" last-response="{{data}}" auto id="caj" params="[[jsonData]]" ></iron-ajax>     
  <neon-animated-pages id="pages" class="flex"  selected="0" entry-animation="fade-in-animation" exit-animation="fade-out-animation">
  <neon-animatable>
-  
-	
-     
-      <iron-list id="listitems" items="[[data]]" as ="parentitem" multi-selection  selection-enabled  selected-items="{{selectedItems}}">
+      <iron-list id="listitems" items="[[data]]" as ="parentitem" multi-selection="{{multiSelect}}"  selection-enabled selected-item="{{selectedItem}}" selected-items="{{selectedItems}}">
             <template>
               <div>
               <div class$="[[_computedClass(selected)]]">
 			        <div class="avatar">
-                <div class="helper"></div>
+               <!-- <div class="helper"></div> -->
                <img src$="[[_getImage(parentitem.image)]]">
-              </div>
+              </div> 
               <template is="dom-repeat" items="[[headers]]">
-                <div><span>[[item]]</span></div>
-                <div><span>[[_arrayItem(parentitem,item)]]</span></div>
+                <div style=" padding:3px; border-bottom: 1px dashed #ccc; ">
+                <span><p style="padding-right:20px; margin: 0; font-size:16pt; min-width:100px; display:inline-block;">[[item]]</p></span>
+                <span>[[_arrayItem(parentitem,item)]]</span>
+                </div>
               </template>
              
               </div>
@@ -97,7 +96,7 @@
 
      </iron-list>
  </neon-animatable>
- <neon-animatable >
+ <!--<neon-animatable >
     <div style=" max-width: 1024px;margin:0px 30px 0px 30px; padding:22px 0px 20px 20px; background:gray;">    
        <div class="trow">
         <template is="dom-repeat" items="[[headers]]" as="th">
@@ -122,9 +121,9 @@
               </div>
             </template>
 
-     </iron-list>
+     </iron-list> 
    </div>
- </neon-animatable>
+ </neon-animatable> -->
  </neon-animated-pages>
   </template>
 	
@@ -138,10 +137,13 @@
            listHeaders:{type:Object,notify:true, observer:'_convToArr'},
            dataUrl:{type:String,observer:'_action'}, 
           selectedPage:{type:Number, observer:'_changePage'},
-          jsonData:{type: String}
+          jsonData:{type: String},
+          multiSelect:{type:Boolean, value:false, observer:'_chngSelect'},
+          selectedItem:{type:Object}
+          
         },
         
-        
+         
      _computedClass: function(isSelected) {
           var classes = 'item';
           if (isSelected) {
@@ -210,6 +212,10 @@
           
            
             this.$.pages.selected =this.selectedPage;
+         },
+         _chngSelect:function()
+         {
+           console.log(this.multiSelect,'kjkj');
          }
         
        });

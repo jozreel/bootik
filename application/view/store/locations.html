@@ -1,0 +1,60 @@
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/dynamic-dropdown/dynamic-dropdown.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/iron-form/iron-form.html">');  
+$addToHead('<link rel="import" href="/polymer/bower_components/paper-spinner/paper-spinner.html">');
+$addToHead('<link rel="import" href="/polymer/bower_components/gold-zip-input/gold-zip-input.html">');
+<ajax-parser id="lc" method="POST"></ajax-parser>
+<ajax-req id="regs"></ajax-req>
+<div class="locations">
+ 
+  <div class="writeup">
+    <h4>Add store location</h4>
+    <p>Each  setup can have one or many locations</p>
+    <i>Taxes will be calculated based on location country state province county etc.. settings</i>
+
+  </div>
+  
+  <div class="loctable">
+  
+   
+     <paper-spinner class="sp" id="spin" alt="Loading cart items" active></paper-spinner>
+    <paper-material class="pmaterial paded" raised>
+      
+      <h4 class="paded underline">Store Locations</h4>
+     <form is="iron-form" class="smallform">
+       <input type="hidden" name="locationid" id="locationid" value="">
+       <input type="hidden" id="_id" value ="{{storeid}}" name = "_id" />
+       <paper-input label = "Location Name" required name = "locationname" id="locationname"></paper-input>
+         <dynamic-dropdown name="country" required label="country" name-value='{"name":"name", "value":"code"}' id="country"></dynamic-dropdown>
+        <paper-input label = "Currency" name="currency" required id="currency"></paper-input>
+        <p><paper-checkbox name="originbased" value="true" id="originbased">Origin based tax</paper-checkbox></p>
+        <paper-input name="street1"  label = "Address Street 1" id="street1"></paper-input>
+         <paper-input name="street2"  label = "Address Street 2" id="street2"></paper-input>
+          <gold-zip-input name ="zippost" label="Location zip or postal code" id="zippost"></gold-zip-input>
+        <paper-input name="town" label = "Town" id="town"></paper-input>
+        <paper-input name="state" label = "State / Province / Parish" id="state"></paper-input>
+      
+       
+          <p></p>
+        <paper-button class="greenbutton" onclick="return savelocation(event)">save</paper-button>
+      
+        <a href="#"><paper-icon-button icon="add" onclick="addLoc(event)"></paper-icon-button></a>
+       </form>
+       <div class="padded right-buttons" id="loc">
+
+      </div>  
+           
+    </paper-material>
+  </div>
+</div>
+$getviewpart('deletedialog');
+<script>
+   sajax().readystate(function(){getlocations()});
+  </script>
+
+

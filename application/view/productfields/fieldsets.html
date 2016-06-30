@@ -1,0 +1,28 @@
+	 $addToHead('<link rel="import" href="/polymer/bower_components/paper-button/paper-button.html">');
+	 $addToHead('<link rel="import" href="/polymer/bower_components/paper-fab/paper-fab.html">');
+	  $addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+	 $addToHead('<link rel="import" href="/polymer/bower_components/paper-checkbox/paper-checkbox.html">');
+	  $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+	  $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">');
+	  <ajax-req id="getfields"></ajax-req>
+	  <ajax-parser id="saveset" method="POST"></ajax-parser>
+	<div>
+	    <input type="hidden" value="{{groupid}}" id="groupid" />
+		<p><paper-fab onclick="enableaddsetname()" mini class="greenbutton" id="addbtn" style="display:inline-block; color:black;" icon="add">Add Set</paper-fab>
+		<paper-button class="red500">Delete Selected</paper-button> <paper-input  style="display:inline-block;" label="Group Name" name="groupname" id="groupname"></paper-input>
+		<paper-button onclick="savegroup()" class="greenbutton" id="savegroup">Save</paper-button>
+		</p>
+		<p class="sname"><paper-input label="Set Name" name="setname" id="setname"></paper-input></p>
+		<p><paper-button onclick="addsetname()" class="greenbutton" id="addset" disabled>Update List</paper-button></p>
+		<select size="2"  name="groupname" id="gname" class="lview" onchange="updatesel(event)">
+		 
+		</select>
+		<div class="inline-block">
+		 <fieldset  class="fieldview" disabled>
+		 </fieldset>
+	   </div>
+	</div>
+	<script>
+		getfields();
+	</script>
+	

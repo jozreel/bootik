@@ -53,7 +53,7 @@ Example:
      
      </style>
 <template>
-  <div style="width:100%; float:left; position:relative;">
+  <div style="width:100%; float:left; position:relative;" id="iholder">
        
         <input is= "iron-input" class="dd" id="inpt" type="file"  on-change ="_changeaction" multiple={{multi}} />
         <paper-input id="holder" style="float:left; width:100%;" label="{{titletext}}" readonly disabled ="{{disabled}}">	</paper-input>
@@ -97,9 +97,14 @@ Example:
        * while checking its pocket watch.
        */
     },
-    valChanged()
+    valChanged:function()
     {
       this.$.holder.value=this.value;
+    },
+    clear:function(){
+      this.files=[];
+      this.value='';
+      this.rawfiles={};
     },
    _getfiles: function(){
          
@@ -135,13 +140,73 @@ Example:
           return flist;
        
 },
-    _changeaction:function(){this.value= this.$.inpt.value; this.files=this._getfiles(); this.rawfiles=this.$.inpt.files; this.$.holder.value=this.$.inpt.value; },
-    _mkclick:function(){ this.$.inpt.click();},
+    _changeaction:function(){
+           var fs = this;
+           if(this.multi === false)
+           {
+           this.value= this.$.inpt.value; 
+           this.$.holder.value=this.$.inpt.value;
+           this.files=this.$.inpt.files; 
+           this.rawfiles=this.$.inpt.files; 
+           }
+           else{
+              
+              
+              i = 0;
+              while(i< this.$.inpt.files.length)
+              {
+                 var p = document.createElement('p');
+                 var ip = document.createElement('input');
+                 var ipv = document.createElement('input');
+                 ip.type="text";
+                 
+                 //ip.value = this.$.inpt.files[i].name;
+                 ipv.value = this.$.inpt.files[i].name;
+                 
+                 ip.hidden=true;
+                 //ip.files[0] = this.$.inpt.files[i];
+                 ipv.disabled =true;
+                 //ip.name='file'+i;
+                 ipv.className = 'longinput';
+                 p.appendChild(ip);
+                 p.appendChild(ipv);
+                 var rlink = document.createElement('a');
+                 rlink.href='#';
+                 rlink.innerHTML="Remove";
+                 rlink.onclick = function(event){fs._removeit(event)};
+                 p.appendChild(rlink);
+                 this.$.iholder.appendChild(p);
+                 i++;
+               
+                this.files=  this.files.concat(this.$.inpt.files[0]); 
+                var l = this.files.length-1;
+
+                ip.id = 'file'+l.toString();
+                ip.value = l;
+                // this.rawfiles.concat(this.$.inpt.files)
+               
+              }
+             console.log(ip.value);
+           }
+           
+          
+            },
+    _mkclick:function(){this.$.inpt.click(); },
     ready: function() {
     this.files=[];
+    
     // this.singlefile="/ver.jpg";
     //console.log(this.$.inpt.files);
-    }
+    },
+_removeit:function(event)
+{
+    var pnode = event.target.parentNode;
+   console.log(this.files);
+    var fl = pnode.querySelector('input[type="text"]').value;
+     this.files.splice(parseInt(fl),1);
+     document.getElementById('iholder').removeChild(pnode);
+     
+}
   
 
     

@@ -1,0 +1,15 @@
+ $addToHead('<link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">');
+$getviewpart('tabletopbar');
+<ajax-req id="ajgrp"></ajax-req>
+<paper-material>
+	<table id="grouptable" class="prodtable">
+	 <thead></thead>
+	 <tbody></tbody>
+	</table>
+</paper-material>
+
+<script>
+	window.addEventListener('WebComponentsReady', function(){
+	initiategrouppage();
+	});
+</script>

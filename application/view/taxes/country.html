@@ -1,4 +1,3 @@
-$getviewpart('header');
  <link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">
   <link rel="import" href="/polymer/bower_components/paper-material/paper-material.html">
    <link rel="import" href="/polymer/bower_components/paper-spinner/paper-spinner.html">
@@ -9,9 +8,10 @@ $getviewpart('header');
   <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-parser.html">
   <link rel="import" href="/polymer/bower_components/ajax-parser/ajax-req.html">
     <link rel="import" href="/polymer/bower_components/iron-icons/iron-icons.html">
+    $addToHead('<link rel="import" href="/polymer/bower_components/dynamic-dropdown/dynamic-dropdown.html">');
    <ajax-parser  id="tac" method="POST" ></ajax-parser>
-     
-   <div>
+        <ajax-req  id="taxreg"></ajax-req>   
+
   
 
 <div class="locations">
@@ -30,6 +30,8 @@ $getviewpart('header');
 		  <div><b>Tax Overides</b></div>
 		  
 		   </div>
+       <div id="txc">
+       </div>
 		  
 		</paper-material>
 		  <paper-fab icon="add" style="right:-50px; bottom:-30px; position:absolute;" class="orange" onclick="showaddform('A')"></paper-fab>
@@ -39,36 +41,49 @@ $getviewpart('header');
 	   <form is="iron-form" method="post" action="#" id="cform">
        <input type="hidden" id ="event" name="event" />
        <input type="hidden" name="_id" id="_id" />
-	   <paper-input label="Country" name ="country" id="country"></paper-input>
-       <paper-input label="Country Code" name ="countrycode" id="countrycode" maxlength="3"></paper-input>
+	   <dynamic-dropdown label="Country" name ="country" name-value='{"name":"name", "value":"code"}' id="country" onchange="boo()"></dynamic-dropdown>
+       <input type="hidden" name ="countrycode" id="countrycode" />
 	   <paper-input label="Country Tax" type="number" min="0" max="1" step="0.01" name="countrytax" id="countrytax"></paper-input>
 	   <paper-button id="submt" onclick="addcountry()">save</paper-button>
      <paper-button id="submt" onclick="closeDiv()">Cancel</paper-button>
 	   </form>
    </div>
 </div>
-   <ajax-req  id="taxreg"></ajax-req>   
+
 $getviewpart('deletedialog');
 <script>
   populateTax();
   function addcountry()
   {
+    
     document.getElementById('tac').jsonurl = "/taxes/countrysave";
     var mod = document.getElementById("cform").serialize();
+    if(typeof document.getElementById('country').selectedValue === 'object')
+     {
+       mod.country = document.getElementById('country').selectedValue.name;
+       mod.countrycode = document.getElementById('country').selectedValue.code;
+     }
     if(mod._id == '')
        delete mod['_id'];
      document.getElementById('tac').jsonstring = JSON.stringify(mod);
      console.log(document.getElementById('tac').jsonstring);
      
-      document.getElementById('tac').respfunc=resp;
+      document.getElementById('tac').respfunc=function(doc)
+      {
+        resp(doc, document.getElementById('ptoast'));
+        populateTax();
+      }
        document.querySelector('#tac').rspelement  = document.getElementById("ptoast");
-      
+      document.getElementById('tac').submit=false;
       document.getElementById('tac').submit=true;
   }
   
+ 
+  
   function showaddform(ev)
 	 {
-     
+     if(ev === 'A')
+      sajax('#cform').clearForm();
      document.querySelector('#event').value=ev;
      if(document.querySelector(".countryaddrev") !== null)
 		   document.querySelector(".countryaddrev").className = 'countryadd';
@@ -87,8 +102,9 @@ $getviewpart('deletedialog');
    
    function populateTax()
    {
-     
+     document.querySelector('.spinner').style.display='inline-block';
       document.querySelector('#taxreg').respfunc = function(doc){
+        document.getElementById('txc').innerHTML="";
         for(item in doc)
         {
          
@@ -112,15 +128,28 @@ $getviewpart('deletedialog');
           
           document.getElementById('taxtable').appendChild(dv);
          document.getElementById('taxtable').appendChild(dv2);*/
-         document.getElementById('taxtable').appendChild(dv);
+         document.getElementById('txc').appendChild(dv);
           
         }
         document.querySelector('.pmaterial').style.opacity=0.9;  
         document.querySelector('#spin').active=false;
+        
+        countrydd();
+         document.querySelector('.spinner').style.display="none";
       }
       
       document.querySelector('#taxreg').dataurl = "/taxes/getall";
    }
+   
+  function countrydd()
+  {
+    var crg = document.querySelector('#taxreg')
+    crg.dataurl="/static/countries.json"
+    crg.respfunc = function(doc)
+    {
+      document.getElementById('country').menuItems = doc;
+    }
+  }  
    
    function edititem(event)
    {
@@ -132,10 +161,10 @@ $getviewpart('deletedialog');
      var countrytax = parent.querySelector('input[name="countrytax"]').value;
       var _id = parent.querySelector('input[name="_id"]').value;
      model.countrytax = countrytax;
-     model.country = country;
+     model.country = cc;
      model.countrycode =cc;
      model._id = _id;
-     console.log(model);
+     
      updateFormValues(document.querySelector('#cform'), model);
    }
    function deleteitem(event)
@@ -158,6 +187,6 @@ $getviewpart('deletedialog');
    document.getElementById('tac').respfunc=resp;
    document.querySelector('#tac').rspelement  = document.getElementById("ptoast");
    document.getElementById('tac').submit=true;
+   populateTax();
   }
   </script>
-$getviewpart('footer');

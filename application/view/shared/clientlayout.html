@@ -16,14 +16,21 @@
   <link rel="import"  href="/style/element-styles.html"> 
   <script src="/js/sajax.js"></script>
   <script src="/js/bootik.js"></script>
+  <script src="/js/site.js"></script>
+ 
 </head>
 <body>
-   <ajax-req id="getcart"></ajax-req>
+  
+   <div id='spinner' class="spin"><img src="/image/fb.gif" />
+    <p>loading...</p>
+    </div>
+ <div class="hidden" id="cont" unresolved> 
+    <ajax-req id="getcart"></ajax-req>
   <input type="hidden" name = "logonindicator" id="logonindicator" value="{{user}}" />
-  <paper-header-panel mode="waterfall-tall" tall-class="medium-tall" class="plain"  id="php">
+  <paper-header-panel mode="waterfall-tall" tall-class="medium-tall" class="plain teal200 hundred">
   <div class="paper-header">
-   <paper-toolbar class="trans"> 
-   <div class="bottom logotext">Carib Market</div>
+   <paper-toolbar class="teal200"> 
+   <div class="bottom logotext">BD's</div>
    <div class="middle search">
         <div class="mobilemenu"><paper-icon-button  flat class="menubutton lightbrown" icon = "menu"></paper-icon-button></div> 
      <div  class="searchtext"><div class="ss"><input type="search" /> <div class="sicon"><iron-icon class="bigicon" icon="search" style="margin-top:6px;"></iron-icon></div> 
@@ -37,6 +44,7 @@
      <ajax-req id="dheader"> </ajax-req>    
    <div  class="toolbar-right"> <div style="width:40px; margin:0; display:inline-block; padding:0;"><paper-badge label="0" id="badge"></paper-badge> <a href="/inventory/showcart"><paper-icon-button icon="icons:shopping-cart"></paper-icon-button></a></div><a class="plainlink" id="userlink" href="#"> 
      {{user}}</a> <span href="#" id="useraction">{{useraction}}</span></div>
+     <input type="hidden" name='uname' id="uname" value="{{user}}" /> 
    </paper-toolbar>
    <div class="mobilelogo">CMarket</div>
   <div class= "topnav">
@@ -50,7 +58,7 @@
   </div>
   </div>
   </div>
-  <div class="content fit">
+  <div class="content fit" id="php" >
     
    <div class="content_client">
   
@@ -58,10 +66,12 @@
    
     </div>
     </div>
+     <div class="scrollanimation">
+       </div>
     </paper-header-panel>
-  <div class="scrollanimation">
- </div>
-  <paper-dialog id="itemdialog" class="itemdialog"  entry-animation="scale-up-animation" exit-animation="fade-out-animation" modal>
+ 
+ 
+<!--  <paper-dialog id="itemdialog" class="itemdialog"  entry-animation="scale-up-animation" exit-animation="fade-out-animation" modal>
     <h2 id="itemname">Item Info</h2>
     <p id="itemprice"></p>
     <div class="buttons">
@@ -76,10 +86,16 @@
   </paper-dialog-scrollable>
   
     <input type="hidden" id="_id" name="_id" />
-    </paper-dialog>
- <div id="footer">
+    </paper-dialog> -->
+ <div id="cfooter">
  </div>
-  
+ </div>
+   <script>
+window.addEventListener('WebComponentsReady', function(){document.querySelector('#spinner').style.display='none';
+document.querySelector('#cont').style.display='block';
+ }); 
+ 
+</script>
   
   </body>
 </html>

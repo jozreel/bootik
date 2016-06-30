@@ -73,7 +73,7 @@ accounts.checkout = function()
 {
     var common = require('./common');
     common.getheaderdetails(this);
-	this.loadview('checkout');
+	this.loadview('checkout','clientlayout');
 }
 
 accounts.configurepaypal = function()
@@ -170,7 +170,7 @@ accounts.getcartinfo = function(ret)
     {
         
        var cart = JSON.parse(this.req.session.get('cart'));
-      
+     ;
       this.orderinfo(cart,ret);
     }
     
@@ -198,7 +198,7 @@ accounts.getcartinfo = function(ret)
      function () { return curr < stop;},
      function(callback)
      {
-      mod.find({'_id': {$in:arr}},{name:true, desc:true, image:true,price:true},{sort:'name'},false,function(doc,count)
+      mod.find({'_id': {$in:arr}},{name:true, desc:true, image:true,uprice:true},{sort:'name'},false,function(doc,count)
       {
        
        if(stop === 0)
@@ -254,24 +254,118 @@ accounts.getcartinfo = function(ret)
       var obj = {}; 
        //var decd = mod.decodeallValues(docs);
        //mod.convertImagesToBase64(decd);
-      
+     
        obj.total = total.toFixed(2);
        //obj.items = JSON.stringify(decd);
     //// decd.count = 
       // console.log(JSON.parse(obj));
-     if(ret!==true)
+     if(ret===false)
       accounts.jsonResp(obj);
      else
-      return obj;
+     {
+       
+      ret(obj);
+     }
      }
    );  
      }
      else{
-         if(ret !==true)
+         if(ret ===false)
          accounts.jsonResp({total:0.00});
          else
-           return {total:0.00};
+         {
+           ret({total:0.00});
+         }
      }
+}
+
+accounts.finalizeorder=function(country,zippost)
+{
+ 
+  var async = require('async');
+  var accobj = this;
+    if(this.req.session.get('login') =='true')
+    {
+        var mod = this.loadmodel('cart');
+        mod.findusercart(this.req.session.get('username'),function(doc)
+      {
+          accounts.orderinfo(doc,function(dc)
+          {
+              console.log(dc);
+          }
+          );
+           //accounts.finalcart(doc);
+      }
+      );
+    }
+    else
+    {
+       var cart = JSON.parse(this.req.session.get('cart'));
+        accounts.orderinfo(cart,function(dc)
+          {
+            var shiprate =0.00;
+            async.auto({
+              shipping:function(callbackship)
+              {
+                var modcountry = accobj.loadmodel('shipping');
+                 modcountry.find({'destinationcountry.code':country},{},{},true,function(shipc)
+                 {
+                  var country = shipc[0];
+                   if(country.singledest === true)
+                   {
+                    shiprate= country.countryrate;
+                 
+                     }
+                     else 
+                     {
+                     async.auto({
+                     getdestrate:function(callback)
+                     {
+                      async.map(country.destinations,
+                       function(dest, callbackdest)
+                        {
+                         if(dest.zippost === zippost)
+                           callbackdest(null, dest)
+                        },
+                       function(err, destfind)
+                       {
+                         callback(null,destfind);
+                       }
+                       );
+                    
+                      }
+                     },
+                     function(err, rs)
+                     {
+                      
+                       callbackship(null, rs. getdestrate[0])
+                     }
+                     );
+                     }
+                    }
+                   );
+                  },
+               taxes:function(callbacktax)
+               {
+                callbacktax(null,{l:'ip'});
+               }
+            },
+            function(err,resmain)
+            {
+                 console.log(resmain);
+            });
+             
+             
+            
+             
+          }
+          );
+       
+    }
+}
+accounts.finalcart = function()
+{
+    
 }
 
 module.exports = accounts;

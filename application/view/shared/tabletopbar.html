@@ -1,0 +1,13 @@
+
+  $addToHead('<link rel="import" href="/polymer/bower_components/paper-fab/paper-fab.html">');
+  $addToHead('<link rel="import" href="/polymer/bower_components/paper-input/paper-input.html">');
+<div class="bar">
+    <paper-icon-button icon="search" class="greenbutton" onclick="showsearch()">  </paper-icon-button>
+    <div class="sbar" id="sinpt"><paper-input type="search" id="searchinput" ></paper-input></div>
+   
+    <div class="right-bar">  <paper-fab class="greenbutton" mini icon="add" id="addbutton">Add</paper-fab></div>
+     <div class="right-bar"><div><a href="#"><iron-icon icon="delete"></iron-icon>Delete</a></div></div>
+       <div class="right-bar"><div><input type="hidden"" name="last" id="last"   value='0' /> <input type="hidden"" name="count" id="count"  /> show: <span id="ppage"><select name="numitems" id="numitems"><option>20</option><option>50</option><option>100</option><option>200</option></select></span> per page </div></div>
+     <div class="right-bar paginate"><div>Page:<iron-icon class="button" icon="chevron-left" id="pageleft"> </iron-icon> <input disabled type="number" value="1" id="curpage" />  <iron-icon class="button" icon="chevron-right" id="pageright"></iron-icon> of <input id="pages" name="pages" disabled> </span></div> </div>
+   
+   </div>
